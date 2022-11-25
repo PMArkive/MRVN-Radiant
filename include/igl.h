@@ -429,6 +429,7 @@ typedef void GLvoid;
 #define GL_RENDERER 0x1F01
 #define GL_VERSION 0x1F02
 #define GL_EXTENSIONS 0x1F03
+#define GL_NUM_EXTENSIONS 0x821D
 #define GL_S 0x2000
 #define GL_T 0x2001
 #define GL_R 0x2002
@@ -1487,6 +1488,14 @@ typedef std::ptrdiff_t GLintptr;
 
 #endif
 
+
+// GL 3.0
+#if !defined( GL_VERSION_3_0 )
+#define GL_VERSION_3_0 1
+
+#define glGetStringi GlobalOpenGL().m_glGetStringi
+
+#endif
 
 // GL_ARB_vertex_program
 #if !defined( GL_ARB_vertex_program )
@@ -2661,6 +2670,14 @@ struct OpenGLBinding
 	GLboolean ( QGL_DLLEXPORT *m_glIsQuery )( GLuint id );
 	GLvoid* ( QGL_DLLEXPORT * m_glMapBuffer )( GLenum target, GLenum access );
 	GLboolean ( QGL_DLLEXPORT *m_glUnmapBuffer )( GLenum target );
+
+	// GL 3.0
+	bool support_GL_3_0;
+	bool GL_3_0() {
+		return support_GL_3_0;
+	}
+	GLubyte * ( QGL_DLLEXPORT * m_glGetStringi )(GLenum name, GLuint index);
+	
 
 	// GL_ARB_vertex_program
 	bool support_ARB_vertex_program;

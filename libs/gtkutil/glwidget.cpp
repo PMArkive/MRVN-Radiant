@@ -28,14 +28,14 @@
 #include "igl.h"
 
 #include <gtk/gtk.h>
-#include <gtk/gtkglwidget.h>
+//#include <gtk/gtkglwidget.h>
 
 #include "pointer.h"
 
 void ( *GLWidget_sharedContextCreated )() = 0;
 void ( *GLWidget_sharedContextDestroyed )() = 0;
 
-
+/*
 typedef int* attribs_t;
 struct config_t
 {
@@ -176,27 +176,26 @@ GdkGLConfig* glconfig_new_with_depth(){
 	globalOutputStream() << "OpenGL window configuration: colour-buffer = auto, depth-buffer = auto (fallback)\n";
 	return gdk_gl_config_new_by_mode( (GdkGLConfigMode)( GDK_GL_MODE_RGBA | GDK_GL_MODE_DOUBLE | GDK_GL_MODE_DEPTH ) );
 }
-
+*/
 unsigned int g_context_count = 0;
 
 namespace
 {
-GtkWidget* g_shared = 0;
+GtkWidget* g_shared = nullptr;
 }
 
-gint glwidget_context_created( GtkWidget* widget, gpointer data ){
+static void _glwidget_context_created( GtkWidget* widget, gpointer data ){
 	if ( ++g_context_count == 1 ) {
 		g_shared = widget;
 		g_object_ref( G_OBJECT( g_shared ) );
-
+		
 		glwidget_make_current( g_shared );
 		GlobalOpenGL().contextValid = true;
 
 		GLWidget_sharedContextCreated();
 	}
-	return FALSE;
 }
-
+/*
 gint glwidget_context_destroyed( GtkWidget* widget, gpointer data ){
 	if ( --g_context_count == 0 ) {
 		GlobalOpenGL().contextValid = false;
@@ -208,7 +207,13 @@ gint glwidget_context_destroyed( GtkWidget* widget, gpointer data ){
 	}
 	return FALSE;
 }
+*/
+static GdkGLContext *glwidget_context_created( GtkWidget* widget ) {
+	_glwidget_context_created( widget, nullptr );
+	return gtk_gl_area_get_context(GTK_GL_AREA(widget));
+}
 
+/*
 gboolean glwidget_enable_gl( GtkWidget* widget, GtkWidget* widget2, gpointer data ){
 	if ( widget2 == 0 && !gtk_widget_is_gl_capable( widget ) ) {
 		GdkGLConfig* glconfig = ( g_object_get_data( G_OBJECT( widget ), "zbuffer" ) ) ? glconfig_new_with_depth() : glconfig_new();
@@ -225,33 +230,36 @@ gboolean glwidget_enable_gl( GtkWidget* widget, GtkWidget* widget2, gpointer dat
 	}
 	return FALSE;
 }
+*/
 
 GtkWidget* glwidget_new( gboolean zbuffer ){
-	GtkWidget* widget = gtk_drawing_area_new();
+	GtkWidget* widget = gtk_gl_area_new();
 
-	g_object_set_data( G_OBJECT( widget ), "zbuffer", gint_to_pointer( zbuffer ) );
+	gtk_gl_area_set_has_depth_buffer(GTK_GL_AREA(widget), zbuffer);
+    gtk_gl_area_set_auto_render(GTK_GL_AREA(widget), true);
 
-	g_signal_connect( G_OBJECT( widget ), "hierarchy-changed", G_CALLBACK( glwidget_enable_gl ), 0 );
+	//g_object_set_data( G_OBJECT( widget ), "zbuffer", gint_to_pointer( zbuffer ) );
 
-	g_signal_connect( G_OBJECT( widget ), "realize", G_CALLBACK( glwidget_context_created ), 0 );
-	g_signal_connect( G_OBJECT( widget ), "unrealize", G_CALLBACK( glwidget_context_destroyed ), 0 );
+	//g_signal_connect( G_OBJECT( widget ), "hierarchy-changed", G_CALLBACK( glwidget_enable_gl ), 0 );
+
+	g_signal_connect( G_OBJECT( widget ), "realize", G_CALLBACK( glwidget_context_created ), nullptr );
+	//g_signal_connect( G_OBJECT( widget ), "unrealize", G_CALLBACK( glwidget_context_destroyed ), 0 );
 
 	return widget;
 }
 
-void glwidget_destroy_context( GtkWidget *widget ){
-}
-
-void glwidget_create_context( GtkWidget *widget ){
-}
-
 void glwidget_swap_buffers( GtkWidget *widget ){
-	GdkGLDrawable *gldrawable = gtk_widget_get_gl_drawable( widget );
-	gdk_gl_drawable_swap_buffers( gldrawable );
+	g_assert( GTK_IS_GL_AREA( widget ) );
+    gtk_gl_area_queue_render( GTK_GL_AREA( widget ) );
+	//GdkGLDrawable *gldrawable = gtk_widget_get_gl_drawable( widget );
+	//gdk_gl_drawable_swap_buffers( gldrawable );
 }
 
-gboolean glwidget_make_current( GtkWidget *widget ){
-	GdkGLContext *glcontext = gtk_widget_get_gl_context( widget );
-	GdkGLDrawable *gldrawable = gtk_widget_get_gl_drawable( widget );
-	return gdk_gl_drawable_gl_begin( gldrawable, glcontext );
+bool glwidget_make_current( GtkWidget *widget ){
+	//g_assert( GTK_IS_GL_AREA( widget ) );
+	gtk_gl_area_make_current( GTK_GL_AREA( widget ) );
+	return true;
+	//GdkGLContext *glcontext = gtk_widget_get_gl_context( widget );
+	//GdkGLDrawable *gldrawable = gtk_widget_get_gl_drawable( widget );
+	//return gdk_gl_drawable_gl_begin( gldrawable, glcontext );
 }

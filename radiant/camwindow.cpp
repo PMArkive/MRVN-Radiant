@@ -1721,7 +1721,7 @@ CamWnd::CamWnd() :
 	gtk_widget_set_can_focus( m_gl_widget, TRUE );
 
 	m_sizeHandler = g_signal_connect( G_OBJECT( m_gl_widget ), "size_allocate", G_CALLBACK( camera_size_allocate ), this );
-	m_exposeHandler = g_signal_connect( G_OBJECT( m_gl_widget ), "expose_event", G_CALLBACK( camera_expose ), this );
+	m_exposeHandler = g_signal_connect( G_OBJECT( m_gl_widget ), "render", G_CALLBACK( camera_expose ), this );
 
 	Map_addValidCallback( g_map, DeferredDrawOnMapValidChangedCaller( m_deferredDraw ) );
 

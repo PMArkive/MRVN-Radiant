@@ -728,7 +728,7 @@ XYWnd::XYWnd() :
 	gtk_widget_set_can_focus( m_gl_widget, TRUE );
 
 	m_sizeHandler = g_signal_connect( G_OBJECT( m_gl_widget ), "size_allocate", G_CALLBACK( xywnd_size_allocate ), this );
-	m_exposeHandler = g_signal_connect( G_OBJECT( m_gl_widget ), "expose_event", G_CALLBACK( xywnd_expose ), this );
+	m_exposeHandler = g_signal_connect( G_OBJECT( m_gl_widget ), "render", G_CALLBACK( xywnd_expose ), this );
 
 	g_signal_connect( G_OBJECT( m_gl_widget ), "button_press_event", G_CALLBACK( xywnd_button_press ), this );
 	g_signal_connect( G_OBJECT( m_gl_widget ), "button_release_event", G_CALLBACK( xywnd_button_release ), this );
@@ -2009,6 +2009,7 @@ void XYWnd::XY_Draw(){
 	//
 	// clear
 	//
+	
 	glViewport( 0, 0, m_nWidth, m_nHeight );
 	glClearColor( g_xywindow_globals.color_gridback[0],
 	              g_xywindow_globals.color_gridback[1],
@@ -2023,6 +2024,7 @@ void XYWnd::XY_Draw(){
 	// set up viewpoint
 	//
 
+	
 	glMatrixMode( GL_PROJECTION );
 	glLoadMatrixf( reinterpret_cast<const float*>( &m_projection ) );
 
@@ -2051,7 +2053,7 @@ void XYWnd::XY_Draw(){
 	}
 
 	glLoadMatrixf( reinterpret_cast<const float*>( &m_modelview ) );
-
+	
 	unsigned int globalstate = RENDER_COLOURARRAY | RENDER_COLOURWRITE | RENDER_POLYGONSMOOTH | RENDER_LINESMOOTH;
 	if ( !g_xywindow_globals.m_bNoStipple ) {
 		globalstate |= RENDER_LINESTIPPLE;
@@ -2129,7 +2131,7 @@ void XYWnd::XY_Draw(){
 		GlobalOpenGL().drawString( StringOutputStream( 64 )( Renderer_GetStats(), " | f2f: ", m_render_time.elapsed_msec() ) );
 		m_render_time.start();
 	}
-
+	
 	fbo_get()->save();
 
 	overlayDraw(); //outline camera crosshair rectangle

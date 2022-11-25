@@ -1857,7 +1857,7 @@ void Selection_SnapToGrid(){
 static gboolean qe_every_second( gpointer data ){
 	GdkModifierType mask;
 
-	gdk_window_get_pointer( 0, 0, 0, &mask );
+	//gdk_window_get_pointer( 0, 0, 0, &mask );
 
 	if ( ( mask & ( GDK_BUTTON1_MASK | GDK_BUTTON2_MASK | GDK_BUTTON3_MASK ) ) == 0 ) {
 		QE_CheckAutoSave();
@@ -2976,10 +2976,10 @@ GtkWindow* create_splash(){
 	gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( image ) );
 
 	if( gtk_image_get_storage_type( image ) == GTK_IMAGE_PIXBUF ){
-		GdkBitmap* mask;
-		GdkPixbuf* pix = gtk_image_get_pixbuf( image );
-		gdk_pixbuf_render_pixmap_and_mask( pix, NULL, &mask, 255 );
-		gtk_widget_shape_combine_mask ( GTK_WIDGET( window ), mask, 0, 0 );
+		//GdkBitmap* mask;
+		//GdkPixbuf* pix = gtk_image_get_pixbuf( image );
+		//gdk_pixbuf_render_pixmap_and_mask( pix, NULL, &mask, 255 );
+		//gtk_widget_shape_combine_mask ( GTK_WIDGET( window ), mask, 0, 0 );
 	}
 
 	gtk_widget_set_size_request( GTK_WIDGET( window ), -1, -1 );
@@ -3532,16 +3532,16 @@ void GlobalGL_sharedContextCreated(){
 	globalOutputStream() << "GL_VENDOR: " << reinterpret_cast<const char*>( glGetString( GL_VENDOR ) ) << "\n";
 	globalOutputStream() << "GL_RENDERER: " << reinterpret_cast<const char*>( glGetString( GL_RENDERER ) ) << "\n";
 	globalOutputStream() << "GL_VERSION: " << reinterpret_cast<const char*>( glGetString( GL_VERSION ) ) << "\n";
-	globalOutputStream() << "GL_EXTENSIONS: " << reinterpret_cast<const char*>( glGetString( GL_EXTENSIONS ) ) << "\n";
-
+	//globalOutputStream() << "GL_EXTENSIONS: " << reinterpret_cast<const char*>( glGetString( GL_EXTENSIONS ) ) << "\n";
+	
 	QGL_sharedContextCreated( GlobalOpenGL() );
 
 	ShaderCache_extensionsInitialised();
 
 	GlobalShaderCache().realise();
-	Textures_Realise();
+	Textures_Realise(); 
 
-	GlobalOpenGL().m_font = glfont_create( g_strOpenGLFont.c_str() );
+	GlobalOpenGL().m_font = glfont_create( g_strOpenGLFont.c_str() ); 
 }
 
 void GlobalGL_sharedContextDestroyed(){

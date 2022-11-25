@@ -21,10 +21,12 @@
 
 #pragma once
 
+#include <string>
+
 struct OpenGLBinding;
 void QGL_sharedContextCreated( OpenGLBinding& table );
 void QGL_sharedContextDestroyed( OpenGLBinding& table );
 
-bool QGL_ExtensionSupported( const char* extension );
+bool QGL_ExtensionSupported( std::string extension );
 
 float QGL_maxTextureAnisotropy();

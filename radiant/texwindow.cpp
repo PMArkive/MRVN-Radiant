@@ -2131,7 +2131,7 @@ GtkWidget* TextureBrowser_constructWindow( GtkWindow* toplevel ){
 		gtk_widget_show( w );
 
 		g_TextureBrowser.m_sizeHandler = g_signal_connect( G_OBJECT( w ), "size_allocate", G_CALLBACK( TextureBrowser_size_allocate ), &g_TextureBrowser );
-		g_TextureBrowser.m_exposeHandler = g_signal_connect( G_OBJECT( w ), "expose_event", G_CALLBACK( TextureBrowser_expose ), &g_TextureBrowser );
+		g_TextureBrowser.m_exposeHandler = g_signal_connect( G_OBJECT( w ), "render", G_CALLBACK( TextureBrowser_expose ), &g_TextureBrowser );
 
 		g_signal_connect( G_OBJECT( w ), "button_press_event", G_CALLBACK( TextureBrowser_button_press ), &g_TextureBrowser );
 		g_signal_connect( G_OBJECT( w ), "button_release_event", G_CALLBACK( TextureBrowser_button_release ), &g_TextureBrowser );

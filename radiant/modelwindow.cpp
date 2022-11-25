@@ -1321,7 +1321,7 @@ GtkWidget* ModelBrowser_constructWindow( GtkWindow* toplevel ){
 		gtk_widget_show( w );
 
 		g_ModelBrowser.m_sizeHandler = g_signal_connect( G_OBJECT( w ), "size_allocate", G_CALLBACK( ModelBrowser_size_allocate ), &g_ModelBrowser );
-		g_ModelBrowser.m_exposeHandler = g_signal_connect( G_OBJECT( w ), "expose_event", G_CALLBACK( ModelBrowser_expose ), &g_ModelBrowser );
+		g_ModelBrowser.m_exposeHandler = g_signal_connect( G_OBJECT( w ), "render", G_CALLBACK( ModelBrowser_expose ), &g_ModelBrowser );
 
 		g_signal_connect( G_OBJECT( w ), "button_press_event", G_CALLBACK( ModelBrowser_button_press ), &g_ModelBrowser );
 		g_signal_connect( G_OBJECT( w ), "button_release_event", G_CALLBACK( ModelBrowser_button_release ), &g_ModelBrowser );

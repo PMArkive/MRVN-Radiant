@@ -117,42 +117,18 @@ void glInvalidFunction(){
 
 #define EXTENSIONS_ENABLED 1
 
-bool QGL_ExtensionSupported( const char* extension ){
+bool QGL_ExtensionSupported( std::string extension ){
 #if EXTENSIONS_ENABLED
-	const GLubyte *extensions = 0;
-	const GLubyte *start;
-	const GLubyte *where, *terminator;
-
-	// Extension names should not have spaces.
-	where = (const GLubyte *) strchr( extension, ' ' );
-	if ( where || *extension == '\0' ) {
+	if( !GlobalOpenGL().GL_3_0() )
 		return false;
-	}
 
-	extensions = GlobalOpenGL().m_glGetString( GL_EXTENSIONS );
-#ifndef __APPLE__
-	if ( !extensions ) {
-		return false;
-	}
-#endif
-
-	// It takes a bit of care to be fool-proof about parsing the
-	// OpenGL extensions string. Don't be fooled by sub-strings, etc.
-	for ( start = extensions; ; )
-	{
-		where = (const GLubyte *) strstr( (const char *) start, extension );
-		if ( !where ) {
-			break;
+	int num = 0;
+	glGetIntegerv( GL_NUM_EXTENSIONS, &num );
+	for( int i = 0; i < num; i++ ) {
+		std::string ext = (const char*)GlobalOpenGL().m_glGetStringi( GL_EXTENSIONS, i );
+		if( extension == ext ) {
+			return true;
 		}
-
-		terminator = where + strlen( extension );
-		if ( where == start || *( where - 1 ) == ' ' ) {
-			if ( *terminator == ' ' || *terminator == '\0' ) {
-				return true;
-			}
-		}
-
-		start = terminator;
 	}
 #endif
 
@@ -537,7 +513,7 @@ int QGL_Init( OpenGLBinding& table ){
 	qwglGetProcAddress           = wglGetProcAddress;
 #elif defined( XWINDOWS )
 	qglXGetProcAddressARB = (glXGetProcAddressARBProc)dlsym( RTLD_DEFAULT, "glXGetProcAddressARB" );
-	if ( ( qglXQueryExtension == 0 ) || ( qglXQueryExtension( GDK_DISPLAY(),0,0 ) != True ) ) {
+	if ( ( qglXQueryExtension == 0 ) || ( qglXQueryExtension( XOpenDisplay(nullptr),0,0 ) != True ) ) {
 		return 0;
 	}
 #else
@@ -925,6 +901,20 @@ void QGL_sharedContextCreated( OpenGLBinding& table ){
 	table.m_glVertex4sv                 = glVertex4sv;
 	table.m_glVertexPointer             = glVertexPointer;
 	table.m_glViewport                  = glViewport;
+
+	// GL 3.0
+	if ( table.major_version >= 3 ) {
+		table.support_GL_3_0 =
+		       QGL_constructExtensionFunc( table.m_glGetStringi, "glGetStringi" );
+
+		if ( !table.support_GL_3_0 ) {
+			extension_not_implemented( "GL_VERSION_3_0" );
+		}
+	}
+	else
+	{
+		table.support_GL_3_0 = false;
+	}
 
 	if ( QGL_ExtensionSupported( "GL_ARB_multitexture" ) ) {
 		table.support_ARB_multitexture =

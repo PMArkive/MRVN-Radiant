@@ -590,7 +590,19 @@ void DoAbout(){
 						gtk_text_view_set_editable( GTK_TEXT_VIEW( text_extensions ), FALSE );
 						gtk_container_add( GTK_CONTAINER( sc_extensions ), text_extensions );
 						GtkTextBuffer* buffer = gtk_text_view_get_buffer( GTK_TEXT_VIEW( text_extensions ) );
-						gtk_text_buffer_set_text( buffer, reinterpret_cast<const char*>( glGetString( GL_EXTENSIONS ) ), -1 );
+						if( GlobalOpenGL().GL_3_0() ) {
+							std::string extensions;
+							int num = 0;
+							glGetIntegerv( GL_NUM_EXTENSIONS, &num );
+							for( int i = 0; i < num; i++ ) {
+								extensions += reinterpret_cast<const char*>( glGetStringi( GL_EXTENSIONS, i ) );
+								extensions += "\n";
+							}
+							gtk_text_buffer_set_text( buffer, extensions.c_str(), -1 );
+						}
+						else {
+							gtk_text_buffer_set_text( buffer, reinterpret_cast<const char*>( glGetString( GL_EXTENSIONS ) ), -1 );
+						}
 						gtk_text_view_set_wrap_mode( GTK_TEXT_VIEW( text_extensions ), GTK_WRAP_WORD );
 						gtk_widget_show( text_extensions );
 					}
