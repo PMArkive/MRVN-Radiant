@@ -731,7 +731,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 		gtk_container_set_border_width( GTK_CONTAINER( vbox ), 5 );
 
 		{
-			GtkWidget* hbox2 = gtk_hbox_new( FALSE, 5 );
+			GtkWidget* hbox2 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 			gtk_widget_show( hbox2 );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox2 ), FALSE, FALSE, 0 );
 
@@ -1204,7 +1204,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 				gtk_widget_show( GTK_WIDGET( frame ) );
 				gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( frame ), TRUE, TRUE, 0 );
 				{
-					GtkBox* hbox3 = GTK_BOX( gtk_hbox_new( FALSE, 4 ) );
+					GtkBox* hbox3 = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 4 ) );
 					gtk_container_set_border_width( GTK_CONTAINER( hbox3 ), 4 );
 					gtk_widget_show( GTK_WIDGET( hbox3 ) );
 					gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( hbox3 ) );
@@ -1256,7 +1256,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 				g_signal_connect( G_OBJECT( TexTool::g_textoolWin ), "motion_notify_event", G_CALLBACK( TexTool::motion ), NULL );
 			}
 			{
-				GtkWidget * hbox = gtk_hbox_new( FALSE, 5 );
+				GtkWidget * hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 				gtk_widget_show( hbox );
 				gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );
 				// Checkboxes go here... (Flip X/Y)

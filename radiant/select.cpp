@@ -1268,7 +1268,7 @@ void DoRotateDlg(){
 		gtk_window_add_accel_group( g_rotate_dialog.window, accel );
 
 		{
-			GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+			GtkBox* hbox = create_dialog_hbox( 4, 4 );
 			gtk_container_add( GTK_CONTAINER( g_rotate_dialog.window ), GTK_WIDGET( hbox ) );
 			{
 				GtkTable* table = create_dialog_table( 3, 2, 4, 4 );
@@ -1422,7 +1422,7 @@ void DoScaleDlg(){
 		gtk_window_add_accel_group( g_scale_dialog.window, accel );
 
 		{
-			GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+			GtkBox* hbox = create_dialog_hbox( 4, 4 );
 			gtk_container_add( GTK_CONTAINER( g_scale_dialog.window ), GTK_WIDGET( hbox ) );
 			{
 				GtkTable* table = create_dialog_table( 3, 2, 4, 4 );

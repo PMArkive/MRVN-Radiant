@@ -129,7 +129,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), mainvbox);
    gtk_widget_show(mainvbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -149,7 +149,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -171,7 +171,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(applybutton, entry);
    UIInstance().RegisterWidgetDependence(button, entry);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -196,7 +196,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(applybutton, entry);
    UIInstance().RegisterWidgetDependence(button, entry);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -216,7 +216,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -246,7 +246,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
 
    UIInstance().RegisterWidgetDependence(applybutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -268,7 +268,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -301,7 +301,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(applybutton, button);
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -332,7 +332,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), mainvbox);
    gtk_widget_show(mainvbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -352,7 +352,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -374,7 +374,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(applybutton, entry);
    UIInstance().RegisterWidgetDependence(button, entry);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -399,7 +399,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(applybutton, entry);
    UIInstance().RegisterWidgetDependence(button, entry);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -419,7 +419,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -449,7 +449,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
 
    UIInstance().RegisterWidgetDependence(applybutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -471,7 +471,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -504,7 +504,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(applybutton, button);
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -517,7 +517,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(applybutton, button);
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_table_attach_defaults(GTK_TABLE(table), hbox, 0, 2, 1, 2);
    gtk_widget_show(hbox);
 

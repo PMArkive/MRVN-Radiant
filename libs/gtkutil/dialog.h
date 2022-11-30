@@ -51,7 +51,7 @@ GtkWindow* create_dialog_window( GtkWindow* parent, const char* title, GCallback
 GtkTable* create_dialog_table( unsigned int rows, unsigned int columns, unsigned int row_spacing, unsigned int col_spacing, int border = 0 );
 GtkButton* create_dialog_button( const char* label, GCallback func, gpointer data );
 GtkBox* create_dialog_vbox( int spacing, int border = 0 );
-GtkHBox* create_dialog_hbox( int spacing, int border = 0 );
+GtkBox* create_dialog_hbox( int spacing, int border = 0 );
 GtkFrame* create_dialog_frame( const char* label, GtkShadowType shadow = GTK_SHADOW_ETCHED_IN );
 
 GtkButton* create_modal_dialog_button( const char* label, ModalDialogButton& button );
@@ -71,9 +71,9 @@ GtkWindow* create_simple_modal_dialog_window( const char* title, ModalDialog& di
 class RadioHBox
 {
 public:
-	GtkHBox* m_hbox;
+	GtkBox* m_hbox;
 	GtkRadioButton* m_radio;
-	RadioHBox( GtkHBox* hbox, GtkRadioButton* radio ) :
+	RadioHBox( GtkBox* hbox, GtkRadioButton* radio ) :
 		m_hbox( hbox ),
 		m_radio( radio ){
 	}

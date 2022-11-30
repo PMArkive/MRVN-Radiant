@@ -163,7 +163,7 @@ GetInfoDialog::GetInfoDialog(const std::string& key,
    gtk_table_attach(GTK_TABLE(table), button, 0, 3, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
    gtk_widget_show(button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_table_attach_defaults(GTK_TABLE(table), hbox, 0, 3, 3, 4);
    gtk_widget_show(hbox);
 

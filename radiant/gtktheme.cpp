@@ -160,7 +160,7 @@ GtkWidget* create_rc_window() {
 
 	//gtk_window_set_keep_above ( GTK_WINDOW( main_window ), TRUE );
 
-	main_hbox = gtk_hbox_new( FALSE, 0 );
+	main_hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( main_hbox, "main_hbox" );
 	gtk_widget_show( main_hbox );
 	gtk_container_add( GTK_CONTAINER( main_window ), main_hbox );
@@ -173,7 +173,7 @@ GtkWidget* create_rc_window() {
 	gtk_box_pack_start( GTK_BOX( main_hbox ), vbox1, TRUE, TRUE, 0 );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox1 ), 3 );
 
-	hbox1 = gtk_hbox_new( FALSE, 0 );
+	hbox1 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( hbox1, "hbox1" );
 	gtk_widget_show( hbox1 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), hbox1, TRUE, TRUE, 0 );
@@ -227,7 +227,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( vbox7 );
 	gtk_container_add( GTK_CONTAINER( alignment4 ), vbox7 );
 
-	hbox8 = gtk_hbox_new( FALSE, 0 );
+	hbox8 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( hbox8, "hbox8" );
 	gtk_widget_show( hbox8 );
 	gtk_box_pack_start( GTK_BOX( vbox7 ), hbox8, FALSE, FALSE, 0 );
@@ -260,7 +260,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( vbox10 );
 	gtk_container_add( GTK_CONTAINER( alignment5 ), vbox10 );
 
-	hbox9 = gtk_hbox_new( FALSE, 0 );
+	hbox9 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( hbox9, "hbox9" );
 	gtk_widget_show( hbox9 );
 	gtk_box_pack_start( GTK_BOX( vbox10 ), hbox9, FALSE, FALSE, 0 );
@@ -291,7 +291,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( hbuttonbox1 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), hbuttonbox1, FALSE, FALSE, 0 );
 
-	hbox7 = gtk_hbox_new( FALSE, 0 );
+	hbox7 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( hbox7, "hbox7" );
 	gtk_widget_show( hbox7 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), hbox7, FALSE, TRUE, 6 );
@@ -301,7 +301,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( vbox6 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), vbox6, FALSE, FALSE, 0 );
 
-	hbox5 = gtk_hbox_new( TRUE, 0 );
+	hbox5 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( hbox5, "hbox5" );
 	gtk_widget_show( hbox5 );
 	gtk_box_pack_start( GTK_BOX( vbox6 ), hbox5, FALSE, FALSE, 0 );
@@ -329,7 +329,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( alignment2 );
 	gtk_container_add( GTK_CONTAINER( main_reset_button ), alignment2 );
 
-	hbox6 = gtk_hbox_new( FALSE, 2 );
+	hbox6 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 2 );
 	gtk_widget_set_name( hbox6, "hbox6" );
 	gtk_widget_show( hbox6 );
 	gtk_container_add( GTK_CONTAINER( alignment2 ), hbox6 );

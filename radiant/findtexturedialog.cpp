@@ -135,7 +135,7 @@ GtkWindow* FindTextureDialog::BuildDialog(){
 
 	m_position_tracker.connect( dlg );
 
-	hbox = gtk_hbox_new( FALSE, 5 );
+	hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 	gtk_widget_show( hbox );
 	gtk_container_add( GTK_CONTAINER( dlg ), GTK_WIDGET( hbox ) );
 	gtk_container_set_border_width( GTK_CONTAINER( hbox ), 5 );

@@ -510,7 +510,7 @@ void Dialog::addCombo( GtkWidget* vbox, const char* name, int& data, StringArray
 void addSlider_( GtkAdjustment* adj, GtkWidget* vbox, const char* name, gboolean draw_value, const char* low, const char* high, int digits ){
 #if 0
 	if ( !draw_value ) {
-		GtkWidget* hbox2 = gtk_hbox_new( FALSE, 0 );
+		GtkWidget* hbox2 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 		gtk_widget_show( hbox2 );
 		gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox2 ), FALSE, FALSE, 0 );
 		{

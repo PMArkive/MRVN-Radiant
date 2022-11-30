@@ -659,7 +659,7 @@ GtkWindow* PrefsDlg::BuildDialog(){
 		gtk_widget_show( mainvbox );
 
 		{
-			GtkWidget* hbox = gtk_hbox_new( FALSE, 5 );
+			GtkWidget* hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 			gtk_widget_show( hbox );
 			gtk_box_pack_end( GTK_BOX( mainvbox ), hbox, FALSE, TRUE, 0 );
 
@@ -679,7 +679,7 @@ GtkWindow* PrefsDlg::BuildDialog(){
 		}
 
 		{
-			GtkWidget* hbox = gtk_hbox_new( FALSE, 5 );
+			GtkWidget* hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 			gtk_box_pack_start( GTK_BOX( mainvbox ), hbox, TRUE, TRUE, 0 );
 			gtk_widget_show( hbox );
 

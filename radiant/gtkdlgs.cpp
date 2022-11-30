@@ -376,7 +376,7 @@ void DoSides( int type, int axis ){
 	{
 		GtkBox* vbox = create_dialog_vbox( 0, 0 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );
 
 		GtkLabel* label;
@@ -473,7 +473,7 @@ void DoAbout(){
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 
 		{
-			GtkHBox* hbox = create_dialog_hbox( 4 );
+			GtkBox* hbox = create_dialog_hbox( 4 );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, TRUE, 0 );
 
 			{
@@ -636,7 +636,7 @@ EMessageBoxReturn DoTextureLayout( float *fx, float *fy ){
 	gtk_window_add_accel_group( window, accel );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
 			GtkBox* vbox = create_dialog_vbox( 4 );
@@ -767,7 +767,7 @@ class TextEditor
 		g_signal_connect( G_OBJECT( m_textBuffer ), "modified-changed",
 		                  G_CALLBACK( modified_changed ), this );
 
-		hbox = gtk_hbox_new( FALSE, 5 );
+		hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 		gtk_widget_show( hbox );
 		gtk_box_pack_start( GTK_BOX( vbox ), hbox, FALSE, TRUE, 0 );
 
@@ -879,7 +879,7 @@ EMessageBoxReturn DoLightIntensityDlg( int *intensity ){
 	gtk_window_add_accel_group( window, accel_group );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
 			GtkBox* vbox = create_dialog_vbox( 4 );
@@ -953,7 +953,7 @@ EMessageBoxReturn DoShaderTagDlg( CopiedString& tag, const char* title ){
 	gtk_window_add_accel_group( window, accel_group );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
 			GtkBox* vbox = create_dialog_vbox( 4 );
@@ -1012,7 +1012,7 @@ EMessageBoxReturn DoShaderInfoDlg( const char* name, const char* filename, const
 	gtk_window_add_accel_group( window, accel_group );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
 			GtkBox* vbox = create_dialog_vbox( 4 );

@@ -887,7 +887,7 @@ void DoMapInfo(){
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 
 		{
-			GtkHBox* hbox = create_dialog_hbox( 4 );
+			GtkBox* hbox = create_dialog_hbox( 4 );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );
 
 			{
@@ -2241,7 +2241,7 @@ void DoFind(){
 			}
 		}
 		{
-			GtkHBox* hbox = create_dialog_hbox( 4 );
+			GtkBox* hbox = create_dialog_hbox( 4 );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), TRUE, TRUE, 0 );
 			{
 				GtkButton* button = create_dialog_button( "Find", G_CALLBACK( dialog_button_ok ), &dialog );

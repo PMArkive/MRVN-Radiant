@@ -472,7 +472,7 @@ void EntityList_constructWindow( GtkWindow* main_window ){
 			getEntityList().m_tree_view = GTK_TREE_VIEW( view );
 		}
 		{
-			GtkHBox* hbox = GTK_HBOX( gtk_hbox_new( FALSE, 0 ) );
+			GtkBox* hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 ) );
 			gtk_container_set_border_width( GTK_CONTAINER( hbox ), 0 );
 			gtk_widget_show( GTK_WIDGET( hbox ) );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );

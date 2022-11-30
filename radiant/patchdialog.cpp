@@ -566,7 +566,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 		gtk_widget_show( GTK_WIDGET( vbox ) );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 		{
-			GtkHBox* hbox = GTK_HBOX( gtk_hbox_new( FALSE, 5 ) );
+			GtkBox* hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 ) );
 			gtk_widget_show( GTK_WIDGET( hbox ) );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), TRUE, TRUE, 0 );
 			{
@@ -985,7 +985,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 							gtk_widget_set_can_focus( GTK_WIDGET( spin ), FALSE );
 						}
 					}
-					GtkHBox* hbox2 = GTK_HBOX( gtk_hbox_new( TRUE, 5 ) );
+					GtkBox* hbox2 = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 ) );
 					gtk_widget_show( GTK_WIDGET( hbox2 ) );
 					gtk_box_pack_start( GTK_BOX( vbox2 ), GTK_WIDGET( hbox2 ), TRUE, FALSE, 0 );
 					{

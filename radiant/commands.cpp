@@ -426,7 +426,7 @@ void DoCommandListDlg(){
 	GtkAccelGroup* accel = gtk_accel_group_new();
 	gtk_window_add_accel_group( window, accel );
 
-	GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+	GtkBox* hbox = create_dialog_hbox( 4, 4 );
 	gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 
 	{

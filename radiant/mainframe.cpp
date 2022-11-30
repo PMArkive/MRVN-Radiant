@@ -2707,7 +2707,7 @@ GtkWidget* create_main_statusbar( GtkWidget *pStatusLabel[c_status__count] ){
 			gtk_table_attach_defaults( table, GTK_WIDGET( frame ), i, i + 1, 0, 1 );
 
 		if( i == c_status_brushcount ){
-			GtkWidget* hbox = gtk_hbox_new( FALSE, 0 );
+			GtkWidget* hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 			gtk_container_add( GTK_CONTAINER( frame ), hbox );
 			gtk_widget_show( hbox );
 
@@ -3102,7 +3102,7 @@ void MainFrame::Create(){
 			gtk_widget_show( scr_win );
 			g_signal_connect( G_OBJECT( scr_win ), "scroll_event", G_CALLBACK( toolbar_redirect_scroll ), 0 );
 
-			GtkWidget* hbox = gtk_hbox_new( FALSE, 3 );
+			GtkWidget* hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 3 );
 			gtk_widget_show( hbox );
 			gtk_scrolled_window_add_with_viewport( GTK_SCROLLED_WINDOW( scr_win ), hbox );
 
@@ -3127,7 +3127,7 @@ void MainFrame::Create(){
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( main_toolbar ), FALSE, FALSE, 0 );
 		}
 		if ( g_Layout_enablePluginToolbar.m_value || g_Layout_enableFilterToolbar.m_value ){
-			GtkWidget* hbox = gtk_hbox_new( FALSE, 3 );
+			GtkWidget* hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 3 );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );
 			gtk_widget_show( hbox );
 			if ( g_Layout_enablePluginToolbar.m_value ){

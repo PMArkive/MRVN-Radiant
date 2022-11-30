@@ -33,8 +33,8 @@ GtkBox* create_dialog_vbox( int spacing, int border ){
 	return vbox;
 }
 
-GtkHBox* create_dialog_hbox( int spacing, int border ){
-	GtkHBox* hbox = GTK_HBOX( gtk_hbox_new( FALSE, spacing ) );
+GtkBox* create_dialog_hbox( int spacing, int border ){
+	GtkBox* hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, spacing ) );
 	gtk_widget_show( GTK_WIDGET( hbox ) );
 	gtk_container_set_border_width( GTK_CONTAINER( hbox ), border );
 	return hbox;
@@ -182,7 +182,7 @@ GtkWindow* create_simple_modal_dialog_window( const char* title, ModalDialog& di
 }
 
 RadioHBox RadioHBox_new( StringArrayRange names ){
-	GtkHBox* hbox = GTK_HBOX( gtk_hbox_new( TRUE, 4 ) );
+	GtkBox* hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 4 ) );
 	gtk_widget_show( GTK_WIDGET( hbox ) );
 
 	GtkRadioButton* radio = 0;
@@ -203,7 +203,7 @@ PathEntry PathEntry_new(){
 	gtk_frame_set_shadow_type( frame, GTK_SHADOW_IN );
 
 	// path entry
-	GtkHBox* hbox = GTK_HBOX( gtk_hbox_new( FALSE, 0 ) );
+	GtkBox* hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 ) );
 	gtk_widget_show( GTK_WIDGET( hbox ) );
 
 	GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );

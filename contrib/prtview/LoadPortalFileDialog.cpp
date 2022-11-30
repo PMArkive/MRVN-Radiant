@@ -87,7 +87,7 @@ int DoLoadPortalFileDialog(){
 //	gtk_editable_set_editable( GTK_EDITABLE( entry ), FALSE );
 	gtk_box_pack_start( GTK_BOX( vbox ), entry, FALSE, FALSE, 0 );
 
-	hbox = gtk_hbox_new( FALSE, 5 );
+	hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 	gtk_widget_show( hbox );
 	gtk_box_pack_start( GTK_BOX( vbox ), hbox, FALSE, FALSE, 0 );
 
@@ -105,7 +105,7 @@ int DoLoadPortalFileDialog(){
 	g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( change_clicked ), entry );
 	gtk_widget_set_size_request( button, 60, -1 );
 
-	hbox = gtk_hbox_new( FALSE, 5 );
+	hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
 	gtk_widget_show( hbox );
 	gtk_box_pack_start( GTK_BOX( vbox ), hbox, FALSE, FALSE, 0 );
 

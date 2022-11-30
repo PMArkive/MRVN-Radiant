@@ -986,7 +986,7 @@ void DoNewPatchDlg( EPatchPrefab prefab, int minrows, int mincols, int defrows, 
 	gtk_window_add_accel_group( window, accel );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
 			GtkTable* table = create_dialog_table( 3, 2, 4, 4 );
@@ -1123,7 +1123,7 @@ void DoPatchDeformDlg(){
 	gtk_window_add_accel_group( window, accel );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
 			GtkTable* table = create_dialog_table( 2, 2, 4, 4 );
@@ -1168,7 +1168,7 @@ void DoPatchDeformDlg(){
 				gtk_widget_show( _rndX );
 
 
-				GtkHBox* _hbox = create_dialog_hbox( 4, 4 );
+				GtkBox* _hbox = create_dialog_hbox( 4, 4 );
 				gtk_table_attach( table, GTK_WIDGET( _hbox ), 0, 2, 1, 2,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -1232,7 +1232,7 @@ EMessageBoxReturn DoCapDlg( ECapDialog* type ){
 	gtk_window_add_accel_group( window, accel_group );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 
 		{
@@ -1387,7 +1387,7 @@ void DoPatchThickenDlg(){
 	gtk_window_add_accel_group( window, accel );
 
 	{
-		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
+		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
 			GtkTable* table = create_dialog_table( 2, 4, 4, 4 );

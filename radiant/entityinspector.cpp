@@ -414,7 +414,7 @@ public:
 		m_entry = numeric_entry_new();
 		m_nonModal.connect( m_entry );
 
-		m_hbox = GTK_BOX( gtk_hbox_new( FALSE, 4 ) );
+		m_hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 4 ) );
 		gtk_widget_show( GTK_WIDGET( m_hbox ) );
 		gtk_box_pack_start( m_hbox, GTK_WIDGET( m_entry ), TRUE, TRUE, 0 );
 		gtk_box_pack_start( m_hbox, GTK_WIDGET( m_butt.m_button ), FALSE, FALSE, 0 );
@@ -461,7 +461,7 @@ class DirectionAttribute final : public EntityAttribute
 	RadioHBox m_radio;
 	NonModalRadio m_nonModalRadio;
 	CamAnglesButton m_butt;
-	GtkHBox* m_hbox;
+	GtkBox* m_hbox;
 	static constexpr const char *const buttons[] = { "up", "down", "yaw" };
 public:
 	DirectionAttribute( const char* key ) :
@@ -475,7 +475,7 @@ public:
 
 		m_nonModalRadio.connect( m_radio.m_radio );
 
-		m_hbox = GTK_HBOX( gtk_hbox_new( FALSE, 4 ) );
+		m_hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 4 ) );
 		gtk_widget_show( GTK_WIDGET( m_hbox ) );
 
 		gtk_box_pack_start( GTK_BOX( m_hbox ), GTK_WIDGET( m_radio.m_hbox ), TRUE, TRUE, 0 );
@@ -570,7 +570,7 @@ public:
 		m_key( key ),
 		m_nonModal( ApplyCaller( *this ), UpdateCaller( *this ) ),
 		m_butt( ApplyVecCaller( *this ) ){
-		m_hbox = GTK_BOX( gtk_hbox_new( FALSE, 4 ) );
+		m_hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 4 ) );
 		gtk_widget_show( GTK_WIDGET( m_hbox ) );
 		{
 			GtkEntry* entry = numeric_entry_new();
@@ -666,7 +666,7 @@ public:
 	Vector3Attribute( const char* key ) :
 		m_key( key ),
 		m_nonModal( ApplyCaller( *this ), UpdateCaller( *this ) ){
-		m_hbox = GTK_BOX( gtk_hbox_new( TRUE, 4 ) );
+		m_hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 4 ) );
 		gtk_widget_show( GTK_WIDGET( m_hbox ) );
 		{
 			GtkEntry* entry = numeric_entry_new();
@@ -1765,7 +1765,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 				}
 
 				{
-					GtkBox* hbox = GTK_BOX( gtk_hbox_new( FALSE, 4 ) );
+					GtkBox* hbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 4 ) );
 					gtk_widget_show( GTK_WIDGET( hbox ) );
 					gtk_box_pack_start( GTK_BOX( vbox2 ), GTK_WIDGET( hbox ), FALSE, TRUE, 0 );
 

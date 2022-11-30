@@ -121,7 +121,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(_dialog), table);
    gtk_widget_show(table);
 
-   hbox = gtk_hbox_new(TRUE, 10);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 10);
    gtk_table_attach(GTK_TABLE(table), hbox, 0, 13, 0, 1, GTK_SHRINK, GTK_EXPAND, 0, 0);
    gtk_widget_show(hbox);
 
@@ -345,7 +345,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
 
    UIInstance().RegisterWidgetDependence(applybutton, entry);
 
-   mainhbox = gtk_hbox_new(TRUE, 0);
+   mainhbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_table_attach(GTK_TABLE(table), mainhbox, 0, 13, 4, 5, GTK_SHRINK, GTK_EXPAND, 0, 0);
    gtk_widget_show(mainhbox);
 
@@ -353,7 +353,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(mainhbox), mainvbox, FALSE, FALSE, 0);
    gtk_widget_show(mainvbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -365,7 +365,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -392,7 +392,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_end(GTK_BOX(hbox), button, TRUE, FALSE, 5);
    gtk_widget_show(button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -411,7 +411,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -444,7 +444,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
 
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -461,7 +461,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_end(GTK_BOX(mainhbox), mainvbox, FALSE, FALSE, 0);
    gtk_widget_show(mainvbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -473,7 +473,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -500,7 +500,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_end(GTK_BOX(hbox), button, TRUE, FALSE, 5);
    gtk_widget_show(button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(mainvbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -519,7 +519,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -552,7 +552,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
 
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_box_pack_end(GTK_BOX(vbox), hbox, TRUE, TRUE, 5);
    gtk_widget_show(hbox);
 
@@ -565,7 +565,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
 
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
-   hbox = gtk_hbox_new(FALSE, 0);
+   hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
    gtk_table_attach_defaults(GTK_TABLE(table), hbox, 0, 13, 5, 6);
    gtk_widget_show(hbox);
 
