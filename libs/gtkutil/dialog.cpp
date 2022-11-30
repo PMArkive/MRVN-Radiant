@@ -26,8 +26,8 @@
 #include "button.h"
 #include "window.h"
 
-GtkVBox* create_dialog_vbox( int spacing, int border ){
-	GtkVBox* vbox = GTK_VBOX( gtk_vbox_new( FALSE, spacing ) );
+GtkBox* create_dialog_vbox( int spacing, int border ){
+	GtkBox* vbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_VERTICAL, spacing ) );
 	gtk_widget_show( GTK_WIDGET( vbox ) );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox ), border );
 	return vbox;
@@ -164,7 +164,7 @@ GtkWindow* create_simple_modal_dialog_window( const char* title, ModalDialog& di
 	GtkAccelGroup* accel = gtk_accel_group_new();
 	gtk_window_add_accel_group( window, accel );
 
-	GtkVBox* vbox1 = create_dialog_vbox( 8, 4 );
+	GtkBox* vbox1 = create_dialog_vbox( 8, 4 );
 	gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox1 ) );
 
 	gtk_container_add( GTK_CONTAINER( vbox1 ), contents );
@@ -265,6 +265,6 @@ GtkTable* DialogRow_new( const char* name, GtkWidget* widget ){
 	return table;
 }
 
-void DialogVBox_packRow( GtkVBox* vbox, GtkWidget* row ){
+void DialogVBox_packRow( GtkBox* vbox, GtkWidget* row ){
 	gtk_box_pack_start( GTK_BOX( vbox ), row, FALSE, FALSE, 0 );
 }

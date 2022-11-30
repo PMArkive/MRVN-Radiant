@@ -125,7 +125,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_table_attach_defaults(GTK_TABLE(table), frame, 0, 1, 0, 1);
    gtk_widget_show(frame);
 
-   mainvbox = gtk_vbox_new(FALSE, 0);
+   mainvbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), mainvbox);
    gtk_widget_show(mainvbox);
 
@@ -145,7 +145,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -212,7 +212,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -264,7 +264,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -328,7 +328,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_table_attach_defaults(GTK_TABLE(table), frame, 1, 2, 0, 1);
    gtk_widget_show(frame);
 
-   mainvbox = gtk_vbox_new(FALSE, 0);
+   mainvbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), mainvbox);
    gtk_widget_show(mainvbox);
 
@@ -348,7 +348,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -415,7 +415,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -467,7 +467,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 

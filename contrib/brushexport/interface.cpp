@@ -46,7 +46,7 @@ create_w_plugplug2( void ){
 	gtk_window_set_transient_for( GTK_WINDOW( w_plugplug2 ), GTK_WINDOW( g_pRadiantWnd ) );
 	gtk_window_set_destroy_with_parent( GTK_WINDOW( w_plugplug2 ), TRUE );
 
-	vbox1 = gtk_vbox_new( FALSE, 0 );
+	vbox1 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_container_add( GTK_CONTAINER( w_plugplug2 ), vbox1 );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox1 ), 5 );
 
@@ -54,7 +54,7 @@ create_w_plugplug2( void ){
 	gtk_box_pack_start( GTK_BOX( vbox1 ), hbox2, FALSE, FALSE, 0 );
 	gtk_container_set_border_width( GTK_CONTAINER( hbox2 ), 5 );
 
-	vbox4 = gtk_vbox_new( TRUE, 0 );
+	vbox4 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_box_pack_start( GTK_BOX( hbox2 ), vbox4, TRUE, FALSE, 0 );
 
 	r_collapse = gtk_radio_button_new_with_label_from_widget( NULL, "Collapse mesh" );
@@ -70,7 +70,7 @@ create_w_plugplug2( void ){
 	gtk_box_pack_start( GTK_BOX( vbox4 ), r_nocollapse, FALSE, FALSE, 0 );
 	gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON( r_nocollapse ), TRUE );
 
-	vbox3 = gtk_vbox_new( FALSE, 0 );
+	vbox3 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_box_pack_start( GTK_BOX( hbox2 ), vbox3, FALSE, FALSE, 0 );
 
 	b_export = gtk_button_new_from_stock( "gtk-save" );
@@ -86,7 +86,7 @@ create_w_plugplug2( void ){
 	gtk_box_pack_start( GTK_BOX( vbox3 ), b_close, TRUE, FALSE, 0 );
 	gtk_container_set_border_width( GTK_CONTAINER( b_close ), 5 );
 
-	vbox2 = gtk_vbox_new( FALSE, 5 );
+	vbox2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), vbox2, TRUE, TRUE, 0 );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox2 ), 2 );
 

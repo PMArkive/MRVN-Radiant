@@ -130,7 +130,7 @@ GtkWidget* Console_constructWindow( GtkWindow* toplevel ){
 	}
 
 	//prevent focusing on text view after click on tab of floating group dialog (np, if called via hotkey)
-	GtkWidget* vbox = gtk_vbox_new( FALSE, 0 );
+	GtkWidget* vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_show( vbox );
 	gtk_box_pack_start( GTK_BOX( vbox ), scr, TRUE, TRUE, 0 );
 	gtk_container_set_focus_chain( GTK_CONTAINER( vbox ), NULL );

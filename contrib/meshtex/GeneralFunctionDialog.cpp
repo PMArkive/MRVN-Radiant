@@ -349,7 +349,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_table_attach(GTK_TABLE(table), mainhbox, 0, 13, 4, 5, GTK_SHRINK, GTK_EXPAND, 0, 0);
    gtk_widget_show(mainhbox);
 
-   mainvbox = gtk_vbox_new(FALSE, 0);
+   mainvbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_box_pack_start(GTK_BOX(mainhbox), mainvbox, FALSE, FALSE, 0);
    gtk_widget_show(mainvbox);
 
@@ -361,7 +361,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -407,7 +407,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -457,7 +457,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
 
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
-   mainvbox = gtk_vbox_new(FALSE, 0);
+   mainvbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_box_pack_end(GTK_BOX(mainhbox), mainvbox, FALSE, FALSE, 0);
    gtk_widget_show(mainvbox);
 
@@ -469,7 +469,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 
@@ -515,7 +515,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_start(GTK_BOX(hbox), frame, TRUE, TRUE, 5);
    gtk_widget_show(frame);
 
-   vbox = gtk_vbox_new(FALSE, 0);
+   vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
    gtk_container_add(GTK_CONTAINER(frame), vbox);
    gtk_widget_show(vbox);
 

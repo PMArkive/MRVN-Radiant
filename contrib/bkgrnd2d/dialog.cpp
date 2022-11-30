@@ -195,7 +195,7 @@ CBackgroundDialogPage::CBackgroundDialogPage( VIEWTYPE vt ){
 		break;
 	}
 // A vbox to hold everything
-	m_pWidget = gtk_vbox_new( FALSE,0 );
+	m_pWidget = gtk_box_new( GTK_ORIENTATION_VERTICAL,0 );
 // Frame for file row
 	frame = gtk_frame_new( "File" );
 	gtk_box_pack_start( GTK_BOX( m_pWidget ),frame, FALSE, FALSE, 2 );

@@ -883,7 +883,7 @@ void DoMapInfo(){
 	window_set_position( window, g_posMapInfoWnd );
 
 	{
-		GtkVBox* vbox = create_dialog_vbox( 4, 4 );
+		GtkBox* vbox = create_dialog_vbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 
 		{
@@ -998,7 +998,7 @@ void DoMapInfo(){
 
 			}
 			{
-				GtkVBox* vbox2 = create_dialog_vbox( 4 );
+				GtkBox* vbox2 = create_dialog_vbox( 4 );
 				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox2 ), FALSE, FALSE, 0 );
 
 				{
@@ -2202,7 +2202,7 @@ void DoFind(){
 	gtk_window_add_accel_group( window, accel );
 
 	{
-		GtkVBox* vbox = create_dialog_vbox( 4, 4 );
+		GtkBox* vbox = create_dialog_vbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 		{
 			GtkTable* table = create_dialog_table( 2, 2, 4, 4 );

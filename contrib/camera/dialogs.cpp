@@ -77,7 +77,7 @@ static gint ci_new( GtkWidget *widget, gpointer data ){
 	gtk_widget_realize( window );
 
 	// fill the window
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( window ), vbox );
 	gtk_widget_show( vbox );
 
@@ -91,7 +91,7 @@ static gint ci_new( GtkWidget *widget, gpointer data ){
 	gtk_box_pack_start( GTK_BOX( hbox ), frame, TRUE, TRUE, 0 );
 	gtk_widget_show( frame );
 
-	vbox2 = gtk_vbox_new( FALSE, 5 );
+	vbox2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( frame ), vbox2 );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox2 ), 5 );
 	gtk_widget_show( vbox2 );
@@ -370,7 +370,7 @@ static gint ci_rename( GtkWidget *widget, gpointer data ){
 	gtk_widget_realize( window );
 
 	// fill the window
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( window ), vbox );
 	gtk_widget_show( vbox );
 
@@ -488,7 +488,7 @@ static gint ci_add_target( GtkWidget *widget, gpointer data ){
 	gtk_widget_realize( window );
 
 	// fill the window
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( window ), vbox );
 	gtk_widget_show( vbox );
 
@@ -519,7 +519,7 @@ static gint ci_add_target( GtkWidget *widget, gpointer data ){
 	gtk_box_pack_start( GTK_BOX( hbox ), frame, TRUE, TRUE, 0 );
 	gtk_widget_show( frame );
 
-	vbox2 = gtk_vbox_new( FALSE, 5 );
+	vbox2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( frame ), vbox2 );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox2 ), 5 );
 	gtk_widget_show( vbox2 );
@@ -836,7 +836,7 @@ static gint ci_add( GtkWidget *widget, gpointer data ){
 	gtk_widget_realize( window );
 
 	// fill the window
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( window ), vbox );
 	gtk_widget_show( vbox );
 
@@ -850,7 +850,7 @@ static gint ci_add( GtkWidget *widget, gpointer data ){
 	gtk_box_pack_start( GTK_BOX( hbox ), frame, TRUE, TRUE, 0 );
 	gtk_widget_show( frame );
 
-	vbox2 = gtk_vbox_new( FALSE, 5 );
+	vbox2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( frame ), vbox2 );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox2 ), 5 );
 	gtk_widget_show( vbox2 );
@@ -1015,7 +1015,7 @@ GtkWidget *CreateCameraInspectorDialog( void ){
 	// the properties column
 	// -------------------------- //
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_widget_show( vbox );
 	gtk_table_attach( GTK_TABLE( table ), vbox, 0, 1, 0, 1,
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
@@ -1071,7 +1071,7 @@ GtkWidget *CreateCameraInspectorDialog( void ){
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( frame ), vbox );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox ), 5 );
 	gtk_widget_show( vbox );
@@ -1163,7 +1163,7 @@ GtkWidget *CreateCameraInspectorDialog( void ){
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_container_add( GTK_CONTAINER( frame ), vbox );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox ), 5 );
 	gtk_widget_show( vbox );
@@ -1261,7 +1261,7 @@ GtkWidget *CreateCameraInspectorDialog( void ){
 	gtk_clist_set_column_auto_resize( GTK_CLIST( g_pEventsList ), 2, TRUE );
 	gtk_widget_show( g_pEventsList );
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_box_pack_start( GTK_BOX( hbox ), vbox, FALSE, FALSE, 0 );
 	gtk_widget_show( vbox );
 
@@ -1286,7 +1286,7 @@ GtkWidget *CreateCameraInspectorDialog( void ){
 	// the buttons column
 	// -------------------------- //
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_widget_show( vbox );
 	gtk_table_attach( GTK_TABLE( table ), vbox, 1, 2, 0, 1,
 					  (GtkAttachOptions) ( GTK_FILL ),
@@ -1304,7 +1304,7 @@ GtkWidget *CreateCameraInspectorDialog( void ){
 
 	// -------------------------- //
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_widget_show( vbox );
 	gtk_table_attach( GTK_TABLE( table ), vbox, 1, 2, 1, 2,
 					  (GtkAttachOptions) ( GTK_FILL ),
@@ -1336,7 +1336,7 @@ GtkWidget *CreateCameraInspectorDialog( void ){
 
 	// -------------------------- //
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_widget_show( vbox );
 	gtk_table_attach( GTK_TABLE( table ), vbox, 1, 2, 2, 3,
 					  (GtkAttachOptions) ( GTK_FILL ),

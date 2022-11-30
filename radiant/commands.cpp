@@ -492,7 +492,7 @@ void DoCommandListDlg(){
 		}
 	}
 
-	GtkVBox* vbox = create_dialog_vbox( 4 );
+	GtkBox* vbox = create_dialog_vbox( 4 );
 	gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 	{
 		GtkButton* editbutton = create_dialog_button( "Edit", (GCallback) accelerator_edit_button_clicked, &dialog );

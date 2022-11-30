@@ -437,7 +437,7 @@ public:
 	GtkWindow* BuildDialog(){
 		GtkFrame* frame = create_dialog_frame( "Path settings", GTK_SHADOW_ETCHED_IN );
 
-		GtkVBox* vbox2 = create_dialog_vbox( 0, 4 );
+		GtkBox* vbox2 = create_dialog_vbox( 0, 4 );
 		gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( vbox2 ) );
 
 		const char* engine;
@@ -3072,7 +3072,7 @@ void MainFrame::Create(){
 	/* then load shortcuts cfg */
 	user_shortcuts_init();
 
-	GtkWidget* vbox = gtk_vbox_new( FALSE, 0 );
+	GtkWidget* vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_container_add( GTK_CONTAINER( window ), vbox );
 	gtk_widget_show( vbox );
 	gtk_container_set_focus_chain( GTK_CONTAINER( vbox ), NULL );

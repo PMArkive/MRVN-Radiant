@@ -77,7 +77,7 @@ int DoLoadPortalFileDialog(){
 	g_object_set_data( G_OBJECT( dlg ), "loop", &loop );
 	g_object_set_data( G_OBJECT( dlg ), "ret", &ret );
 
-	vbox = gtk_vbox_new( FALSE, 5 );
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 	gtk_widget_show( vbox );
 	gtk_container_add( GTK_CONTAINER( dlg ), vbox );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox ), 5 );

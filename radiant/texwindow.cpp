@@ -2049,7 +2049,7 @@ GtkWidget* TextureBrowser_constructWindow( GtkWindow* toplevel ){
 
 	GtkWidget* table = gtk_table_new( 3, 3, FALSE );
 	GtkWidget* frame_table = NULL;
-	GtkWidget* vbox = gtk_vbox_new( FALSE, 0 );
+	GtkWidget* vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_table_attach( GTK_TABLE( table ), vbox, 0, 1, 0, 3, GTK_FILL, GTK_FILL, 0, 0 );
 	gtk_widget_show( vbox );
 

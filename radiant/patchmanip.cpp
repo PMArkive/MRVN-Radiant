@@ -1075,7 +1075,7 @@ void DoNewPatchDlg( EPatchPrefab prefab, int minrows, int mincols, int defrows, 
 		}
 
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 			{
 				GtkButton* button = create_dialog_button( "OK", G_CALLBACK( dialog_button_ok ), &dialog );
@@ -1181,7 +1181,7 @@ void DoPatchDeformDlg(){
 			}
 		}
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 			{
 				GtkButton* button = create_dialog_button( "OK", G_CALLBACK( dialog_button_ok ), &dialog );
@@ -1237,7 +1237,7 @@ EMessageBoxReturn DoCapDlg( ECapDialog* type ){
 
 		{
 			// Gef: Added a vbox to contain the toggle buttons
-			GtkVBox* radio_vbox = create_dialog_vbox( 4 );
+			GtkBox* radio_vbox = create_dialog_vbox( 4 );
 			gtk_container_add( GTK_CONTAINER( hbox ), GTK_WIDGET( radio_vbox ) );
 
 			{
@@ -1329,7 +1329,7 @@ EMessageBoxReturn DoCapDlg( ECapDialog* type ){
 		}
 
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), FALSE, FALSE, 0 );
 			{
 				GtkButton* button = create_modal_dialog_button( "OK", ok_button );
@@ -1468,7 +1468,7 @@ void DoPatchThickenDlg(){
 			}
 		}
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 			{
 				GtkButton* button = create_dialog_button( "OK", G_CALLBACK( dialog_button_ok ), &dialog );

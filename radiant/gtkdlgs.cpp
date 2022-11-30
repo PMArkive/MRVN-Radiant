@@ -204,7 +204,7 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 		GtkTable* table1 = create_dialog_table( 1, 2, 4, 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( table1 ) );
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_table_attach( table1, GTK_WIDGET( vbox ), 1, 2, 0, 1,
 			                  (GtkAttachOptions) ( GTK_FILL ),
 			                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
@@ -374,7 +374,7 @@ void DoSides( int type, int axis ){
 	gtk_window_add_accel_group( window, accel );
 
 	{
-		GtkVBox* vbox = create_dialog_vbox( 0, 0 );
+		GtkBox* vbox = create_dialog_vbox( 0, 0 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );
@@ -421,7 +421,7 @@ void DoSides( int type, int axis ){
 			gtk_spin_button_set_numeric( GTK_SPIN_BUTTON( spin ), TRUE );
 		}
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 			{
 				GtkButton* button = create_dialog_button( "OK", G_CALLBACK( dialog_button_ok ), &dialog );
@@ -469,7 +469,7 @@ void DoAbout(){
 	GtkWindow* window = create_modal_dialog_window( MainFrame_getWindow(), "About MRVN-radiant", dialog );
 
 	{
-		GtkVBox* vbox = create_dialog_vbox( 4, 4 );
+		GtkBox* vbox = create_dialog_vbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 
 		{
@@ -477,7 +477,7 @@ void DoAbout(){
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, TRUE, 0 );
 
 			{
-				GtkVBox* vbox2 = create_dialog_vbox( 4 );
+				GtkBox* vbox2 = create_dialog_vbox( 4 );
 				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox2 ), TRUE, FALSE, 0 );
 				{
 					//GtkFrame* frame = create_dialog_frame( 0, GTK_SHADOW_IN );
@@ -506,7 +506,7 @@ void DoAbout(){
 			}
 
 			{
-				GtkVBox* vbox2 = create_dialog_vbox( 4 );
+				GtkBox* vbox2 = create_dialog_vbox( 4 );
 				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox2 ), FALSE, TRUE, 0 );
 				{
 					GtkButton* button = create_modal_dialog_button( "OK", ok_button );
@@ -639,7 +639,7 @@ EMessageBoxReturn DoTextureLayout( float *fx, float *fy ){
 		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Texture will be fit across the patch based\n"
@@ -691,7 +691,7 @@ EMessageBoxReturn DoTextureLayout( float *fx, float *fy ){
 			}
 		}
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), FALSE, FALSE, 0 );
 			{
 				GtkButton* button = create_modal_dialog_button( "OK", ok_button );
@@ -748,7 +748,7 @@ class TextEditor
 
 		m_window = GTK_WIDGET( create_dialog_window( MainFrame_getWindow(), "", G_CALLBACK( gtk_widget_hide_on_delete ), 0, 400, 600 ) );
 
-		vbox = gtk_vbox_new( FALSE, 5 );
+		vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 		gtk_widget_show( vbox );
 		gtk_container_add( GTK_CONTAINER( m_window ), GTK_WIDGET( vbox ) );
 		gtk_container_set_border_width( GTK_CONTAINER( vbox ), 5 );
@@ -882,7 +882,7 @@ EMessageBoxReturn DoLightIntensityDlg( int *intensity ){
 		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "ESC for default, ENTER to validate" ) );
@@ -907,7 +907,7 @@ EMessageBoxReturn DoLightIntensityDlg( int *intensity ){
 			}
 		}
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), FALSE, FALSE, 0 );
 
 			{
@@ -956,7 +956,7 @@ EMessageBoxReturn DoShaderTagDlg( CopiedString& tag, const char* title ){
 		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 			{
 				//GtkLabel* label = GTK_LABEL(gtk_label_new("Enter one ore more tags separated by spaces"));
@@ -975,7 +975,7 @@ EMessageBoxReturn DoShaderTagDlg( CopiedString& tag, const char* title ){
 			}
 		}
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), FALSE, FALSE, 0 );
 
 			{
@@ -1015,7 +1015,7 @@ EMessageBoxReturn DoShaderInfoDlg( const char* name, const char* filename, const
 		GtkHBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), FALSE, FALSE, 0 );
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "The selected shader" ) );

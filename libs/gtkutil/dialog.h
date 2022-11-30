@@ -50,7 +50,7 @@ GtkWindow* create_fixedsize_modal_window( GtkWindow* parent, const char* title, 
 GtkWindow* create_dialog_window( GtkWindow* parent, const char* title, GCallback func, gpointer data, int default_w = -1, int default_h = -1 );
 GtkTable* create_dialog_table( unsigned int rows, unsigned int columns, unsigned int row_spacing, unsigned int col_spacing, int border = 0 );
 GtkButton* create_dialog_button( const char* label, GCallback func, gpointer data );
-GtkVBox* create_dialog_vbox( int spacing, int border = 0 );
+GtkBox* create_dialog_vbox( int spacing, int border = 0 );
 GtkHBox* create_dialog_hbox( int spacing, int border = 0 );
 GtkFrame* create_dialog_frame( const char* label, GtkShadowType shadow = GTK_SHADOW_ETCHED_IN );
 
@@ -111,4 +111,4 @@ public:
 
 GtkLabel* DialogLabel_new( const char* name );
 GtkTable* DialogRow_new( const char* name, GtkWidget* widget );
-void DialogVBox_packRow( GtkVBox* vbox, GtkWidget* row );
+void DialogVBox_packRow( GtkBox* vbox, GtkWidget* row );

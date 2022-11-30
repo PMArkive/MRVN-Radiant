@@ -441,7 +441,7 @@ void EntityList_constructWindow( GtkWindow* main_window ){
 	getEntityList().m_window = window;
 
 	{
-		GtkVBox* vbox = GTK_VBOX( gtk_vbox_new( FALSE, 0 ) );
+		GtkBox* vbox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 ) );
 		gtk_container_set_border_width( GTK_CONTAINER( vbox ), 0 );
 		gtk_widget_show( GTK_WIDGET( vbox ) );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );

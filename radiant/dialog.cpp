@@ -474,7 +474,7 @@ GtkWidget* Dialog::addCheckBox( GtkWidget* vbox, const char* name, const char* f
 	gtk_widget_show( check );
 	AddBoolToggleData( *GTK_TOGGLE_BUTTON( check ), importViewer, exportViewer );
 
-	DialogVBox_packRow( GTK_VBOX( vbox ), GTK_WIDGET( DialogRow_new( name, check ) ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( DialogRow_new( name, check ) ) );
 	return check;
 }
 
@@ -500,7 +500,7 @@ void Dialog::addCombo( GtkWidget* vbox, const char* name, StringArrayRange value
 	}
 
 	GtkTable* row = DialogRow_new( name, alignment );
-	DialogVBox_packRow( GTK_VBOX( vbox ), GTK_WIDGET( row ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
 void Dialog::addCombo( GtkWidget* vbox, const char* name, int& data, StringArrayRange values ){
@@ -538,7 +538,7 @@ void addSlider_( GtkAdjustment* adj, GtkWidget* vbox, const char* name, gboolean
 	gtk_scale_set_digits( GTK_SCALE( scale ), digits );
 
 	GtkTable* row = DialogRow_new( name, alignment );
-	DialogVBox_packRow( GTK_VBOX( vbox ), GTK_WIDGET( row ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
 void Dialog::addSlider( GtkWidget* vbox, const char* name, int& data, gboolean draw_value, const char* low, const char* high, double value, double lower, double upper, double step_increment, double page_increment ){
@@ -567,7 +567,7 @@ void Dialog::addRadio( GtkWidget* vbox, const char* name, StringArrayRange names
 	}
 
 	GtkTable* row = DialogRow_new( name, alignment );
-	DialogVBox_packRow( GTK_VBOX( vbox ), GTK_WIDGET( row ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
 void Dialog::addRadio( GtkWidget* vbox, const char* name, int& data, StringArrayRange names ){
@@ -599,7 +599,7 @@ void Dialog::addRadioIcons( GtkWidget* vbox, const char* name, StringArrayRange 
 
 	AddIntRadioData( *GTK_RADIO_BUTTON( radio ), importViewer, exportViewer );
 
-	DialogVBox_packRow( GTK_VBOX( vbox ), GTK_WIDGET( DialogRow_new( name, table ) ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( DialogRow_new( name, table ) ) );
 }
 
 void Dialog::addRadioIcons( GtkWidget* vbox, const char* name, int& data, StringArrayRange icons ){
@@ -609,21 +609,21 @@ void Dialog::addRadioIcons( GtkWidget* vbox, const char* name, int& data, String
 GtkWidget* Dialog::addIntEntry( GtkWidget* vbox, const char* name, const IntImportCallback& importViewer, const IntExportCallback& exportViewer ){
 	DialogEntryRow row( DialogEntryRow_new( name ) );
 	AddIntEntryData( *row.m_entry, importViewer, exportViewer );
-	DialogVBox_packRow( GTK_VBOX( vbox ), row.m_row );
+	DialogVBox_packRow( GTK_BOX( vbox ), row.m_row );
 	return row.m_row;
 }
 
 GtkWidget* Dialog::addSizeEntry( GtkWidget* vbox, const char* name, const SizeImportCallback& importViewer, const SizeExportCallback& exportViewer ){
 	DialogEntryRow row( DialogEntryRow_new( name ) );
 	AddSizeEntryData( *row.m_entry, importViewer, exportViewer );
-	DialogVBox_packRow( GTK_VBOX( vbox ), row.m_row );
+	DialogVBox_packRow( GTK_BOX( vbox ), row.m_row );
 	return row.m_row;
 }
 
 GtkWidget* Dialog::addFloatEntry( GtkWidget* vbox, const char* name, const FloatImportCallback& importViewer, const FloatExportCallback& exportViewer ){
 	DialogEntryRow row( DialogEntryRow_new( name ) );
 	AddFloatEntryData( *row.m_entry, importViewer, exportViewer );
-	DialogVBox_packRow( GTK_VBOX( vbox ), row.m_row );
+	DialogVBox_packRow( GTK_BOX( vbox ), row.m_row );
 	return row.m_row;
 }
 
@@ -634,7 +634,7 @@ GtkWidget* Dialog::addTextEntry( GtkWidget* vbox, const char* name, const String
 	AddTextEntryData( *entry, importViewer, exportViewer );
 
 	GtkTable* row = DialogRow_new( name, GTK_WIDGET( entry ) );
-	DialogVBox_packRow( GTK_VBOX( vbox ), GTK_WIDGET( row ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 
 	return GTK_WIDGET( row );
 }
@@ -646,7 +646,7 @@ GtkWidget* Dialog::addPathEntry( GtkWidget* vbox, const char* name, bool browse_
 	AddTextEntryData( *GTK_ENTRY( pathEntry.m_entry ), importViewer, exportViewer );
 
 	GtkTable* row = DialogRow_new( name, GTK_WIDGET( pathEntry.m_frame ) );
-	DialogVBox_packRow( GTK_VBOX( vbox ), GTK_WIDGET( row ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 
 	return GTK_WIDGET( row );
 }
@@ -658,7 +658,7 @@ GtkWidget* Dialog::addPathEntry( GtkWidget* vbox, const char* name, CopiedString
 GtkWidget* Dialog::addSpinner( GtkWidget* vbox, const char* name, double value, double lower, double upper, const IntImportCallback& importViewer, const IntExportCallback& exportViewer ){
 	DialogSpinnerRow row( DialogSpinnerRow_new( name, value, lower, upper, 1 ) );
 	AddIntSpinnerData( *row.m_spin, importViewer, exportViewer );
-	DialogVBox_packRow( GTK_VBOX( vbox ), row.m_row );
+	DialogVBox_packRow( GTK_BOX( vbox ), row.m_row );
 	return row.m_row;
 }
 
@@ -669,6 +669,6 @@ GtkWidget* Dialog::addSpinner( GtkWidget* vbox, const char* name, int& data, dou
 GtkWidget* Dialog::addSpinner( GtkWidget* vbox, const char* name, double value, double lower, double upper, const FloatImportCallback& importViewer, const FloatExportCallback& exportViewer ){
 	DialogSpinnerRow row( DialogSpinnerRow_new( name, value, lower, upper, 10 ) );
 	AddFloatSpinnerData( *row.m_spin, importViewer, exportViewer );
-	DialogVBox_packRow( GTK_VBOX( vbox ), row.m_row );
+	DialogVBox_packRow( GTK_BOX( vbox ), row.m_row );
 	return row.m_row;
 }

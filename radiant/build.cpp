@@ -907,7 +907,7 @@ GtkWindow* BuildMenuDialog_construct( ModalDialog& modal, ProjectList& projectLi
 		GtkTable* table1 = create_dialog_table( 3, 2, 4, 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( table1 ) );
 		{
-			GtkVBox* vbox = create_dialog_vbox( 4 );
+			GtkBox* vbox = create_dialog_vbox( 4 );
 			gtk_table_attach( table1, GTK_WIDGET( vbox ), 1, 2, 0, 1,
 			                  (GtkAttachOptions) ( GTK_FILL ),
 			                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );

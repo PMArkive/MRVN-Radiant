@@ -264,7 +264,7 @@ void about_plugin_window(){
 	gtk_window_set_modal( GTK_WINDOW( window ), TRUE ); // force the user not to do something with the other windows
 	gtk_container_set_border_width( GTK_CONTAINER( window ), 10 ); // set the border of the window
 
-	vbox = gtk_vbox_new( FALSE, 10 ); // create a box to arrange new objects vertically
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 10 ); // create a box to arrange new objects vertically
 	gtk_container_add( GTK_CONTAINER( window ), vbox ); // add the box to the window
 
 	label = gtk_label_new( "SunPlug v1.0 for NetRadiant 1.5\nby Topsun" ); // create a label
@@ -330,7 +330,7 @@ void MapCoordinator(){
 	gtk_window_set_modal( GTK_WINDOW( window ), TRUE ); // force the user not to do something with the other windows
 	gtk_container_set_border_width( GTK_CONTAINER( window ), 10 ); // set the border of the window
 
-	vbox = gtk_vbox_new( FALSE, 10 ); // create a box to arrange new objects vertically
+	vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 10 ); // create a box to arrange new objects vertically
 	gtk_container_add( GTK_CONTAINER( window ), vbox ); // add the box to the window
 
 	scene::Path path = makeReference( GlobalSceneGraph().root() ); // get the path to the root element of the graph

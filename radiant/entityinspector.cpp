@@ -841,7 +841,7 @@ int spawn_table[MAX_FLAGS];
 // the table is a 4x4 in which we need to put the comment box g_entityClassComment and the spawn flags..
 GtkTable* g_spawnflagsTable;
 
-GtkVBox* g_attributeBox = 0;
+GtkBox* g_attributeBox = 0;
 typedef std::vector<EntityAttribute*> EntityAttributes;
 EntityAttributes g_entityAttributes;
 }
@@ -1515,7 +1515,7 @@ void EntityInspector_selectByKeyValue( GtkButton *button, gpointer user_data ){
 
 
 GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
-	GtkWidget* vbox = gtk_vbox_new( FALSE, 2 );
+	GtkWidget* vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 2 );
 	gtk_widget_show( vbox );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox ), 2 );
 
@@ -1608,7 +1608,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 			g_entity_split0 = split0;
 
 			{
-				GtkWidget* vbox2 = gtk_vbox_new( FALSE, 2 );
+				GtkWidget* vbox2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 2 );
 				gtk_widget_show( vbox2 );
 				gtk_paned_pack1( GTK_PANED( split0 ), vbox2, FALSE, FALSE );
 
@@ -1831,7 +1831,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 				gtk_widget_show( viewport );
 				gtk_viewport_set_shadow_type( GTK_VIEWPORT( viewport ), GTK_SHADOW_NONE );
 
-				g_attributeBox = GTK_VBOX( gtk_vbox_new( FALSE, 2 ) );
+				g_attributeBox = GTK_BOX( gtk_box_new( GTK_ORIENTATION_VERTICAL, 2 ) );
 				gtk_widget_show( GTK_WIDGET( g_attributeBox ) );
 
 				gtk_container_add( GTK_CONTAINER( viewport ), GTK_WIDGET( g_attributeBox ) );

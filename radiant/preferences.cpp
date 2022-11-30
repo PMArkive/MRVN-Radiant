@@ -289,7 +289,7 @@ void CGameDialog::CreateGlobalFrame( PreferencesPage& page, bool global ){
 GtkWindow* CGameDialog::BuildDialog(){
 	GtkFrame* frame = create_dialog_frame( "Game settings", GTK_SHADOW_ETCHED_IN );
 
-	GtkVBox* vbox2 = create_dialog_vbox( 0, 4 );
+	GtkBox* vbox2 = create_dialog_vbox( 0, 4 );
 	gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( vbox2 ) );
 
 	{
@@ -611,7 +611,7 @@ GtkWidget* PreferencePages_addPage( GtkWidget* notebook, const char* name ){
 	gtk_container_set_border_width( GTK_CONTAINER( pageframe ), 4 );
 	gtk_widget_show( pageframe );
 
-	GtkWidget* vbox = gtk_vbox_new( FALSE, 4 );
+	GtkWidget* vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 4 );
 	gtk_widget_show( vbox );
 	gtk_container_set_border_width( GTK_CONTAINER( vbox ), 4 );
 	gtk_container_add( GTK_CONTAINER( pageframe ), vbox );
@@ -653,7 +653,7 @@ GtkWindow* PrefsDlg::BuildDialog(){
 	gtk_window_add_accel_group( dialog, accel );
 
 	{
-		GtkWidget* mainvbox = gtk_vbox_new( FALSE, 5 );
+		GtkWidget* mainvbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 5 );
 		gtk_container_add( GTK_CONTAINER( dialog ), mainvbox );
 		gtk_container_set_border_width( GTK_CONTAINER( mainvbox ), 5 );
 		gtk_widget_show( mainvbox );

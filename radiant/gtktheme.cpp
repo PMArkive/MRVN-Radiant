@@ -167,7 +167,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_set_size_request( main_hbox, 310, 320 );
 	gtk_window_resize( GTK_WINDOW( main_window ), 310, 640 );
 
-	vbox1 = gtk_vbox_new( FALSE, 0 );
+	vbox1 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox1, "vbox1" );
 	gtk_widget_show( vbox1 );
 	gtk_box_pack_start( GTK_BOX( main_hbox ), vbox1, TRUE, TRUE, 0 );
@@ -222,7 +222,7 @@ GtkWidget* create_rc_window() {
 	gtk_container_add( GTK_CONTAINER( frame3 ), alignment4 );
 	gtk_alignment_set_padding( GTK_ALIGNMENT( alignment4 ), 0, 0, 12, 0 );
 
-	vbox7 = gtk_vbox_new( FALSE, 0 );
+	vbox7 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox7, "vbox7" );
 	gtk_widget_show( vbox7 );
 	gtk_container_add( GTK_CONTAINER( alignment4 ), vbox7 );
@@ -232,7 +232,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( hbox8 );
 	gtk_box_pack_start( GTK_BOX( vbox7 ), hbox8, FALSE, FALSE, 0 );
 
-	vbox9 = gtk_vbox_new( FALSE, 0 );
+	vbox9 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox9, "vbox9" );
 	gtk_widget_show( vbox9 );
 	gtk_box_pack_start( GTK_BOX( hbox8 ), vbox9, TRUE, TRUE, 0 );
@@ -255,7 +255,7 @@ GtkWidget* create_rc_window() {
 	gtk_box_pack_start( GTK_BOX( vbox9 ), alignment5, TRUE, TRUE, 0 );
 	gtk_alignment_set_padding( GTK_ALIGNMENT( alignment5 ), 0, 0, 12, 0 );
 
-	vbox10 = gtk_vbox_new( FALSE, 0 );
+	vbox10 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox10, "vbox10" );
 	gtk_widget_show( vbox10 );
 	gtk_container_add( GTK_CONTAINER( alignment5 ), vbox10 );
@@ -265,7 +265,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( hbox9 );
 	gtk_box_pack_start( GTK_BOX( vbox10 ), hbox9, FALSE, FALSE, 0 );
 
-	vbox11 = gtk_vbox_new( FALSE, 0 );
+	vbox11 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox11, "vbox11" );
 	gtk_widget_show( vbox11 );
 	gtk_box_pack_start( GTK_BOX( hbox9 ), vbox11, TRUE, TRUE, 0 );
@@ -281,7 +281,7 @@ GtkWidget* create_rc_window() {
 	gtk_frame_set_label_widget( GTK_FRAME( frame3 ), label669 );
 	gtk_label_set_use_markup( GTK_LABEL( label669 ), TRUE );
 
-	vbox13 = gtk_vbox_new( FALSE, 0 );
+	vbox13 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox13, "vbox13" );
 	gtk_widget_show( vbox13 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), vbox13, FALSE, FALSE, 0 );
@@ -296,7 +296,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( hbox7 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), hbox7, FALSE, TRUE, 6 );
 
-	vbox6 = gtk_vbox_new( FALSE, 0 );
+	vbox6 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox6, "vbox6" );
 	gtk_widget_show( vbox6 );
 	gtk_box_pack_start( GTK_BOX( vbox1 ), vbox6, FALSE, FALSE, 0 );

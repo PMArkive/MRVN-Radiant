@@ -70,7 +70,7 @@ EMessageBoxReturn gtk_MessageBox( GtkWidget *parent, const char* text, const cha
 	GtkAccelGroup* accel = gtk_accel_group_new();
 	gtk_window_add_accel_group( window, accel );
 
-	GtkVBox* vbox = create_dialog_vbox( 8, 8 );
+	GtkBox* vbox = create_dialog_vbox( 8, 8 );
 	gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 
 
@@ -94,7 +94,7 @@ EMessageBoxReturn gtk_MessageBox( GtkWidget *parent, const char* text, const cha
 	gtk_box_pack_start( GTK_BOX( iconBox ), GTK_WIDGET( label ), TRUE, TRUE, 0 );
 
 
-	GtkVBox* vboxDummy = create_dialog_vbox( 0, 0 );
+	GtkBox* vboxDummy = create_dialog_vbox( 0, 0 );
 	gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( vboxDummy ), FALSE, FALSE, 0 );
 
 	GtkAlignment* alignment = GTK_ALIGNMENT( gtk_alignment_new( 0.5, 0.0, 0.0, 0.0 ) );
