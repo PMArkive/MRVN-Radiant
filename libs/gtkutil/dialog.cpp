@@ -46,7 +46,7 @@ GtkFrame* create_dialog_frame( const char* label, GtkShadowType shadow ){
 	gtk_frame_set_shadow_type( frame, shadow );
 	return frame;
 }
-
+/*
 GtkTable* create_dialog_table( unsigned int rows, unsigned int columns, unsigned int row_spacing, unsigned int col_spacing, int border ){
 	GtkTable* table = GTK_TABLE( gtk_table_new( rows, columns, FALSE ) );
 	gtk_widget_show( GTK_WIDGET( table ) );
@@ -54,6 +54,15 @@ GtkTable* create_dialog_table( unsigned int rows, unsigned int columns, unsigned
 	gtk_table_set_col_spacings( table, col_spacing );
 	gtk_container_set_border_width( GTK_CONTAINER( table ), border );
 	return table;
+}
+*/
+GtkGrid* create_dialog_grid( unsigned int row_spacing, unsigned int col_spacing, int border ){
+	GtkGrid* grid = GTK_GRID( gtk_grid_new() );
+	gtk_widget_show( GTK_WIDGET( grid ) );
+	gtk_grid_set_row_spacing( grid, row_spacing );
+	gtk_grid_set_column_spacing( grid, col_spacing );
+	gtk_container_set_border_width( GTK_CONTAINER( grid ), border );
+	return grid;
 }
 
 GtkButton* create_dialog_button( const char* label, GCallback func, gpointer data ){

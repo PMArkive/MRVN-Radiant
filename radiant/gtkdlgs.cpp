@@ -201,13 +201,11 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 	GtkWindow* window = create_dialog_window( MainFrame_getWindow(), "Project Settings", G_CALLBACK( dialog_delete_callback ), &modal );
 
 	{
-		GtkTable* table1 = create_dialog_table( 1, 2, 4, 4, 4 );
-		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( table1 ) );
+		GtkGrid* grid1 = create_dialog_grid( 4, 4, 4 );
+		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( grid1 ) );
 		{
 			GtkBox* vbox = create_dialog_vbox( 4 );
-			gtk_table_attach( table1, GTK_WIDGET( vbox ), 1, 2, 0, 1,
-			                  (GtkAttachOptions) ( GTK_FILL ),
-			                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
+			gtk_grid_attach( grid1, GTK_WIDGET( vbox ), 1, 0, 1, 1 );
 			{
 				GtkButton* button = create_dialog_button( "OK", G_CALLBACK( dialog_button_ok ), &modal );
 				gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( button ), FALSE, FALSE, 0 );
@@ -219,19 +217,15 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 		}
 		{
 			GtkFrame* frame = create_dialog_frame( "Project settings" );
-			gtk_table_attach( table1, GTK_WIDGET( frame ), 0, 1, 0, 1,
-			                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-			                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
+			gtk_grid_attach( grid1, GTK_WIDGET( frame ), 0, 0, 1, 1 );
 			{
-				GtkTable* table2 = create_dialog_table( ( globalMappingMode().do_mapping_mode ) ? 4 : 3, 2, 4, 4, 4 );
-				gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( table2 ) );
+				GtkGrid* grid2 = create_dialog_grid( 4, 4, 4 );
+				gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( grid2 ) );
 
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Select mod" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table2, GTK_WIDGET( label ), 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid2, GTK_WIDGET( label ), 0, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 				}
 				{
@@ -244,9 +238,7 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 					gtk_combo_box_text_append_text( combo, globalGameComboConfiguration().custom );
 
 					gtk_widget_show( GTK_WIDGET( combo ) );
-					gtk_table_attach( table2, GTK_WIDGET( combo ), 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid2, GTK_WIDGET( combo ), 1, 0, 1, 1 );
 
 					g_signal_connect( G_OBJECT( combo ), "changed", G_CALLBACK( OnSelchangeComboWhatgame ), &dialog.game_combo );
 				}
@@ -254,17 +246,13 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "fs_game" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table2, GTK_WIDGET( label ), 0, 1, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid2, GTK_WIDGET( label ), 0, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 				}
 				{
 					GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
 					gtk_widget_show( GTK_WIDGET( entry ) );
-					gtk_table_attach( table2, GTK_WIDGET( entry ), 1, 2, 1, 2,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid2, GTK_WIDGET( entry ), 1, 1, 1, 1 );
 
 					dialog.game_combo.fsgame_entry = entry;
 				}
@@ -272,9 +260,7 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 				if ( globalMappingMode().do_mapping_mode ) {
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Mapping mode" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table2, GTK_WIDGET( label ), 0, 1, 3, 4,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid2, GTK_WIDGET( label ), 0, 2, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 
 					GtkComboBoxText* combo = GTK_COMBO_BOX_TEXT( gtk_combo_box_text_new() );
@@ -282,9 +268,7 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 					gtk_combo_box_text_append_text( combo, globalMappingMode().mp_mapping_mode );
 
 					gtk_widget_show( GTK_WIDGET( combo ) );
-					gtk_table_attach( table2, GTK_WIDGET( combo ), 1, 2, 3, 4,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid2, GTK_WIDGET( combo ), 1, 2, 1, 1 );
 
 					dialog.gamemode_combo = GTK_COMBO_BOX( combo );
 				}
@@ -528,54 +512,42 @@ void DoAbout(){
 			GtkFrame* frame = create_dialog_frame( "OpenGL Properties" );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( frame ), FALSE, FALSE, 0 );
 			{
-				GtkTable* table = create_dialog_table( 3, 2, 4, 4, 4 );
-				gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( table ) );
+				GtkGrid* grid = create_dialog_grid( 4, 4, 4 );
+				gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( grid ) );
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Vendor:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Version:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Renderer:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 2, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( reinterpret_cast<const char*>( glGetString( GL_VENDOR ) ) ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 1, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( reinterpret_cast<const char*>( glGetString( GL_VERSION ) ) ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 1, 2, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 1, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( reinterpret_cast<const char*>( glGetString( GL_RENDERER ) ) ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 1, 2, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 1, 2, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 			}
@@ -651,40 +623,32 @@ EMessageBoxReturn DoTextureLayout( float *fx, float *fy ){
 				gtk_label_set_justify( label, GTK_JUSTIFY_LEFT );
 			}
 			{
-				GtkTable* table = create_dialog_table( 2, 2, 4, 4 );
-				gtk_widget_show( GTK_WIDGET( table ) );
-				gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+				GtkGrid* grid = create_dialog_grid( 4, 4 );
+				gtk_widget_show( GTK_WIDGET( grid ) );
+				gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Texture x:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Texture y:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
-					gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
 					gtk_widget_show( GTK_WIDGET( entry ) );
-					gtk_table_attach( table, GTK_WIDGET( entry ), 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( entry ), 1, 0, 1, 1 );
 
 					x = entry;
 				}
 				{
 					GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
 					gtk_widget_show( GTK_WIDGET( entry ) );
-					gtk_table_attach( table, GTK_WIDGET( entry ), 1, 2, 1, 2,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( entry ), 1, 1, 1, 1 );
 
 					y = entry;
 				}

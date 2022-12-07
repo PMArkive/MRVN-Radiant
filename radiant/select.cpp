@@ -1271,36 +1271,28 @@ void DoRotateDlg(){
 			GtkBox* hbox = create_dialog_hbox( 4, 4 );
 			gtk_container_add( GTK_CONTAINER( g_rotate_dialog.window ), GTK_WIDGET( hbox ) );
 			{
-				GtkTable* table = create_dialog_table( 3, 2, 4, 4 );
-				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+				GtkGrid* grid = create_dialog_grid( 4, 4 );
+				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 				{
 					GtkWidget* label = gtk_label_new( "  X  " );
 					gtk_widget_show( label );
-					gtk_table_attach( table, label, 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( 0 ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 0, 1, 1 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "  Y  " );
 					gtk_widget_show( label );
-					gtk_table_attach( table, label, 0, 1, 1, 2,
-					                  (GtkAttachOptions) ( 0 ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 1, 1, 1 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "  Z  " );
 					gtk_widget_show( label );
-					gtk_table_attach( table, label, 0, 1, 2, 3,
-					                  (GtkAttachOptions) ( 0 ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 2, 1, 1 );
 				}
 				{
 					GtkAdjustment* adj = GTK_ADJUSTMENT( gtk_adjustment_new( 0, -359, 359, 1, 10, 0 ) );
 					GtkSpinButton* spin = GTK_SPIN_BUTTON( gtk_spin_button_new( adj, 1, 2 ) );
 					gtk_widget_show( GTK_WIDGET( spin ) );
-					gtk_table_attach( table, GTK_WIDGET( spin ), 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( spin ), 1, 0, 1, 1 );
 					gtk_widget_set_size_request( GTK_WIDGET( spin ), 64, -1 );
 					gtk_spin_button_set_wrap( spin, TRUE );
 
@@ -1312,9 +1304,7 @@ void DoRotateDlg(){
 					GtkAdjustment* adj = GTK_ADJUSTMENT( gtk_adjustment_new( 0, -359, 359, 1, 10, 0 ) );
 					GtkSpinButton* spin = GTK_SPIN_BUTTON( gtk_spin_button_new( adj, 1, 2 ) );
 					gtk_widget_show( GTK_WIDGET( spin ) );
-					gtk_table_attach( table, GTK_WIDGET( spin ), 1, 2, 1, 2,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( spin ), 1, 1, 1, 1 );
 					gtk_widget_set_size_request( GTK_WIDGET( spin ), 64, -1 );
 					gtk_spin_button_set_wrap( spin, TRUE );
 
@@ -1324,9 +1314,7 @@ void DoRotateDlg(){
 					GtkAdjustment* adj = GTK_ADJUSTMENT( gtk_adjustment_new( 0, -359, 359, 1, 10, 0 ) );
 					GtkSpinButton* spin = GTK_SPIN_BUTTON( gtk_spin_button_new( adj, 1, 2 ) );
 					gtk_widget_show( GTK_WIDGET( spin ) );
-					gtk_table_attach( table, GTK_WIDGET( spin ), 1, 2, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( spin ), 1, 2, 1, 1 );
 					gtk_widget_set_size_request( GTK_WIDGET( spin ), 64, -1 );
 					gtk_spin_button_set_wrap( spin, TRUE );
 
@@ -1425,36 +1413,28 @@ void DoScaleDlg(){
 			GtkBox* hbox = create_dialog_hbox( 4, 4 );
 			gtk_container_add( GTK_CONTAINER( g_scale_dialog.window ), GTK_WIDGET( hbox ) );
 			{
-				GtkTable* table = create_dialog_table( 3, 2, 4, 4 );
-				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+				GtkGrid* grid = create_dialog_grid( 4, 4 );
+				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 				{
 					GtkWidget* label = gtk_label_new( "  X  " );
 					gtk_widget_show( label );
-					gtk_table_attach( table, label, 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( 0 ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 0, 1, 1 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "  Y  " );
 					gtk_widget_show( label );
-					gtk_table_attach( table, label, 0, 1, 1, 2,
-					                  (GtkAttachOptions) ( 0 ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 1, 1, 1 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "  Z  " );
 					gtk_widget_show( label );
-					gtk_table_attach( table, label, 0, 1, 2, 3,
-					                  (GtkAttachOptions) ( 0 ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 2, 1, 1 );
 				}
 				{
 					GtkWidget* entry = gtk_entry_new();
 					gtk_entry_set_text( GTK_ENTRY( entry ), "1.0" );
 					gtk_widget_show( entry );
-					gtk_table_attach( table, entry, 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, entry, 1, 0, 1, 1 );
 
 					g_scale_dialog.x = entry;
 				}
@@ -1462,9 +1442,7 @@ void DoScaleDlg(){
 					GtkWidget* entry = gtk_entry_new();
 					gtk_entry_set_text( GTK_ENTRY( entry ), "1.0" );
 					gtk_widget_show( entry );
-					gtk_table_attach( table, entry, 1, 2, 1, 2,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, entry, 1, 1, 1, 1 );
 
 					g_scale_dialog.y = entry;
 				}
@@ -1472,9 +1450,7 @@ void DoScaleDlg(){
 					GtkWidget* entry = gtk_entry_new();
 					gtk_entry_set_text( GTK_ENTRY( entry ), "1.0" );
 					gtk_widget_show( entry );
-					gtk_table_attach( table, entry, 1, 2, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, entry, 1, 2, 1, 1 );
 
 					g_scale_dialog.z = entry;
 				}

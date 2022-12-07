@@ -98,18 +98,18 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
 
    // Create the contained widgets.
 
-   GtkWidget *table;
+   GtkWidget *grid;
    GtkWidget *entry;
    GtkWidget *applybutton, *refbutton, *button;
    GtkWidget *label;
    GtkWidget *mainvbox, *vbox, *hbox;
    GtkWidget *frame;
 
-   table = gtk_table_new(2, 2, FALSE);
-   gtk_table_set_row_spacing(GTK_TABLE(table), 0, 15);
-   gtk_table_set_col_spacing(GTK_TABLE(table), 0, 10);
-   gtk_container_add(GTK_CONTAINER(_dialog), table);
-   gtk_widget_show(table);
+   grid = gtk_grid_new();
+   gtk_grid_set_column_spacing( GTK_GRID(grid), 10 );
+   gtk_grid_set_row_spacing( GTK_GRID(grid), 15 );
+   gtk_container_add( GTK_CONTAINER(_dialog), grid );
+   gtk_widget_show( grid );
 
    // Checkbox for the "S" grouping of widgets. All the widgets in that
    // grouping will have a dependence registered on this checkbox; i.e. they
@@ -122,7 +122,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
 
    frame = gtk_frame_new(NULL);
    gtk_frame_set_label_widget(GTK_FRAME(frame), applybutton);
-   gtk_table_attach_defaults(GTK_TABLE(table), frame, 0, 1, 0, 1);
+   gtk_grid_attach( GTK_GRID(grid), frame, 0, 0, 1, 1 );
    gtk_widget_show(frame);
 
    mainvbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
@@ -325,7 +325,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
 
    frame = gtk_frame_new(NULL);
    gtk_frame_set_label_widget(GTK_FRAME(frame), applybutton);
-   gtk_table_attach_defaults(GTK_TABLE(table), frame, 1, 2, 0, 1);
+   gtk_grid_attach( GTK_GRID(grid), frame, 1, 0, 1, 1 );
    gtk_widget_show(frame);
 
    mainvbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
@@ -518,7 +518,7 @@ SetScaleDialog::SetScaleDialog(const std::string& key) :
    UIInstance().RegisterWidgetDependence(refbutton, button);
 
    hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
-   gtk_table_attach_defaults(GTK_TABLE(table), hbox, 0, 2, 1, 2);
+   gtk_grid_attach( GTK_GRID(grid), hbox, 0, 1, 2, 1 );
    gtk_widget_show(hbox);
 
    // Create Cancel button and hook it to callback.

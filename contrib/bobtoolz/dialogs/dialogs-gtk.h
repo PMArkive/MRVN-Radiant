@@ -105,7 +105,7 @@ EMessageBoxReturn DoBuildStairsBox( BuildStairsRS* rs );
 EMessageBoxReturn DoDoorsBox( DoorRS* rs );
 EMessageBoxReturn DoPathPlotterBox( PathPlotterRS* rs );
 EMessageBoxReturn DoCTFColourChangeBox();
-EMessageBoxReturn DoTrainThingBox( TrainThingRS* rs );
+//EMessageBoxReturn DoTrainThingBox( TrainThingRS* rs );
 EMessageBoxReturn DoMakeChainBox( MakeChainRS* rs );
 //GtkWidget* GetProgressWindow(char* title, GtkProgressBar* feedback);
 

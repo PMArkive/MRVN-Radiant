@@ -904,13 +904,11 @@ GtkWindow* BuildMenuDialog_construct( ModalDialog& modal, ProjectList& projectLi
 	GtkWidget* buildView = 0;
 
 	{
-		GtkTable* table1 = create_dialog_table( 3, 2, 4, 4, 4 );
-		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( table1 ) );
+		GtkGrid* grid1 = create_dialog_grid( 4, 4, 4 );
+		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( grid1 ) );
 		{
 			GtkBox* vbox = create_dialog_vbox( 4 );
-			gtk_table_attach( table1, GTK_WIDGET( vbox ), 1, 2, 0, 1,
-			                  (GtkAttachOptions) ( GTK_FILL ),
-			                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
+			gtk_grid_attach( grid1, GTK_WIDGET( vbox ), 1, 0, 1, 1 );
 			{
 				GtkButton* button = create_dialog_button( "OK", G_CALLBACK( dialog_button_ok ), &modal );
 				gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( button ), FALSE, FALSE, 0 );
@@ -927,9 +925,7 @@ GtkWindow* BuildMenuDialog_construct( ModalDialog& modal, ProjectList& projectLi
 		}
 		{
 			GtkFrame* frame = create_dialog_frame( "Build menu" );
-			gtk_table_attach( table1, GTK_WIDGET( frame ), 0, 1, 0, 1,
-			                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-			                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ), 0, 0 );
+			gtk_grid_attach( grid1, GTK_WIDGET( frame ), 0, 0, 1, 1 );
 			{
 				GtkScrolledWindow* scr = create_scrolled_window( GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC, 4 );
 				gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( scr ) );
@@ -966,9 +962,7 @@ GtkWindow* BuildMenuDialog_construct( ModalDialog& modal, ProjectList& projectLi
 		}
 		{
 			GtkFrame* frame = create_dialog_frame( "Commandline" );
-			gtk_table_attach( table1, GTK_WIDGET( frame ), 0, 1, 1, 2,
-			                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-			                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ), 0, 0 );
+			gtk_grid_attach( grid1, GTK_WIDGET( frame ), 0, 1, 1, 1 );
 			{
 				GtkScrolledWindow* scr = create_scrolled_window( GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC, 4 );
 				gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( scr ) );
@@ -1008,9 +1002,7 @@ GtkWindow* BuildMenuDialog_construct( ModalDialog& modal, ProjectList& projectLi
 		{
 			GtkWidget* expander = gtk_expander_new_with_mnemonic( "build variables" );
 			gtk_widget_show( expander );
-			gtk_table_attach( table1, expander, 0, 2, 2, 3,
-			                  (GtkAttachOptions) ( GTK_FILL ),
-			                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
+			gtk_grid_attach( grid1, GTK_WIDGET( expander ), 0, 2, 1, 1 );
 
 			bsp_init();
 			for ( Tools::iterator i = g_build_tools.begin(); i != g_build_tools.end(); ++i ){

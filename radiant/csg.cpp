@@ -1465,15 +1465,13 @@ void CSG_Tool(){
 			GtkBox* hbox = create_dialog_hbox( 4, 4 );
 			gtk_container_add( GTK_CONTAINER( g_csgtool_dialog.window ), GTK_WIDGET( hbox ) );
 			{
-				GtkTable* table = create_dialog_table( 3, 8, 4, 4 );
-				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+				GtkGrid* grid = create_dialog_grid( 4, 4 );
+				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 				{
 					//GtkWidget* label = gtk_label_new( "<->" );
 					//gtk_widget_show( label );
 					GtkWidget* button = gtk_button_new_with_label( "Grid->" );
-					gtk_table_attach( table, button, 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( 0 ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 0, 0, 1, 1 );
 					gtk_widget_show( button );
 					g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( CSGdlg_grid2spin ), &g_csgtool_dialog );
 				}
@@ -1482,9 +1480,7 @@ void CSG_Tool(){
 					GtkSpinButton* spin = GTK_SPIN_BUTTON( gtk_spin_button_new( adj, 1, 3 ) );
 					gtk_widget_show( GTK_WIDGET( spin ) );
 					gtk_widget_set_tooltip_text( GTK_WIDGET( spin ), "Thickness" );
-					gtk_table_attach( table, GTK_WIDGET( spin ), 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( spin ), 1, 0, 1, 1 );
 					gtk_widget_set_size_request( GTK_WIDGET( spin ), 64, -1 );
 					gtk_spin_button_set_numeric( spin, TRUE );
 
@@ -1506,18 +1502,10 @@ void CSG_Tool(){
 					gtk_widget_show( radProj );
 					gtk_widget_show( radCam );
 
-					gtk_table_attach( table, radFaces, 2, 3, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
-					gtk_table_attach( table, radPlusFaces, 3, 4, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
-					gtk_table_attach( table, radProj, 4, 5, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
-					gtk_table_attach( table, radCam, 5, 6, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, radFaces, 2, 0, 1, 1 );
+					gtk_grid_attach( grid, radPlusFaces, 3, 0, 1, 1 );
+					gtk_grid_attach( grid, radProj, 4, 0, 1, 1 );
+					gtk_grid_attach( grid, radCam, 5, 0, 1, 1 );
 
 					g_csgtool_dialog.radFaces = GTK_TOGGLE_BUTTON( radFaces );
 					g_csgtool_dialog.radPlusFaces = GTK_TOGGLE_BUTTON( radPlusFaces );
@@ -1528,9 +1516,7 @@ void CSG_Tool(){
 					GtkWidget* button = gtk_toggle_button_new();
 					button_set_icon( GTK_BUTTON( button ), "f-caulk.png" );
 					gtk_button_set_relief( GTK_BUTTON( button ), GTK_RELIEF_NONE );
-					gtk_table_attach( table, button, 6, 7, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 6, 0, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Caulk some faces" );
 					gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON( button ), TRUE );
 					gtk_widget_show( button );
@@ -1540,9 +1526,7 @@ void CSG_Tool(){
 					GtkWidget* button = gtk_toggle_button_new();
 					button_set_icon( GTK_BUTTON( button ), "csgtool_removeinner.png" );
 					gtk_button_set_relief( GTK_BUTTON( button ), GTK_RELIEF_NONE );
-					gtk_table_attach( table, button, 7, 8, 0, 1,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 7, 0, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Remove inner brush" );
 					gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON( button ), TRUE );
 					gtk_widget_show( button );
@@ -1551,16 +1535,12 @@ void CSG_Tool(){
 				{
 					GtkWidget* sep = gtk_hseparator_new();
 					gtk_widget_show( sep );
-					gtk_table_attach( table, sep, 0, 8, 1, 2,
-					                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, sep, 0, 1, 8, 1 );
 				}
 				{
 					GtkWidget* button = gtk_button_new();
 					button_set_icon( GTK_BUTTON( button ), "csgtool_shrink.png" );
-					gtk_table_attach( table, button, 0, 1, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 0, 2, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Shrink brush" );
 					gtk_widget_show( button );
 					g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( CSGdlg_BrushShrink ), &g_csgtool_dialog );
@@ -1568,9 +1548,7 @@ void CSG_Tool(){
 				{
 					GtkWidget* button = gtk_button_new();
 					button_set_icon( GTK_BUTTON( button ), "csgtool_expand.png" );
-					gtk_table_attach( table, button, 1, 2, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 1, 2, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Expand brush" );
 					gtk_widget_show( button );
 					g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( CSGdlg_BrushExpand ), &g_csgtool_dialog );
@@ -1578,9 +1556,7 @@ void CSG_Tool(){
 				{
 					GtkWidget* button = gtk_button_new();
 					button_set_icon( GTK_BUTTON( button ), "csgtool_diagonal.png" );
-					gtk_table_attach( table, button, 3, 4, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 4, 2, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Hollow::diagonal joints" );
 					gtk_widget_show( button );
 					g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( CSGdlg_HollowDiag ), &g_csgtool_dialog );
@@ -1588,9 +1564,7 @@ void CSG_Tool(){
 				{
 					GtkWidget* button = gtk_button_new();
 					button_set_icon( GTK_BUTTON( button ), "csgtool_wrap.png" );
-					gtk_table_attach( table, button, 4, 5, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 5, 2, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Hollow::wrap" );
 					gtk_widget_show( button );
 					g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( CSGdlg_HollowWrap ), &g_csgtool_dialog );
@@ -1598,9 +1572,7 @@ void CSG_Tool(){
 				{
 					GtkWidget* button = gtk_button_new();
 					button_set_icon( GTK_BUTTON( button ), "csgtool_extrude.png" );
-					gtk_table_attach( table, button, 5, 6, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 6, 2, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Hollow::extrude faces" );
 					gtk_widget_show( button );
 					g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( CSGdlg_HollowExtrude ), &g_csgtool_dialog );
@@ -1608,9 +1580,7 @@ void CSG_Tool(){
 				{
 					GtkWidget* button = gtk_button_new();
 					button_set_icon( GTK_BUTTON( button ), "csgtool_pull.png" );
-					gtk_table_attach( table, button, 6, 7, 2, 3,
-					                  (GtkAttachOptions) ( GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 7, 2, 1, 1 );
 					gtk_widget_set_tooltip_text( button, "Hollow::pull faces" );
 					gtk_widget_show( button );
 					g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( CSGdlg_HollowPull ), &g_csgtool_dialog );

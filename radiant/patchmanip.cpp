@@ -989,22 +989,18 @@ void DoNewPatchDlg( EPatchPrefab prefab, int minrows, int mincols, int defrows, 
 		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
-			GtkTable* table = create_dialog_table( 3, 2, 4, 4 );
-			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+			GtkGrid* grid = create_dialog_grid( 4, 4 );
+			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Width:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
-				gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 0, 1,
-				                  (GtkAttachOptions) ( GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
 				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Height:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
-				gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 1, 2,
-				                  (GtkAttachOptions) ( GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 1, 1, 1 );
 				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 
@@ -1028,9 +1024,7 @@ void DoNewPatchDlg( EPatchPrefab prefab, int minrows, int mincols, int defrows, 
 				D_ITEM( 31 ); // MAX_PATCH_SIZE is 32, so we should be able to do 31...
 #undef D_ITEM
 				gtk_widget_show( GTK_WIDGET( combo ) );
-				gtk_table_attach( table, GTK_WIDGET( combo ), 1, 2, 0, 1,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( combo ), 1, 0, 1, 1 );
 
 				width = GTK_COMBO_BOX( combo );
 			}
@@ -1054,9 +1048,7 @@ void DoNewPatchDlg( EPatchPrefab prefab, int minrows, int mincols, int defrows, 
 				D_ITEM( 31 ); // MAX_PATCH_SIZE is 32, so we should be able to do 31...
 #undef D_ITEM
 				gtk_widget_show( GTK_WIDGET( combo ) );
-				gtk_table_attach( table, GTK_WIDGET( combo ), 1, 2, 1, 2,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( combo ), 1, 1, 1, 1 );
 
 				height = GTK_COMBO_BOX( combo );
 			}
@@ -1066,9 +1058,7 @@ void DoNewPatchDlg( EPatchPrefab prefab, int minrows, int mincols, int defrows, 
 				gtk_widget_set_tooltip_text( _redisperseCheckBox, "Redisperse columns & rows" );
 				gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON( _redisperseCheckBox ), FALSE );
 				gtk_widget_show( _redisperseCheckBox );
-				gtk_table_attach( table, _redisperseCheckBox, 0, 2, 2, 3,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( _redisperseCheckBox ), 0, 3, 2, 1 );
 				redisperseCheckBox = _redisperseCheckBox;
 			}
 
@@ -1126,14 +1116,12 @@ void DoPatchDeformDlg(){
 		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
-			GtkTable* table = create_dialog_table( 2, 2, 4, 4 );
-			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+			GtkGrid* grid = create_dialog_grid( 4, 4 );
+			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Max deform:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
-				gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 0, 1,
-				                  (GtkAttachOptions) ( GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
 				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 //			{
@@ -1150,9 +1138,7 @@ void DoPatchDeformDlg(){
 				GtkAdjustment* adj = GTK_ADJUSTMENT( gtk_adjustment_new( 64, -9999, 9999, 1, 10, 0 ) );
 				GtkWidget* spin = gtk_spin_button_new( adj, 1, 0 );
 				gtk_widget_show( spin );
-				gtk_table_attach( table, spin, 1, 2, 0, 1,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, spin, 1, 0, 1, 1 );
 				gtk_widget_set_size_request( spin, 64, -1 );
 				gtk_spin_button_set_numeric( GTK_SPIN_BUTTON( spin ), TRUE );
 
@@ -1169,9 +1155,7 @@ void DoPatchDeformDlg(){
 
 
 				GtkBox* _hbox = create_dialog_hbox( 4, 4 );
-				gtk_table_attach( table, GTK_WIDGET( _hbox ), 0, 2, 1, 2,
-				                  (GtkAttachOptions) ( GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( _hbox ), 0, 1, 2, 1 );
 				gtk_box_pack_start( GTK_BOX( _hbox ), GTK_WIDGET( _rndX ), TRUE, TRUE, 0 );
 				gtk_box_pack_start( GTK_BOX( _hbox ), GTK_WIDGET( _rndY ), TRUE, TRUE, 0 );
 				gtk_box_pack_start( GTK_BOX( _hbox ), GTK_WIDGET( _rndZ ), TRUE, TRUE, 0 );
@@ -1390,14 +1374,12 @@ void DoPatchThickenDlg(){
 		GtkBox* hbox = create_dialog_hbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( hbox ) );
 		{
-			GtkTable* table = create_dialog_table( 2, 4, 4, 4 );
-			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+			GtkGrid* grid = create_dialog_grid( 4, 4 );
+			gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Thickness:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
-				gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 0, 1,
-				                  (GtkAttachOptions) ( GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
 				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 //			{
@@ -1412,13 +1394,11 @@ void DoPatchThickenDlg(){
 //				thicknessW = entry;
 //			}
 			{
-				const float grid = std::max( GetGridSize(), 1.f );
-				GtkAdjustment* adj = GTK_ADJUSTMENT( gtk_adjustment_new( grid, -9999, 9999, grid, 16, 0 ) );
+				const float _grid = std::max( GetGridSize(), 1.f );
+				GtkAdjustment* adj = GTK_ADJUSTMENT( gtk_adjustment_new( _grid, -9999, 9999, _grid, 16, 0 ) );
 				GtkWidget* spin = gtk_spin_button_new( adj, 1, 0 );
 				gtk_widget_show( spin );
-				gtk_table_attach( table, spin, 1, 2, 0, 1,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( spin ), 1, 0, 1, 1 );
 				gtk_widget_set_size_request( spin, 48, -1 );
 				gtk_spin_button_set_numeric( GTK_SPIN_BUTTON( spin ), TRUE );
 
@@ -1431,9 +1411,7 @@ void DoPatchThickenDlg(){
 				GtkWidget* _seamsCheckBox = gtk_check_button_new_with_label( "Side walls" );
 				gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON( _seamsCheckBox ), TRUE );
 				gtk_widget_show( _seamsCheckBox );
-				gtk_table_attach( table, _seamsCheckBox, 2, 4, 0, 1,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( _seamsCheckBox ), 2, 0, 2, 1 );
 				seamsW = _seamsCheckBox;
 
 			}
@@ -1450,18 +1428,11 @@ void DoPatchThickenDlg(){
 
 
 				// Pack the buttons into the table
-				gtk_table_attach( table, _radNormals, 0, 1, 1, 2,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
-				gtk_table_attach( table, _radX, 1, 2, 1, 2,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
-				gtk_table_attach( table, _radY, 2, 3, 1, 2,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
-				gtk_table_attach( table, _radZ, 3, 4, 1, 2,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				
+				gtk_grid_attach( grid, GTK_WIDGET( _radNormals ), 0, 1, 1, 1 );
+				gtk_grid_attach( grid, GTK_WIDGET( _radX ), 1, 1, 1, 1 );
+				gtk_grid_attach( grid, GTK_WIDGET( _radY ), 2, 1, 1, 1 );
+				gtk_grid_attach( grid, GTK_WIDGET( _radZ ), 3, 1, 1, 1 );
 				radX = _radX;
 				radY = _radY;
 				radZ = _radZ;

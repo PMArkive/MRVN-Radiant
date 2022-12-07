@@ -49,6 +49,7 @@ GtkWindow* create_fixedsize_modal_window( GtkWindow* parent, const char* title, 
 
 GtkWindow* create_dialog_window( GtkWindow* parent, const char* title, GCallback func, gpointer data, int default_w = -1, int default_h = -1 );
 GtkTable* create_dialog_table( unsigned int rows, unsigned int columns, unsigned int row_spacing, unsigned int col_spacing, int border = 0 );
+GtkGrid* create_dialog_grid( unsigned int row_spacing, unsigned int col_spacing, int border = 0 );
 GtkButton* create_dialog_button( const char* label, GCallback func, gpointer data );
 GtkBox* create_dialog_vbox( int spacing, int border = 0 );
 GtkBox* create_dialog_hbox( int spacing, int border = 0 );

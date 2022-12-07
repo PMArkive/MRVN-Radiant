@@ -238,7 +238,7 @@ static void OnClip( GtkWidget *widget, gpointer data ){
 }
 
 void DoConfigDialog(){
-	GtkWidget *dlg, *hbox, *vbox, *vbox2, *button, *table, *frame;
+	GtkWidget *dlg, *hbox, *vbox, *vbox2, *button, *grid, *frame;
 	GtkWidget *lw3slider, *lw3label, *lw2slider, *lw2label, *zlist;
 	GtkWidget *aa2check, *aa3check, *depthcheck, *linescheck, *polyscheck;
 	GtkWidget *transslider, *translabel, *clipslider, *cliplabel;
@@ -286,52 +286,40 @@ void DoConfigDialog(){
 	gtk_box_pack_start( GTK_BOX( hbox ), lw3label, FALSE, TRUE, 0 );
 	g_signal_connect( adj, "value_changed", G_CALLBACK( OnScroll3d ), lw3label );
 
-	table = gtk_table_new( 2, 4, FALSE );
-	gtk_widget_show( table );
-	gtk_box_pack_start( GTK_BOX( vbox2 ), table, TRUE, TRUE, 0 );
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
+	grid = gtk_grid_new();
+	gtk_widget_show( grid );
+	gtk_box_pack_start( GTK_BOX(vbox2), grid, TRUE, TRUE, 0 );
+	gtk_grid_set_column_spacing( GTK_GRID(grid), 5 );
+	gtk_grid_set_row_spacing( GTK_GRID(grid), 5 );
 
 	button = gtk_button_new_with_label( "Color" );
 	gtk_widget_show( button );
-	gtk_table_attach( GTK_TABLE( table ), button, 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), button, 0, 0, 1, 1 );
 	g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( OnColor3d ), NULL );
 
 	button = gtk_button_new_with_label( "Depth Color" );
 	gtk_widget_show( button );
-	gtk_table_attach( GTK_TABLE( table ), button, 0, 1, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), button, 0, 1, 1, 1 );
 	g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( OnColorFog ), NULL );
 
 	aa3check = gtk_check_button_new_with_label( "Anti-Alias (May not work on some video cards)" );
 	gtk_widget_show( aa3check );
-	gtk_table_attach( GTK_TABLE( table ), aa3check, 1, 4, 0, 1,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), aa3check, 1, 0, 1, 1 );
 	g_signal_connect( G_OBJECT( aa3check ), "toggled", G_CALLBACK( OnAntiAlias3d ), NULL );
 
 	depthcheck = gtk_check_button_new_with_label( "Depth Cue" );
 	gtk_widget_show( depthcheck );
-	gtk_table_attach( GTK_TABLE( table ), depthcheck, 1, 2, 1, 2,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), depthcheck, 1, 1, 1, 1 );
 	g_signal_connect( G_OBJECT( depthcheck ), "toggled", G_CALLBACK( OnFog ), NULL );
 
 	linescheck = gtk_check_button_new_with_label( "Lines" );
 	gtk_widget_show( linescheck );
-	gtk_table_attach( GTK_TABLE( table ), linescheck, 2, 3, 1, 2,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), linescheck, 2, 1, 1, 1 );
 	g_signal_connect( G_OBJECT( linescheck ), "toggled", G_CALLBACK( OnLines ), NULL );
 
 	polyscheck = gtk_check_button_new_with_label( "Polygons" );
 	gtk_widget_show( polyscheck );
-	gtk_table_attach( GTK_TABLE( table ), polyscheck, 3, 4, 1, 2,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), polyscheck, 3, 1, 1, 1 );
 	g_signal_connect( G_OBJECT( polyscheck ), "toggled", G_CALLBACK( OnPoly ), NULL );
 
 	zlist = gtk_combo_box_text_new();
@@ -344,41 +332,33 @@ void DoConfigDialog(){
 
 	g_signal_connect( G_OBJECT( zlist ), "changed", G_CALLBACK( OnSelchangeZbuffer ), nullptr );
 
-	table = gtk_table_new( 2, 2, FALSE );
-	gtk_widget_show( table );
-	gtk_box_pack_start( GTK_BOX( vbox2 ), table, TRUE, TRUE, 0 );
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
+	grid = gtk_grid_new();
+	gtk_widget_show( grid );
+	gtk_box_pack_start( GTK_BOX(vbox2), grid, TRUE, TRUE, 0 );
+	gtk_grid_set_column_spacing( GTK_GRID(grid), 5 );
+	gtk_grid_set_row_spacing( GTK_GRID(grid), 5 );
 
 	adj = gtk_adjustment_new( portals.trans_3d, 0, 100, 1, 1, 0 );
 	transslider = gtk_hscale_new( GTK_ADJUSTMENT( adj ) );
 	gtk_widget_show( transslider );
-	gtk_table_attach( GTK_TABLE( table ), transslider, 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), transslider, 0, 0, 1, 1 );
 	gtk_scale_set_draw_value( GTK_SCALE( transslider ), FALSE );
 
 	translabel = gtk_label_new( "" );
 	gtk_widget_show( translabel );
-	gtk_table_attach( GTK_TABLE( table ), translabel, 1, 2, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), translabel, 1, 0, 1, 1 );
 	gtk_misc_set_alignment( GTK_MISC( translabel ), 0.0, 0.0 );
 	g_signal_connect( adj, "value_changed", G_CALLBACK( OnScrollTrans ), translabel );
 
 	adj = gtk_adjustment_new( portals.clip_range, 1, 128, 1, 1, 0 );
 	clipslider = gtk_hscale_new( GTK_ADJUSTMENT( adj ) );
 	gtk_widget_show( clipslider );
-	gtk_table_attach( GTK_TABLE( table ), clipslider, 0, 1, 1, 2,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), clipslider, 0, 1, 1, 1 );
 	gtk_scale_set_draw_value( GTK_SCALE( clipslider ), FALSE );
 
 	cliplabel = gtk_label_new( "" );
 	gtk_widget_show( cliplabel );
-	gtk_table_attach( GTK_TABLE( table ), cliplabel, 1, 2, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID(grid), cliplabel, 1, 1, 1, 1 );
 	gtk_misc_set_alignment( GTK_MISC( cliplabel ), 0.0, 0.0 );
 	g_signal_connect( adj, "value_changed", G_CALLBACK( OnScrollClip ), cliplabel );
 

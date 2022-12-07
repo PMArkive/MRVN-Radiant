@@ -891,107 +891,83 @@ void DoMapInfo(){
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );
 
 			{
-				GtkTable* table = create_dialog_table( 3, 4, 4, 4 );
-				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+				GtkGrid* grid = create_dialog_grid( 4, 4 );
+				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 				{
 					GtkWidget* label = gtk_label_new( "Total Brushes:" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 3, 0 );
+					gtk_grid_attach( grid, label, 1, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_brushes = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Total Patches:" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 2, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 3, 4, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 3, 0 );
+					gtk_grid_attach( grid, label, 3, 0, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_patches = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Total Entities:" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 1, 2, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 3, 0 );
+					gtk_grid_attach( grid, label, 1, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_ents = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Ingame Entities:" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 2, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 3, 4, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 3, 0 );
+					gtk_grid_attach( grid, label, 3, 1, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_ents_ingame = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Group Entities:" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 0, 2, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 1, 2, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 3, 0 );
+					gtk_grid_attach( grid, label, 1, 2, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_groupents = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Ingame Group Entities:" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, label, 2, 2, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
-					gtk_table_attach( GTK_TABLE( table ), label, 3, 4, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 3, 0 );
+					gtk_grid_attach( grid, label, 3, 2, 1, 1 );
 					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_groupents_ingame = label;
 				}
@@ -2205,37 +2181,29 @@ void DoFind(){
 		GtkBox* vbox = create_dialog_vbox( 4, 4 );
 		gtk_container_add( GTK_CONTAINER( window ), GTK_WIDGET( vbox ) );
 		{
-			GtkTable* table = create_dialog_table( 2, 2, 4, 4 );
-			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
+			GtkGrid* grid = create_dialog_grid( 4, 4 );
+			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
 			{
 				GtkWidget* label = gtk_label_new( "Entity number" );
 				gtk_widget_show( label );
-				gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 0, 1,
-				                  (GtkAttachOptions) ( 0 ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, label, 0, 0, 1, 1 );
 			}
 			{
 				GtkWidget* label = gtk_label_new( "Brush number" );
 				gtk_widget_show( label );
-				gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 1, 2,
-				                  (GtkAttachOptions) ( 0 ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, label, 0, 1, 1, 1 );
 			}
 			{
 				GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
 				gtk_widget_show( GTK_WIDGET( entry ) );
-				gtk_table_attach( table, GTK_WIDGET( entry ), 1, 2, 0, 1,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( entry ), 1, 0, 1, 1 );
 				gtk_widget_grab_focus( GTK_WIDGET( entry ) );
 				entity = entry;
 			}
 			{
 				GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
 				gtk_widget_show( GTK_WIDGET( entry ) );
-				gtk_table_attach( table, GTK_WIDGET( entry ), 1, 2, 1, 2,
-				                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-				                  (GtkAttachOptions) ( 0 ), 0, 0 );
+				gtk_grid_attach( grid, GTK_WIDGET( entry ), 1, 1, 1, 1 );
 
 				brush = entry;
 			}

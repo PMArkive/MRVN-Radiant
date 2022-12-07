@@ -575,31 +575,27 @@ void Dialog::addRadio( GtkWidget* vbox, const char* name, int& data, StringArray
 }
 
 void Dialog::addRadioIcons( GtkWidget* vbox, const char* name, StringArrayRange icons, const IntImportCallback& importViewer, const IntExportCallback& exportViewer ){
-	GtkWidget* table = gtk_table_new( 2, icons.size(), FALSE );
-	gtk_widget_show( table );
+	GtkWidget* grid = gtk_grid_new();
+	gtk_widget_show( grid );
 
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
+	gtk_grid_set_row_spacing( GTK_GRID( grid ), 5 );
+	gtk_grid_set_column_spacing( GTK_GRID( grid ), 5 );
 
 	GtkWidget* radio = 0;
 	for ( size_t i = 0; i < icons.size(); ++i )
 	{
 		GtkImage* image = new_local_image( icons[i] );
 		gtk_widget_show( GTK_WIDGET( image ) );
-		gtk_table_attach( GTK_TABLE( table ), GTK_WIDGET( image ), i, i + 1, 0, 1,
-		                  (GtkAttachOptions) ( 0 ),
-		                  (GtkAttachOptions) ( 0 ), 0, 0 );
+		gtk_grid_attach( GTK_GRID( grid ), GTK_WIDGET( image ), 0, i, 1, 1 );
 
 		radio = gtk_radio_button_new_from_widget( GTK_RADIO_BUTTON( radio ) );
 		gtk_widget_show( radio );
-		gtk_table_attach( GTK_TABLE( table ), radio, i, i + 1, 1, 2,
-		                  (GtkAttachOptions) ( 0 ),
-		                  (GtkAttachOptions) ( 0 ), 0, 0 );
+		gtk_grid_attach( GTK_GRID( grid ), radio, 1, i, 1, 1 );
 	}
 
 	AddIntRadioData( *GTK_RADIO_BUTTON( radio ), importViewer, exportViewer );
 
-	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( DialogRow_new( name, table ) ) );
+	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( DialogRow_new( name, grid ) ) );
 }
 
 void Dialog::addRadioIcons( GtkWidget* vbox, const char* name, int& data, StringArrayRange icons ){

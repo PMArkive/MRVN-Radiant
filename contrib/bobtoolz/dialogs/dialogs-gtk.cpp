@@ -1296,7 +1296,7 @@ EMessageBoxReturn DoCTFColourChangeBox(){
 EMessageBoxReturn DoResetTextureBox( ResetTextureRS* rs ){
 	Str texSelected;
 
-	GtkWidget *window, *w, *vbox, *hbox, *frame, *table;
+	GtkWidget *window, *w, *vbox, *hbox, *frame, *grid;
 
 	EMessageBoxReturn ret;
 	int loop = 1;
@@ -1342,47 +1342,39 @@ EMessageBoxReturn DoResetTextureBox( ResetTextureRS* rs ){
 	gtk_widget_show( frame );
 	gtk_box_pack_start( GTK_BOX( vbox ), frame, FALSE, TRUE, 0 );
 
-	table = gtk_table_new( 2, 3, TRUE );
-	gtk_widget_show( table );
-	gtk_container_add( GTK_CONTAINER( frame ), table );
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
-	gtk_container_set_border_width( GTK_CONTAINER( table ), 5 );
+	grid = gtk_grid_new();
+	gtk_widget_show( grid );
+	gtk_container_add( GTK_CONTAINER( frame ), grid );
+	gtk_grid_set_column_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_row_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_column_spacing( GTK_GRID( grid ), 5 );
+	gtk_grid_set_row_spacing( GTK_GRID( grid ), 5 );
+	gtk_container_set_border_width( GTK_CONTAINER( grid ), 5 );
 
 	// ---- frame ----
 
 	dlgTexReset.cbTexChange = gtk_check_button_new_with_label( "Enabled" );
 	g_signal_connect( G_OBJECT( dlgTexReset.cbTexChange ), "toggled", G_CALLBACK( dialog_button_callback_texreset_update ), NULL );
 	gtk_widget_show( dlgTexReset.cbTexChange );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.cbTexChange, 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.cbTexChange, 0, 0, 1, 1 );
 
 	w = gtk_label_new( "Old Name: " );
-	gtk_table_attach( GTK_TABLE( table ), w, 1, 2, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( w );
+	gtk_grid_attach( GTK_GRID( grid ), w, 1, 0, 1, 1 );
 
 	dlgTexReset.editTexOld = entry_new_with_max_length( 256 );
 	gtk_entry_set_text( GTK_ENTRY( dlgTexReset.editTexOld ), rs->textureName );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.editTexOld, 2, 3, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( dlgTexReset.editTexOld );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.editTexOld, 2, 0, 1, 1 );
 
 	w = gtk_label_new( "New Name: " );
-	gtk_table_attach( GTK_TABLE( table ), w, 1, 2, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( w );
+	gtk_grid_attach( GTK_GRID( grid ), w, 1, 1, 1, 1 );
 
 	dlgTexReset.editTexNew = entry_new_with_max_length( 256 );
 	gtk_entry_set_text( GTK_ENTRY( dlgTexReset.editTexNew ), rs->textureName );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.editTexNew, 2, 3, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( dlgTexReset.editTexNew );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.editTexNew, 2, 1, 1, 1 );
 
 	// ---- /frame ----
 
@@ -1390,55 +1382,45 @@ EMessageBoxReturn DoResetTextureBox( ResetTextureRS* rs ){
 	gtk_widget_show( frame );
 	gtk_box_pack_start( GTK_BOX( vbox ), frame, FALSE, TRUE, 0 );
 
-	table = gtk_table_new( 2, 3, TRUE );
-	gtk_widget_show( table );
-	gtk_container_add( GTK_CONTAINER( frame ), table );
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
-	gtk_container_set_border_width( GTK_CONTAINER( table ), 5 );
+	grid = gtk_grid_new();
+	gtk_widget_show( grid );
+	gtk_container_add( GTK_CONTAINER( frame ), grid );
+	gtk_grid_set_column_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_row_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_column_spacing( GTK_GRID( grid ), 5 );
+	gtk_grid_set_row_spacing( GTK_GRID( grid ), 5 );
+	gtk_container_set_border_width( GTK_CONTAINER( grid ), 5 );
 
 	// ---- frame ----
 
 	dlgTexReset.cbScaleHor = gtk_check_button_new_with_label( "Enabled" );
 	g_signal_connect( G_OBJECT( dlgTexReset.cbScaleHor ), "toggled", G_CALLBACK( dialog_button_callback_texreset_update ), NULL );
 	gtk_widget_show( dlgTexReset.cbScaleHor );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.cbScaleHor, 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.cbScaleHor, 0, 0, 1, 1 );
 
 	w = gtk_label_new( "New Horizontal Scale: " );
-	gtk_table_attach( GTK_TABLE( table ), w, 1, 2, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( w );
+	gtk_grid_attach( GTK_GRID( grid ), w, 1, 0, 1, 1 );
 
 	dlgTexReset.editScaleHor = entry_new_with_max_length( 256 );
 	gtk_entry_set_text( GTK_ENTRY( dlgTexReset.editScaleHor ), "0.5" );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.editScaleHor, 2, 3, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( dlgTexReset.editScaleHor );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.editScaleHor, 2, 0, 1, 1 );
 
 
 	dlgTexReset.cbScaleVert = gtk_check_button_new_with_label( "Enabled" );
 	g_signal_connect( G_OBJECT( dlgTexReset.cbScaleVert ), "toggled", G_CALLBACK( dialog_button_callback_texreset_update ), NULL );
 	gtk_widget_show( dlgTexReset.cbScaleVert );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.cbScaleVert, 0, 1, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.cbScaleVert, 0, 1, 1, 1 );
 
 	w = gtk_label_new( "New Vertical Scale: " );
-	gtk_table_attach( GTK_TABLE( table ), w, 1, 2, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( w );
+	gtk_grid_attach( GTK_GRID( grid ), w, 1, 1, 1, 1 );
 
 	dlgTexReset.editScaleVert = entry_new_with_max_length( 256 );
 	gtk_entry_set_text( GTK_ENTRY( dlgTexReset.editScaleVert ), "0.5" );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.editScaleVert, 2, 3, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( dlgTexReset.editScaleVert );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.editScaleVert, 2, 1, 1, 1 );
 
 	// ---- /frame ----
 
@@ -1446,55 +1428,45 @@ EMessageBoxReturn DoResetTextureBox( ResetTextureRS* rs ){
 	gtk_widget_show( frame );
 	gtk_box_pack_start( GTK_BOX( vbox ), frame, FALSE, TRUE, 0 );
 
-	table = gtk_table_new( 2, 3, TRUE );
-	gtk_widget_show( table );
-	gtk_container_add( GTK_CONTAINER( frame ), table );
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
-	gtk_container_set_border_width( GTK_CONTAINER( table ), 5 );
+	grid = gtk_grid_new();
+	gtk_widget_show( grid );
+	gtk_container_add( GTK_CONTAINER( frame ), grid );
+	gtk_grid_set_column_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_row_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_column_spacing( GTK_GRID( grid ), 5 );
+	gtk_grid_set_row_spacing( GTK_GRID( grid ), 5 );
+	gtk_container_set_border_width( GTK_CONTAINER( grid ), 5 );
 
 	// ---- frame ----
 
 	dlgTexReset.cbShiftHor = gtk_check_button_new_with_label( "Enabled" );
 	g_signal_connect( G_OBJECT( dlgTexReset.cbShiftHor ), "toggled", G_CALLBACK( dialog_button_callback_texreset_update ), NULL );
 	gtk_widget_show( dlgTexReset.cbShiftHor );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.cbShiftHor, 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.cbShiftHor, 0, 0, 1, 1 );
 
 	w = gtk_label_new( "New Horizontal Shift: " );
-	gtk_table_attach( GTK_TABLE( table ), w, 1, 2, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( w );
+	gtk_grid_attach( GTK_GRID( grid ), w, 1, 0, 1, 1 );
 
 	dlgTexReset.editShiftHor = entry_new_with_max_length( 256 );
 	gtk_entry_set_text( GTK_ENTRY( dlgTexReset.editShiftHor ), "0" );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.editShiftHor, 2, 3, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( dlgTexReset.editShiftHor );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.editShiftHor, 2, 0, 1, 1 );
 
 
 	dlgTexReset.cbShiftVert = gtk_check_button_new_with_label( "Enabled" );
 	g_signal_connect( G_OBJECT( dlgTexReset.cbShiftVert ), "toggled", G_CALLBACK( dialog_button_callback_texreset_update ), NULL );
 	gtk_widget_show( dlgTexReset.cbShiftVert );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.cbShiftVert, 0, 1, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.cbShiftVert, 0, 1, 1, 1 );
 
 	w = gtk_label_new( "New Vertical Shift: " );
-	gtk_table_attach( GTK_TABLE( table ), w, 1, 2, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( w );
+	gtk_grid_attach( GTK_GRID( grid ), w, 1, 1, 1, 1 );
 
 	dlgTexReset.editShiftVert = entry_new_with_max_length( 256 );
 	gtk_entry_set_text( GTK_ENTRY( dlgTexReset.editShiftVert ), "0" );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.editShiftVert, 2, 3, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( dlgTexReset.editShiftVert );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.editShiftVert, 2, 1, 1, 1 );
 
 	// ---- /frame ----
 
@@ -1502,33 +1474,29 @@ EMessageBoxReturn DoResetTextureBox( ResetTextureRS* rs ){
 	gtk_widget_show( frame );
 	gtk_box_pack_start( GTK_BOX( vbox ), frame, FALSE, TRUE, 0 );
 
-	table = gtk_table_new( 1, 3, TRUE );
-	gtk_widget_show( table );
-	gtk_container_add( GTK_CONTAINER( frame ), table );
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
-	gtk_container_set_border_width( GTK_CONTAINER( table ), 5 );
+	grid = gtk_grid_new();
+	gtk_widget_show( grid );
+	gtk_container_add( GTK_CONTAINER( frame ), grid );
+	gtk_grid_set_column_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_row_homogeneous( GTK_GRID( grid ), TRUE );
+	gtk_grid_set_column_spacing( GTK_GRID( grid ), 5 );
+	gtk_grid_set_row_spacing( GTK_GRID( grid ), 5 );
+	gtk_container_set_border_width( GTK_CONTAINER( grid ), 5 );
 
 	// ---- frame ----
 
 	dlgTexReset.cbRotation = gtk_check_button_new_with_label( "Enabled" );
 	gtk_widget_show( dlgTexReset.cbRotation );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.cbRotation, 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.cbRotation, 0, 0, 1, 1 );
 
 	w = gtk_label_new( "New Rotation Value: " );
-	gtk_table_attach( GTK_TABLE( table ), w, 1, 2, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( w );
+	gtk_grid_attach( GTK_GRID( grid ), w, 1, 0, 1, 1 );
 
 	dlgTexReset.editRotation = entry_new_with_max_length( 256 );
 	gtk_entry_set_text( GTK_ENTRY( dlgTexReset.editRotation ), "0" );
-	gtk_table_attach( GTK_TABLE( table ), dlgTexReset.editRotation, 2, 3, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
 	gtk_widget_show( dlgTexReset.editRotation );
+	gtk_grid_attach( GTK_GRID( grid ), dlgTexReset.editRotation, 2, 0, 1, 1 );
 
 	// ---- /frame ----
 
@@ -1623,7 +1591,7 @@ EMessageBoxReturn DoResetTextureBox( ResetTextureRS* rs ){
 
 	return ret;
 }
-
+/*
 EMessageBoxReturn DoTrainThingBox( TrainThingRS* rs ){
 	Str texSelected;
 
@@ -1888,6 +1856,7 @@ EMessageBoxReturn DoTrainThingBox( TrainThingRS* rs ){
 
 	return ret;
 }
+*/
 // ailmanki
 // add a simple input for the MakeChain thing..
 EMessageBoxReturn DoMakeChainBox( MakeChainRS* rs ){

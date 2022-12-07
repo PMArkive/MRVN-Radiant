@@ -97,36 +97,34 @@ GetInfoDialog::GetInfoDialog(const std::string& key,
    gtk_container_set_border_width(GTK_CONTAINER(_dialog), 10);
 
    // Create the contained widgets.
-
-   GtkWidget *table;
+   GtkWidget *grid;
    GtkWidget *entry;
    GtkWidget *button;
    GtkWidget *label;
    GtkWidget *hbox;
 
-   table = gtk_table_new(4, 3, FALSE);
-   gtk_table_set_row_spacing(GTK_TABLE(table), 1, 10);
-   gtk_table_set_row_spacing(GTK_TABLE(table), 2, 15);
-   gtk_container_add(GTK_CONTAINER(_dialog), table);
-   gtk_widget_show(table);
+   grid = gtk_grid_new();
+   gtk_grid_set_row_spacing( GTK_GRID(grid), 10 );
+   gtk_container_add(GTK_CONTAINER(_dialog), grid);
+   gtk_widget_show( grid );
 
    // Widgets for specifying the reference row if any.
 
    button = gtk_check_button_new();
    g_object_set_data(G_OBJECT(_dialog), "s_apply", button);
-   gtk_table_attach_defaults(GTK_TABLE(table), button, 0, 1, 0, 1);
+   gtk_grid_attach( GTK_GRID(grid), button, 0, 0, 1, 1 );
    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
    gtk_widget_show(button);
 
    label = gtk_label_new(DIALOG_GET_INFO_S_ROW_HEADER);
    gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_RIGHT);
-   gtk_table_attach_defaults(GTK_TABLE(table), label, 1, 2, 0, 1);
+   gtk_grid_attach( GTK_GRID(grid), label, 1, 0, 1, 1 );
    gtk_widget_show(label);
 
    entry = gtk_entry_new();
    g_object_set_data(G_OBJECT(_dialog), "s_ref_row", entry);
    gtk_entry_set_text(GTK_ENTRY(entry), "0");
-   gtk_table_attach_defaults(GTK_TABLE(table), entry, 2, 3, 0, 1);
+   gtk_grid_attach( GTK_GRID(grid), entry, 2, 0, 1, 1 );
    gtk_widget_set_size_request(entry, 50, -1);
    gtk_widget_show(entry);
 
@@ -137,19 +135,19 @@ GetInfoDialog::GetInfoDialog(const std::string& key,
 
    button = gtk_check_button_new();
    g_object_set_data(G_OBJECT(_dialog), "t_apply", button);
-   gtk_table_attach_defaults(GTK_TABLE(table), button, 0, 1, 1, 2);
+   gtk_grid_attach( GTK_GRID(grid), button, 0, 1, 1, 1 );
    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
    gtk_widget_show(button);
 
    label = gtk_label_new(DIALOG_GET_INFO_T_COL_HEADER);
    gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_RIGHT);
-   gtk_table_attach_defaults(GTK_TABLE(table), label, 1, 2, 1, 2);
+   gtk_grid_attach( GTK_GRID(grid), label, 1, 1, 1, 1 );
    gtk_widget_show(label);
 
    entry = gtk_entry_new();
    g_object_set_data(G_OBJECT(_dialog), "t_ref_col", entry);
    gtk_entry_set_text(GTK_ENTRY(entry), "0");
-   gtk_table_attach_defaults(GTK_TABLE(table), entry, 2, 3, 1, 2);
+   gtk_grid_attach( GTK_GRID(grid), entry, 2, 1, 1, 1 );
    gtk_widget_set_size_request(entry, 50, -1);
    gtk_widget_show(entry);
 
@@ -160,11 +158,11 @@ GetInfoDialog::GetInfoDialog(const std::string& key,
 
    button = gtk_check_button_new_with_label(DIALOG_GET_INFO_XFER_OPT_LABEL);
    g_object_set_data(G_OBJECT(_dialog), "transfer", button);
-   gtk_table_attach(GTK_TABLE(table), button, 0, 3, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
+   gtk_grid_attach( GTK_GRID(grid), button, 0, 2, 3, 1 );
    gtk_widget_show(button);
 
    hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
-   gtk_table_attach_defaults(GTK_TABLE(table), hbox, 0, 3, 3, 4);
+   gtk_grid_attach( GTK_GRID(grid), hbox, 2, 3, 1, 1 );
    gtk_widget_show(hbox);
 
    // Create Cancel button and hook it to callback.

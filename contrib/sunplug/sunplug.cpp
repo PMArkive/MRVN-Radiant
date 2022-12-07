@@ -376,7 +376,7 @@ void MapCoordinator(){
 		gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 ); // insert button into vbox
 
 		gtk_box_pack_start( GTK_BOX( vbox ), gtk_hseparator_new(), FALSE, FALSE, 2 ); // insert separator into vbox
-
+		/*
 		table = gtk_table_new( 4, 3, TRUE ); // create table
 		gtk_table_set_row_spacings( GTK_TABLE( table ), 8 ); // set row spacings
 		gtk_table_set_col_spacings( GTK_TABLE( table ), 8 ); // set column spacings
@@ -424,6 +424,7 @@ void MapCoordinator(){
 		button = gtk_button_new_with_label( "Cancel" ); // create button with text
 		g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( close_window ), NULL ); // connect button with callback function
 		gtk_table_attach_defaults( GTK_TABLE( table ), button, 2, 3, 3, 4 ); // insert button into table
+		*/
 	}
 	else {
 		globalErrorStream() << "SunPlug: no worldspawn found!\n"; // output error to console
