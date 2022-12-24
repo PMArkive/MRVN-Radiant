@@ -218,7 +218,7 @@ ifeq ($(OS),Win32)
 	# workaround: we have no "ldd" for Win32, so...
 	LDD =
 	# workaround: OpenGL library for Win32 is called opengl32.dll
-	LIBS_GL = -lopengl32
+	LIBS_GL = -llibepoxy
 	# workaround: no -ldl on Win32
 	LIBS_DL =
 else

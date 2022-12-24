@@ -33,7 +33,11 @@
 #define APIENTRY __stdcall
 #endif
 
-#include <GL/gl.h>
+#if defined( _WIN32 )
+#include <epoxy/wgl.h>
+#elif defined( XWINDOWS )
+#include <epoxy/glx.h>
+#endif
 
 #if defined( _WIN32 )
 #undef WINGDIAPI
