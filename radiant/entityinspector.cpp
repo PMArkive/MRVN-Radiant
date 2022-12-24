@@ -839,7 +839,7 @@ int g_spawnflag_count;
 int spawn_table[MAX_FLAGS];
 // we change the layout depending on how many spawn flags we need to display
 // the table is a 4x4 in which we need to put the comment box g_entityClassComment and the spawn flags..
-GtkTable* g_spawnflagsTable;
+//GtkTable* g_spawnflagsTable;
 
 GtkBox* g_attributeBox = 0;
 typedef std::vector<EntityAttribute*> EntityAttributes;
@@ -1014,7 +1014,7 @@ void SurfaceFlags_setEntityClass( EntityClass* eclass ){
 
 	// disable all remaining boxes
 	// NOTE: these boxes might not even be on display
-	{
+	/*{
 		for ( int i = 0; i < g_spawnflag_count; ++i )
 		{
 			GtkWidget* widget = GTK_WIDGET( g_entitySpawnflagsCheck[i] );
@@ -1047,7 +1047,7 @@ void SurfaceFlags_setEntityClass( EntityClass* eclass ){
 				EntityAttribute_setTooltip( widget, attribute->m_name.c_str(), attribute->m_description.c_str() );
 			}
 		}
-	}
+	}*/
 }
 
 void EntityClassList_selectEntityClass( EntityClass* eclass ){
@@ -1073,7 +1073,7 @@ void EntityClassList_selectEntityClass( EntityClass* eclass ){
 
 void EntityInspector_appendAttribute( const EntityClassAttributePair& attributePair, EntityAttribute& attribute ){
 	const char* keyname = attributePair.first.c_str(); //EntityClassAttributePair_getName( attributePair );
-	GtkTable* row = DialogRow_new( keyname, attribute.getWidget() );
+	GtkGrid* row = DialogRow_new( keyname, attribute.getWidget() );
 	EntityAttribute_setTooltip( GTK_WIDGET( row ), attributePair.second.m_name.c_str(), attributePair.second.m_description.c_str() );
 	DialogVBox_packRow( g_attributeBox, GTK_WIDGET( row ) );
 }
@@ -1614,11 +1614,11 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 
 				{
 					// Spawnflags (4 colums wide max, or window gets too wide.)
-					GtkTable* table = GTK_TABLE( gtk_table_new( 4, 4, FALSE ) );
+					/*GtkTable* table = GTK_TABLE( gtk_table_new( 4, 4, FALSE ) );
 					gtk_box_pack_start( GTK_BOX( vbox2 ), GTK_WIDGET( table ), FALSE, TRUE, 0 );
 					gtk_widget_show( GTK_WIDGET( table ) );
 
-					g_spawnflagsTable = table;
+					g_spawnflagsTable = table;*/
 
 					for ( int i = 0; i < MAX_FLAGS; i++ )
 					{
@@ -1674,18 +1674,16 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 
 				{
 					// key/value entry
-					GtkTable* table = GTK_TABLE( gtk_table_new( 2, 3, FALSE ) );
-					gtk_widget_show( GTK_WIDGET( table ) );
-					gtk_box_pack_start( GTK_BOX( vbox2 ), GTK_WIDGET( table ), FALSE, TRUE, 0 );
-					gtk_table_set_row_spacings( table, 3 );
-					gtk_table_set_col_spacings( table, 5 );
+					GtkGrid* grid = GTK_GRID( gtk_grid_new() );
+					gtk_widget_show( GTK_WIDGET( grid ) );
+					gtk_box_pack_start( GTK_BOX( vbox2 ), GTK_WIDGET( grid ), FALSE, TRUE, 0 );
+					gtk_grid_set_row_spacing( grid, 3 );
+					gtk_grid_set_column_spacing( grid, 5 );
 
 					{
 						GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
 						gtk_widget_show( GTK_WIDGET( entry ) );
-						gtk_table_attach( table, GTK_WIDGET( entry ), 1, 2, 0, 1,
-						                  (GtkAttachOptions)( GTK_EXPAND | GTK_FILL ),
-						                  (GtkAttachOptions)( 0 ), 0, 0 );
+						gtk_grid_attach( grid, GTK_WIDGET( entry ), 1, 0, 1, 1 );
 						gtk_widget_set_events( GTK_WIDGET( entry ), GDK_KEY_PRESS_MASK );
 						g_signal_connect( G_OBJECT( entry ), "key_press_event", G_CALLBACK( EntityEntry_keypress ), 0 );
 						g_entityKeyEntry = entry;
@@ -1694,9 +1692,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 					{
 						GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
 						gtk_widget_show( GTK_WIDGET( entry ) );
-						gtk_table_attach( table, GTK_WIDGET( entry ), 1, 2, 1, 2,
-						                  (GtkAttachOptions)( GTK_EXPAND | GTK_FILL ),
-						                  (GtkAttachOptions)( 0 ), 0, 0 );
+						gtk_grid_attach( grid, GTK_WIDGET( entry ), 1, 1, 1, 1 );
 						gtk_widget_set_events( GTK_WIDGET( entry ), GDK_KEY_PRESS_MASK );
 						g_signal_connect( G_OBJECT( entry ), "key_press_event", G_CALLBACK( EntityEntry_keypress ), 0 );
 						g_entityValueEntry = entry;
@@ -1705,39 +1701,31 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 					{
 						GtkLabel* label = GTK_LABEL( gtk_label_new( "Value" ) );
 						gtk_widget_show( GTK_WIDGET( label ) );
-						gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 1, 2,
-						                  (GtkAttachOptions)( GTK_FILL ),
-						                  (GtkAttachOptions)( 0 ), 0, 0 );
+						gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 1, 1, 1 );
 						//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 					}
 
 					{
 						GtkLabel* label = GTK_LABEL( gtk_label_new( "Key" ) );
 						gtk_widget_show( GTK_WIDGET( label ) );
-						gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 0, 1,
-						                  (GtkAttachOptions)( GTK_FILL ),
-						                  (GtkAttachOptions)( 0 ), 0, 0 );
+						gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
 						//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 					}
 
 					/* select by key/value buttons */
-					GtkTable* tab = GTK_TABLE( gtk_table_new( 2, 2, FALSE ) );
-					gtk_table_attach( table, GTK_WIDGET( tab ), 2, 3, 0, 2,
-					                  (GtkAttachOptions)( GTK_FILL ),
-					                  (GtkAttachOptions)( 0 ), 0, 0 );
-					table = tab;
-					gtk_widget_show( GTK_WIDGET( table ) );
-					gtk_table_set_row_spacings( table, 0 );
-					gtk_table_set_col_spacings( table, 0 );
+					GtkGrid* grid1 = GTK_GRID( gtk_grid_new() );
+					gtk_grid_attach( grid, GTK_WIDGET( grid1 ), 2, 0, 1, 2 );
+					grid = grid1;
+					gtk_widget_show( GTK_WIDGET( grid ) );
+					gtk_grid_set_row_spacing( grid, 0 );
+					gtk_grid_set_column_spacing( grid, 0 );
 					{
 						GtkWidget* button = gtk_button_new();
 						gtk_button_set_image( GTK_BUTTON( button ), gtk_image_new_from_stock( GTK_STOCK_APPLY, GTK_ICON_SIZE_MENU ) );
 						gtk_widget_set_can_focus( button, FALSE );
 						gtk_widget_set_tooltip_text( button, "Select by key" );
 						gtk_widget_show( button );
-						gtk_table_attach( table, button, 0, 1, 0, 1,
-						                  (GtkAttachOptions)( GTK_FILL ),
-						                  (GtkAttachOptions)( 0 ), 0, 0 );
+						gtk_grid_attach( grid, button, 0, 0, 1, 1 );
 						g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( EntityInspector_selectByKey ), 0 );
 					}
 					{
@@ -1746,9 +1734,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 						gtk_widget_set_can_focus( button, FALSE );
 						gtk_widget_set_tooltip_text( button, "Select by value" );
 						gtk_widget_show( button );
-						gtk_table_attach( table, button, 0, 1, 1, 2,
-						                  (GtkAttachOptions)( GTK_FILL ),
-						                  (GtkAttachOptions)( 0 ), 0, 0 );
+						gtk_grid_attach( grid, button, 0, 1, 1, 1 );
 						g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( EntityInspector_selectByValue ), 0 );
 					}
 					{
@@ -1757,9 +1743,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 						gtk_widget_set_can_focus( button, FALSE );
 						gtk_widget_set_tooltip_text( button, "Select by key + value" );
 						gtk_widget_show( button );
-						gtk_table_attach( table, button, 1, 2, 0, 2,
-						                  (GtkAttachOptions)( GTK_FILL ),
-						                  (GtkAttachOptions)( GTK_FILL ), 0, 0 );
+						gtk_grid_attach( grid, button, 1, 0, 1, 2 );
 						g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( EntityInspector_selectByKeyValue ), 0 );
 					}
 				}

@@ -128,7 +128,7 @@ FindTextureDialog::~FindTextureDialog(){
 }
 
 GtkWindow* FindTextureDialog::BuildDialog(){
-	GtkWidget* vbox, *hbox, *table, *label;
+	GtkWidget* vbox, *hbox, *grid, *label;
 	GtkWidget* button, *check, *entry;
 
 	GtkWindow* dlg = create_floating_window( "Find / Replace Texture(s)", m_parent );
@@ -144,32 +144,26 @@ GtkWindow* FindTextureDialog::BuildDialog(){
 	gtk_widget_show( vbox );
 	gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( vbox ), TRUE, TRUE, 0 );
 
-	table = gtk_table_new( 2, 2, FALSE );
-	gtk_widget_show( table );
-	gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
-	gtk_table_set_row_spacings( GTK_TABLE( table ), 5 );
-	gtk_table_set_col_spacings( GTK_TABLE( table ), 5 );
+	grid = gtk_grid_new();
+	gtk_widget_show( grid );
+	gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
+	gtk_grid_set_row_spacing( GTK_GRID( grid ), 5 );
+	gtk_grid_set_column_spacing( GTK_GRID( grid ), 5 );
 
 	label = gtk_label_new( "Find:" );
 	gtk_widget_show( label );
-	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), label, 0, 0, 1, 1 );
 	//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 
 	label = gtk_label_new( "Replace:*" );
 	gtk_widget_set_tooltip_text( label, "Empty = search mode" );
 	gtk_widget_show( label );
-	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 1, 2,
-	                  (GtkAttachOptions) ( GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), label, 0, 1, 1, 1 );
 	//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 
 	entry = gtk_entry_new();
 	gtk_widget_show( entry );
-	gtk_table_attach( GTK_TABLE( table ), entry, 1, 2, 0, 1,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), entry, 1, 0, 1, 1 );
 	g_signal_connect( G_OBJECT( entry ), "focus_in_event",
 	                  G_CALLBACK( find_focus_in ), 0 );
 	AddDialogData( *GTK_ENTRY( entry ), m_strFind );
@@ -178,9 +172,7 @@ GtkWindow* FindTextureDialog::BuildDialog(){
 	entry = gtk_entry_new();
 	gtk_widget_set_tooltip_text( entry, "Empty = search mode" );
 	gtk_widget_show( entry );
-	gtk_table_attach( GTK_TABLE( table ), entry, 1, 2, 1, 2,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), entry, 1, 1, 1, 1 );
 	g_signal_connect( G_OBJECT( entry ), "focus_in_event",
 	                  G_CALLBACK( replace_focus_in ), 0 );
 	AddDialogData( *GTK_ENTRY( entry ), m_strReplace );

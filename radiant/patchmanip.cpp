@@ -1225,88 +1225,68 @@ EMessageBoxReturn DoCapDlg( ECapDialog* type ){
 			gtk_container_add( GTK_CONTAINER( hbox ), GTK_WIDGET( radio_vbox ) );
 
 			{
-				GtkTable* table = GTK_TABLE( gtk_table_new( 5, 2, FALSE ) );
-				gtk_widget_show( GTK_WIDGET( table ) );
-				gtk_box_pack_start( GTK_BOX( radio_vbox ), GTK_WIDGET( table ), TRUE, TRUE, 0 );
-				gtk_table_set_row_spacings( table, 5 );
-				gtk_table_set_col_spacings( table, 5 );
+				GtkGrid* grid = GTK_GRID( gtk_grid_new() );
+				gtk_widget_show( GTK_WIDGET( grid ) );
+				gtk_box_pack_start( GTK_BOX( radio_vbox ), GTK_WIDGET( grid ), TRUE, TRUE, 0 );
+				gtk_grid_set_row_spacing( grid, 5 );
+				gtk_grid_set_column_spacing( grid, 5 );
 
 				{
 					GtkImage* image = new_local_image( "cap_bevel.png" );
 					gtk_widget_show( GTK_WIDGET( image ) );
-					gtk_table_attach( table, GTK_WIDGET( image ), 0, 1, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( image ), 0, 0, 1, 1 );
 				}
 				{
 					GtkImage* image = new_local_image( "cap_endcap.png" );
 					gtk_widget_show( GTK_WIDGET( image ) );
-					gtk_table_attach( table, GTK_WIDGET( image ), 0, 1, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( image ), 0, 1, 1, 1 );
 				}
 				{
 					GtkImage* image = new_local_image( "cap_ibevel.png" );
 					gtk_widget_show( GTK_WIDGET( image ) );
-					gtk_table_attach( table, GTK_WIDGET( image ), 0, 1, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( image ), 0, 2, 1, 1 );
 				}
 				{
 					GtkImage* image = new_local_image( "cap_iendcap.png" );
 					gtk_widget_show( GTK_WIDGET( image ) );
-					gtk_table_attach( table, GTK_WIDGET( image ), 0, 1, 3, 4,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( image ), 0, 3, 1, 1 );
 				}
 				{
 					GtkImage* image = new_local_image( "cap_cylinder.png" );
 					gtk_widget_show( GTK_WIDGET( image ) );
-					gtk_table_attach( table, GTK_WIDGET( image ), 0, 1, 4, 5,
-					                  (GtkAttachOptions) ( GTK_FILL ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, GTK_WIDGET( image ), 0, 4, 1, 1 );
 				}
 
 				GtkRadioButton* group = 0;
 				{
 					GtkWidget* button = gtk_radio_button_new_with_label_from_widget( group, "Bevel" );
 					gtk_widget_show( button );
-					gtk_table_attach( table, button, 1, 2, 0, 1,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 1, 0, 1, 1 );
 					group = GTK_RADIO_BUTTON( button );
 					bevel = button;
 				}
 				{
 					GtkWidget* button = gtk_radio_button_new_with_label_from_widget( group, "Endcap" );
 					gtk_widget_show( button );
-					gtk_table_attach( table, button, 1, 2, 1, 2,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 1, 1, 1, 1 );
 					endcap = button;
 				}
 				{
 					GtkWidget* button = gtk_radio_button_new_with_label_from_widget( group, "Inverted Bevel" );
 					gtk_widget_show( button );
-					gtk_table_attach( table, button, 1, 2, 2, 3,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 1, 2, 1, 1 );
 					ibevel = button;
 				}
 				{
 					GtkWidget* button = gtk_radio_button_new_with_label_from_widget( group, "Inverted Endcap" );
 					gtk_widget_show( button );
-					gtk_table_attach( table, button, 1, 2, 3, 4,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 1, 3, 1, 1 );
 					iendcap = button;
 				}
 				{
 					GtkWidget* button = gtk_radio_button_new_with_label_from_widget( group, "Cylinder" );
 					gtk_widget_show( button );
-					gtk_table_attach( table, button, 1, 2, 4, 5,
-					                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
-					                  (GtkAttachOptions) ( 0 ), 0, 0 );
+					gtk_grid_attach( grid, button, 1, 4, 1, 1 );
 					cylinder = button;
 				}
 			}

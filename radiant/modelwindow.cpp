@@ -1262,9 +1262,9 @@ void ModelBrowser_constructTree(){
 GtkWidget* ModelBrowser_constructWindow( GtkWindow* toplevel ){
 	g_ModelBrowser.m_parent = toplevel;
 
-	GtkWidget* table = gtk_table_new( 1, 3, FALSE );
+	GtkWidget* grid = gtk_grid_new();
 	GtkWidget* vbox = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
-	gtk_table_attach( GTK_TABLE( table ), vbox, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0 );
+	gtk_grid_attach( GTK_GRID( grid ), vbox, 0, 0, 1, 1);
 	gtk_widget_show( vbox );
 
 	{	// menu bar
@@ -1304,7 +1304,7 @@ GtkWidget* ModelBrowser_constructWindow( GtkWindow* toplevel ){
 	}
 	{	// gl_widget scrollbar
 		GtkWidget* w = g_ModelBrowser.m_gl_scroll = gtk_vscrollbar_new( GTK_ADJUSTMENT( gtk_adjustment_new( 0, 0, 0, 1, 1, 0 ) ) );
-		gtk_table_attach( GTK_TABLE( table ), w, 2, 3, 0, 1, GTK_SHRINK, GTK_FILL, 0, 0 );
+		gtk_grid_attach( GTK_GRID( grid ), w, 2, 0, 1, 1 );
 		gtk_widget_show( w );
 
 		GtkAdjustment *vadjustment = gtk_range_get_adjustment( GTK_RANGE( w ) );
@@ -1314,10 +1314,16 @@ GtkWidget* ModelBrowser_constructWindow( GtkWindow* toplevel ){
 		GtkWidget* w = g_ModelBrowser.m_gl_widget = glwidget_new( TRUE );
 		g_object_ref( G_OBJECT( w ) );
 
+		gtk_widget_set_hexpand( w, TRUE );
+		gtk_widget_set_vexpand( w, TRUE );
+
+		gtk_widget_set_hexpand_set( w, TRUE );
+		gtk_widget_set_vexpand_set( w, TRUE );
+
 		gtk_widget_set_events( w, GDK_DESTROY | GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_POINTER_MOTION_MASK | GDK_SCROLL_MASK );
 		gtk_widget_set_can_focus( w, TRUE );
 
-		gtk_table_attach_defaults( GTK_TABLE( table ), w, 1, 2, 0, 1 );
+		gtk_grid_attach( GTK_GRID( grid ), w, 1, 0, 1, 1 );
 		gtk_widget_show( w );
 
 		g_ModelBrowser.m_sizeHandler = g_signal_connect( G_OBJECT( w ), "size_allocate", G_CALLBACK( ModelBrowser_size_allocate ), &g_ModelBrowser );
@@ -1329,9 +1335,9 @@ GtkWidget* ModelBrowser_constructWindow( GtkWindow* toplevel ){
 	}
 
 	//prevent focusing on filter entry or tex dirs treeview after click on tab of floating group dialog (np, if called via hotkey)
-	gtk_container_set_focus_chain( GTK_CONTAINER( table ), NULL );
+	gtk_container_set_focus_chain( GTK_CONTAINER( grid ), NULL );
 
-	return table;
+	return grid;
 }
 
 void ModelBrowser_destroyWindow(){

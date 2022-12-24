@@ -256,22 +256,17 @@ GtkLabel* DialogLabel_new( const char* name ){
 	return label;
 }
 
-GtkTable* DialogRow_new( const char* name, GtkWidget* widget ){
-	GtkTable* table = GTK_TABLE( gtk_table_new( 1, 3, TRUE ) );
-	gtk_widget_show( GTK_WIDGET( table ) );
+GtkGrid* DialogRow_new( const char* name, GtkWidget* widget ){
+	GtkGrid* grid = GTK_GRID( gtk_grid_new() );
+	gtk_widget_show( GTK_WIDGET( grid ) );
 
-	gtk_table_set_col_spacings( table, 4 );
-	gtk_table_set_row_spacings( table, 0 );
+	gtk_grid_set_column_spacing( grid, 4 );
+	gtk_grid_set_row_spacing( grid, 0 );
 
-	gtk_table_attach( table, GTK_WIDGET( DialogLabel_new( name ) ), 0, 1, 0, 1,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
+	gtk_grid_attach( grid, GTK_WIDGET( DialogLabel_new( name ) ), 0, 0, 1, 1 );
+	gtk_grid_attach( grid, widget, 1, 0, 1, 1 );
 
-	gtk_table_attach( table, widget, 1, 3, 0, 1,
-	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-	                  (GtkAttachOptions) ( 0 ), 0, 0 );
-
-	return table;
+	return grid;
 }
 
 void DialogVBox_packRow( GtkBox* vbox, GtkWidget* row ){

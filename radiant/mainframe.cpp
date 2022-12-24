@@ -2686,13 +2686,13 @@ GtkLabel* create_main_statusbar_label(){
 }
 
 GtkWidget* create_main_statusbar( GtkWidget *pStatusLabel[c_status__count] ){
-	GtkTable* table = GTK_TABLE( gtk_table_new( 1, c_status__count, FALSE ) );
-	gtk_widget_show( GTK_WIDGET( table ) );
+	GtkGrid* grid = GTK_GRID( gtk_grid_new() );
+	gtk_widget_show( GTK_WIDGET( grid ) );
 
 	{
 		GtkLabel* label = create_main_statusbar_label();
 		gtk_label_set_ellipsize( label, PANGO_ELLIPSIZE_END );
-		gtk_table_attach_defaults( table, GTK_WIDGET( label ), 0, 1, 0, 1 );
+		gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
 		pStatusLabel[c_status_command] = GTK_WIDGET( label );
 	}
 
@@ -2701,10 +2701,7 @@ GtkWidget* create_main_statusbar( GtkWidget *pStatusLabel[c_status__count] ){
 		GtkFrame* frame = GTK_FRAME( gtk_frame_new( 0 ) );
 		gtk_widget_show( GTK_WIDGET( frame ) );
 		gtk_frame_set_shadow_type( frame, GTK_SHADOW_IN );
-		if( i == c_status_grid || i == c_status_brushcount )
-			gtk_table_attach( table, GTK_WIDGET( frame ), i, i + 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0 );
-		else
-			gtk_table_attach_defaults( table, GTK_WIDGET( frame ), i, i + 1, 0, 1 );
+		gtk_grid_attach( grid, GTK_WIDGET( frame ), i * 2, 0, 1, 1 );
 
 		if( i == c_status_brushcount ){
 			GtkWidget* hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
@@ -2735,7 +2732,7 @@ GtkWidget* create_main_statusbar( GtkWidget *pStatusLabel[c_status__count] ){
 		}
 	}
 
-	return GTK_WIDGET( table );
+	return GTK_WIDGET( grid );
 }
 
 #if 0

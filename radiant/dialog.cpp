@@ -499,7 +499,7 @@ void Dialog::addCombo( GtkWidget* vbox, const char* name, StringArrayRange value
 		gtk_container_add( GTK_CONTAINER( alignment ), combo );
 	}
 
-	GtkTable* row = DialogRow_new( name, alignment );
+	GtkGrid* row = DialogRow_new( name, alignment );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
@@ -537,7 +537,7 @@ void addSlider_( GtkAdjustment* adj, GtkWidget* vbox, const char* name, gboolean
 	gtk_scale_set_draw_value( GTK_SCALE( scale ), draw_value );
 	gtk_scale_set_digits( GTK_SCALE( scale ), digits );
 
-	GtkTable* row = DialogRow_new( name, alignment );
+	GtkGrid* row = DialogRow_new( name, alignment );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
@@ -566,7 +566,7 @@ void Dialog::addRadio( GtkWidget* vbox, const char* name, StringArrayRange names
 		AddIntRadioData( *GTK_RADIO_BUTTON( radioBox.m_radio ), importViewer, exportViewer );
 	}
 
-	GtkTable* row = DialogRow_new( name, alignment );
+	GtkGrid* row = DialogRow_new( name, alignment );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
@@ -629,7 +629,7 @@ GtkWidget* Dialog::addTextEntry( GtkWidget* vbox, const char* name, const String
 
 	AddTextEntryData( *entry, importViewer, exportViewer );
 
-	GtkTable* row = DialogRow_new( name, GTK_WIDGET( entry ) );
+	GtkGrid* row = DialogRow_new( name, GTK_WIDGET( entry ) );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 
 	return GTK_WIDGET( row );
@@ -641,7 +641,7 @@ GtkWidget* Dialog::addPathEntry( GtkWidget* vbox, const char* name, bool browse_
 
 	AddTextEntryData( *GTK_ENTRY( pathEntry.m_entry ), importViewer, exportViewer );
 
-	GtkTable* row = DialogRow_new( name, GTK_WIDGET( pathEntry.m_frame ) );
+	GtkGrid* row = DialogRow_new( name, GTK_WIDGET( pathEntry.m_frame ) );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 
 	return GTK_WIDGET( row );

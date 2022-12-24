@@ -48,7 +48,7 @@ struct ModalDialogButton
 GtkWindow* create_fixedsize_modal_window( GtkWindow* parent, const char* title, int width, int height );
 
 GtkWindow* create_dialog_window( GtkWindow* parent, const char* title, GCallback func, gpointer data, int default_w = -1, int default_h = -1 );
-GtkTable* create_dialog_table( unsigned int rows, unsigned int columns, unsigned int row_spacing, unsigned int col_spacing, int border = 0 );
+//GtkTable* create_dialog_table( unsigned int rows, unsigned int columns, unsigned int row_spacing, unsigned int col_spacing, int border = 0 );
 GtkGrid* create_dialog_grid( unsigned int row_spacing, unsigned int col_spacing, int border = 0 );
 GtkButton* create_dialog_button( const char* label, GCallback func, gpointer data );
 GtkBox* create_dialog_vbox( int spacing, int border = 0 );
@@ -111,5 +111,5 @@ public:
 };
 
 GtkLabel* DialogLabel_new( const char* name );
-GtkTable* DialogRow_new( const char* name, GtkWidget* widget );
+GtkGrid* DialogRow_new( const char* name, GtkWidget* widget );
 void DialogVBox_packRow( GtkBox* vbox, GtkWidget* row );
