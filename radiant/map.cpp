@@ -880,7 +880,7 @@ void DoMapInfo(){
 
 	GtkWindow* window = create_dialog_window( MainFrame_getWindow(), "Map Info", G_CALLBACK( dialog_delete_callback ), &dialog );
 
-	window_set_position( window, g_posMapInfoWnd );
+	//window_set_position( window, g_posMapInfoWnd );
 
 	{
 		GtkBox* vbox = create_dialog_vbox( 4, 4 );
@@ -897,78 +897,78 @@ void DoMapInfo(){
 					GtkWidget* label = gtk_label_new( "Total Brushes:" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 0, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 1, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_brushes = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Total Patches:" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 2, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 3, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_patches = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Total Entities:" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 0, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 1, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_ents = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Ingame Entities:" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 2, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 3, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_ents_ingame = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Group Entities:" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 0, 2, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 1, 2, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_groupents = label;
 				}
 				{
 					GtkWidget* label = gtk_label_new( "Ingame Group Entities:" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 2, 2, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 				}
 				{
 					GtkWidget* label = gtk_label_new( "" );
 					gtk_widget_show( label );
 					gtk_grid_attach( grid, label, 3, 2, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0.0, 0.5 );
 					w_groupents_ingame = label;
 				}
 
@@ -991,7 +991,7 @@ void DoMapInfo(){
 			GtkWidget* label = gtk_label_new( "*** Entity breakdown ***" );
 			gtk_widget_show( label );
 			gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( label ), FALSE, TRUE, 0 );
-			gtk_misc_set_alignment( GTK_MISC( label ), 0.5, 0.5 );
+			//gtk_misc_set_alignment( GTK_MISC( label ), 0.5, 0.5 );
 		}
 		{
 			GtkScrolledWindow* scr = create_scrolled_window( GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC, 4 );

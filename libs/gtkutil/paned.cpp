@@ -62,14 +62,14 @@ PanedState g_vpaned2 = { 0.5f, -1, };
 #endif
 
 GtkWidget* create_split_views( GtkWidget* topleft, GtkWidget* botleft, GtkWidget* topright, GtkWidget* botright, GtkWidget*& vsplit1, GtkWidget*& vsplit2 ){
-	GtkHPaned* hsplit = GTK_HPANED( gtk_hpaned_new() );
+	GtkPaned* hsplit = GTK_PANED( gtk_paned_new( GTK_ORIENTATION_HORIZONTAL ) );
 	gtk_widget_show( GTK_WIDGET( hsplit ) );
 
 	//g_signal_connect( G_OBJECT( hsplit ), "size_allocate", G_CALLBACK( hpaned_allocate ), &g_hpaned );
 	//g_signal_connect( G_OBJECT( hsplit ), "notify::position", G_CALLBACK( paned_position ), &g_hpaned );
 
 	{
-		GtkVPaned* vsplit = GTK_VPANED( gtk_vpaned_new() );
+		GtkPaned* vsplit = GTK_PANED( gtk_paned_new( GTK_ORIENTATION_VERTICAL ) );
 		vsplit1 = GTK_WIDGET( vsplit );
 		//gtk_paned_add1( GTK_PANED( hsplit ), GTK_WIDGET( vsplit ) );
 		gtk_paned_pack1( GTK_PANED( hsplit ), GTK_WIDGET( vsplit ), TRUE, TRUE );
@@ -84,7 +84,7 @@ GtkWidget* create_split_views( GtkWidget* topleft, GtkWidget* botleft, GtkWidget
 		gtk_paned_pack2( GTK_PANED( vsplit ), GTK_WIDGET( create_framed_widget( botleft ) ), TRUE, TRUE );
 	}
 	{
-		GtkVPaned* vsplit = GTK_VPANED( gtk_vpaned_new() );
+		GtkPaned* vsplit = GTK_PANED( gtk_paned_new( GTK_ORIENTATION_VERTICAL ) );
 		vsplit2 = GTK_WIDGET( vsplit );
 		//gtk_paned_add2( GTK_PANED( hsplit ), GTK_WIDGET( vsplit ) );
 		gtk_paned_pack2( GTK_PANED( hsplit ), GTK_WIDGET( vsplit ), TRUE, TRUE );

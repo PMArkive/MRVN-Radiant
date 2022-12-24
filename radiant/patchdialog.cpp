@@ -801,7 +801,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 						gtk_widget_show( GTK_WIDGET( label ) );
 						gtk_box_pack_start( GTK_BOX( vbox2 ), GTK_WIDGET( label ), TRUE, TRUE, 0 );
 						gtk_label_set_justify( label, GTK_JUSTIFY_LEFT );
-						gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+						//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 					}
 					{
 						GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
@@ -824,7 +824,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 							gtk_table_attach( table, GTK_WIDGET( label ), 2, 4, 0, 1,
 							                  (GtkAttachOptions)( GTK_FILL|GTK_EXPAND ),
 							                  (GtkAttachOptions)( 0 ), 0, 0 );
-							gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+							//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 						}
 						{
 							GtkLabel* label = GTK_LABEL( gtk_label_new( "Vertical Shift Step" ) );
@@ -832,7 +832,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 							gtk_table_attach( table, GTK_WIDGET( label ), 2, 4, 1, 2,
 							                  (GtkAttachOptions)( GTK_FILL|GTK_EXPAND ),
 							                  (GtkAttachOptions)( 0 ), 0, 0 );
-							gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+							//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 						}
 						{
 							GtkLabel* label = GTK_LABEL( gtk_label_new( "Horizontal Stretch Step" ) );
@@ -840,7 +840,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 							gtk_table_attach( table, GTK_WIDGET( label ), 2, 3, 2, 3,
 							                  (GtkAttachOptions)( GTK_FILL|GTK_EXPAND ),
 							                  (GtkAttachOptions)( 0 ), 0, 0 );
-							gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+							//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 						}
 						{
 							GtkButton* button = GTK_BUTTON( gtk_button_new_with_label( "FlipX" ) );
@@ -857,7 +857,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 							gtk_table_attach( table, GTK_WIDGET( label ), 2, 3, 3, 4,
 							                  (GtkAttachOptions)( GTK_FILL|GTK_EXPAND ),
 							                  (GtkAttachOptions)( 0 ), 0, 0 );
-							gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+							//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 						}
 						{
 							GtkButton* button = GTK_BUTTON( gtk_button_new_with_label( "FlipY" ) );
@@ -874,7 +874,7 @@ GtkWindow* PatchInspector::BuildDialog(){
 							gtk_table_attach( table, GTK_WIDGET( label ), 2, 4, 4, 5,
 							                  (GtkAttachOptions)( GTK_FILL|GTK_EXPAND ),
 							                  (GtkAttachOptions)( 0 ), 0, 0 );
-							gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+							//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 						}
 						{
 							GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );

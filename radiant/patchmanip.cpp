@@ -995,13 +995,13 @@ void DoNewPatchDlg( EPatchPrefab prefab, int minrows, int mincols, int defrows, 
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Width:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
 				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 			{
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Height:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
 				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 1, 1, 1 );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 
 			{
@@ -1122,7 +1122,7 @@ void DoPatchDeformDlg(){
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Max deform:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
 				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 //			{
 //				GtkWidget* entry = gtk_entry_new();
@@ -1380,7 +1380,7 @@ void DoPatchThickenDlg(){
 				GtkLabel* label = GTK_LABEL( gtk_label_new( "Thickness:" ) );
 				gtk_widget_show( GTK_WIDGET( label ) );
 				gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 			}
 //			{
 //				GtkWidget* entry = gtk_entry_new();

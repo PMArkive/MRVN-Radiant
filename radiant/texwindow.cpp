@@ -2035,7 +2035,7 @@ void TextureBrowser_filterSetModeIcon( GtkEntry* entry ){
 
 
 GtkWidget* TextureBrowser_constructWindow( GtkWindow* toplevel ){
-	// The gl_widget and the tag assignment frame should be packed into a GtkVPaned with the slider
+	// The gl_widget and the tag assignment frame should be packed into a GtkPaned with the slider
 	// position stored in local.pref. gtk_paned_get_position() and gtk_paned_set_position() don't
 	// seem to work in gtk 2.4 and the arrow buttons don't handle GTK_FILL, so here's another thing
 	// for the "once-the-gtk-libs-are-updated-TODO-list" :x

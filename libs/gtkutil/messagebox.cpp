@@ -88,7 +88,7 @@ EMessageBoxReturn gtk_MessageBox( GtkWidget *parent, const char* text, const cha
 
 	GtkLabel* label = GTK_LABEL( gtk_label_new( text ) );
 	gtk_widget_show( GTK_WIDGET( label ) );
-	gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 	gtk_label_set_justify( label, GTK_JUSTIFY_LEFT );
 	gtk_label_set_line_wrap( label, TRUE );
 	gtk_box_pack_start( GTK_BOX( iconBox ), GTK_WIDGET( label ), TRUE, TRUE, 0 );

@@ -36,7 +36,7 @@
 #if defined( _WIN32 )
 #include <epoxy/wgl.h>
 #elif defined( XWINDOWS )
-#include <epoxy/glx.h>
+#include <GL/gl.h>
 #endif
 
 #if defined( _WIN32 )

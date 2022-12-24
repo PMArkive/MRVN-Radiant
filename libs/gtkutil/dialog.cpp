@@ -250,7 +250,7 @@ BrowsedPathEntry::BrowsedPathEntry( const BrowseCallback& browse ) :
 GtkLabel* DialogLabel_new( const char* name ){
 	GtkLabel* label = GTK_LABEL( gtk_label_new( name ) );
 	gtk_widget_show( GTK_WIDGET( label ) );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	gtk_label_set_justify( label, GTK_JUSTIFY_LEFT );
 
 	return label;

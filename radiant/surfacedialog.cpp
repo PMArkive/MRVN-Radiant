@@ -760,7 +760,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Horizontal shift" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 0, 1,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -778,7 +778,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Step" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 0, 1,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -796,7 +796,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Vertical shift" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 1, 2,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -814,7 +814,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Step" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 1, 2,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -832,7 +832,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Horizontal stretch" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 2, 3,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -850,7 +850,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Step" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 2, 3,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 2, 3 );
@@ -868,7 +868,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Vertical stretch" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 3, 4,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -886,7 +886,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Step" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 3, 4,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -904,7 +904,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Rotate" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 4, 5,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );
@@ -923,7 +923,7 @@ GtkWindow* SurfaceInspector::BuildDialog(){
 			{
 				GtkWidget* label = gtk_label_new( "Step" );
 				gtk_widget_show( label );
-				gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0 );
 				gtk_table_attach( GTK_TABLE( table ), label, 2, 3, 4, 5,
 				                  (GtkAttachOptions) ( GTK_FILL ),
 				                  (GtkAttachOptions) ( 0 ), 0, 0 );

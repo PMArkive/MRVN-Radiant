@@ -1909,7 +1909,7 @@ WaitDialog create_wait_dialog( const char* title, const char* text, bool modal )
 
 	{
 		dialog.m_label = GTK_LABEL( gtk_label_new( text ) );
-		gtk_misc_set_alignment( GTK_MISC( dialog.m_label ), 0.0, 0.5 );
+		//gtk_misc_set_alignment( GTK_MISC( dialog.m_label ), 0.0, 0.5 );
 		gtk_label_set_justify( dialog.m_label, GTK_JUSTIFY_LEFT );
 		gtk_widget_show( GTK_WIDGET( dialog.m_label ) );
 		gtk_widget_set_size_request( GTK_WIDGET( dialog.m_label ), 200, -1 );
@@ -2679,7 +2679,7 @@ GtkToolbar* create_main_toolbar( MainFrame::EViewStyle style ){
 
 GtkLabel* create_main_statusbar_label(){
 	GtkLabel* label = GTK_LABEL( gtk_label_new( "Label" ) );
-	gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 	gtk_misc_set_padding( GTK_MISC( label ), 4, 2 );
 	gtk_widget_show( GTK_WIDGET( label ) );
 	return label;
@@ -3185,22 +3185,22 @@ void MainFrame::Create(){
 		PositionWindowOnPrimaryScreen( g_layout_globals.m_position );
 	}
 #endif
-	window_set_position( window, g_layout_globals.m_position );
+	//window_set_position( window, g_layout_globals.m_position );
 
 	m_window = window;
 
 	gtk_widget_show( GTK_WIDGET( window ) );
 
 	if ( CurrentStyle() == eRegular || CurrentStyle() == eRegularLeft ) {
-		GtkWidget* hsplit = gtk_hpaned_new();
+		GtkWidget* hsplit = gtk_paned_new( GTK_ORIENTATION_HORIZONTAL );
 		m_hSplit = hsplit;
 		gtk_box_pack_start( GTK_BOX( vbox ), hsplit, TRUE, TRUE, 0 );
 		gtk_widget_show( hsplit );
 		{
-			GtkWidget* vsplit = gtk_vpaned_new();
+			GtkWidget* vsplit = gtk_paned_new( GTK_ORIENTATION_VERTICAL );
 			gtk_widget_show( vsplit );
 			m_vSplit = vsplit;
-			GtkWidget* vsplit2 = gtk_vpaned_new();
+			GtkWidget* vsplit2 = gtk_paned_new( GTK_ORIENTATION_VERTICAL );
 			gtk_widget_show( vsplit2 );
 			m_vSplit2 = vsplit2;
 			if ( CurrentStyle() == eRegular ){

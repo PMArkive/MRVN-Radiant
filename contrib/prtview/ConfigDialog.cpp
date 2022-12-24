@@ -347,7 +347,7 @@ void DoConfigDialog(){
 	translabel = gtk_label_new( "" );
 	gtk_widget_show( translabel );
 	gtk_grid_attach( GTK_GRID(grid), translabel, 1, 0, 1, 1 );
-	gtk_misc_set_alignment( GTK_MISC( translabel ), 0.0, 0.0 );
+	//gtk_misc_set_alignment( GTK_MISC( translabel ), 0.0, 0.0 );
 	g_signal_connect( adj, "value_changed", G_CALLBACK( OnScrollTrans ), translabel );
 
 	adj = gtk_adjustment_new( portals.clip_range, 1, 128, 1, 1, 0 );
@@ -359,7 +359,7 @@ void DoConfigDialog(){
 	cliplabel = gtk_label_new( "" );
 	gtk_widget_show( cliplabel );
 	gtk_grid_attach( GTK_GRID(grid), cliplabel, 1, 1, 1, 1 );
-	gtk_misc_set_alignment( GTK_MISC( cliplabel ), 0.0, 0.0 );
+	//gtk_misc_set_alignment( GTK_MISC( cliplabel ), 0.0, 0.0 );
 	g_signal_connect( adj, "value_changed", G_CALLBACK( OnScrollClip ), cliplabel );
 
 	hbox = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );

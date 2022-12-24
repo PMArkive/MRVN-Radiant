@@ -1371,7 +1371,7 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table2 ), label, 0, 1, 0, 1,
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	gtk_label_set_justify( GTK_LABEL( label ), GTK_JUSTIFY_RIGHT );
 
 	label = gtk_label_new( "Max. amplitude:" );
@@ -1379,7 +1379,7 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table2 ), label, 0, 1, 1, 2,
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	gtk_label_set_justify( GTK_LABEL( label ), GTK_JUSTIFY_RIGHT );
 
 	label = gtk_label_new( "Roughness:" );
@@ -1387,7 +1387,7 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table2 ), label, 0, 1, 2, 3,
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	gtk_label_set_justify( GTK_LABEL( label ), GTK_JUSTIFY_RIGHT );
 
 	label = gtk_label_new( "Random seed:" );
@@ -1395,7 +1395,7 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table2 ), label, 0, 1, 3, 4,
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	gtk_label_set_justify( GTK_LABEL( label ), GTK_JUSTIFY_RIGHT );
 
 	entry = gtk_entry_new();
@@ -1765,7 +1765,7 @@ GtkWidget* create_main_dialog(){
 	                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
 	g_object_set_data( G_OBJECT( dlg ), "bmp_text2", label );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	gtk_label_set_justify( GTK_LABEL( label ), GTK_JUSTIFY_RIGHT );
 
 	label = gtk_label_new( "Map color 255 to:" );
@@ -1774,7 +1774,7 @@ GtkWidget* create_main_dialog(){
 	                  (GtkAttachOptions) ( GTK_FILL | GTK_EXPAND ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
 	g_object_set_data( G_OBJECT( dlg ), "bmp_text3", label );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	gtk_label_set_justify( GTK_LABEL( label ), GTK_JUSTIFY_RIGHT );
 
 	hbox2 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 5 );
@@ -1832,7 +1832,7 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 0, 1,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	g_object_set_data( G_OBJECT( dlg ), "fix_value_text", label );
 
 	label = gtk_label_new( "Range affected:" );
@@ -1840,7 +1840,7 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 1, 2,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	g_object_set_data( G_OBJECT( dlg ), "fix_range_text", label );
 
 	label = gtk_label_new( "Rate of change:" );
@@ -1848,7 +1848,7 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 2, 3,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 	g_object_set_data( G_OBJECT( dlg ), "fix_rate_text", label );
 
 	adj = gtk_adjustment_new( 0, -65536, 65536, 1, 16, 0 );
@@ -1918,21 +1918,21 @@ GtkWidget* create_main_dialog(){
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 0, 1,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 
 	label = gtk_label_new( "Other:" );
 	gtk_widget_show( label );
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 1, 2,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 
 	label = gtk_label_new( "Steep:" );
 	gtk_widget_show( label );
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 2, 3,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( GTK_FILL ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 
 	entry = gtk_entry_new();
 	gtk_widget_show( entry );

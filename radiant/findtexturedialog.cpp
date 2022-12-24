@@ -155,7 +155,7 @@ GtkWindow* FindTextureDialog::BuildDialog(){
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 0, 1,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( 0 ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 
 	label = gtk_label_new( "Replace:*" );
 	gtk_widget_set_tooltip_text( label, "Empty = search mode" );
@@ -163,7 +163,7 @@ GtkWindow* FindTextureDialog::BuildDialog(){
 	gtk_table_attach( GTK_TABLE( table ), label, 0, 1, 1, 2,
 	                  (GtkAttachOptions) ( GTK_FILL ),
 	                  (GtkAttachOptions) ( 0 ), 0, 0 );
-	gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+	//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 
 	entry = gtk_entry_new();
 	gtk_widget_show( entry );

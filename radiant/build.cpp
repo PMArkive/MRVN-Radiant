@@ -1017,7 +1017,7 @@ GtkWindow* BuildMenuDialog_construct( ModalDialog& modal, ProjectList& projectLi
 			build_clear_variables();
 
 			GtkWidget* label = gtk_label_new( stream.c_str() );
-			gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+			//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 #if 1
 			gtk_label_set_ellipsize( GTK_LABEL( label ), PANGO_ELLIPSIZE_END );
 #else

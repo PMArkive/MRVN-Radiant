@@ -1523,14 +1523,14 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 	g_signal_connect( G_OBJECT( vbox ), "destroy", G_CALLBACK( EntityInspector_destroyWindow ), 0 );
 
 	{
-		GtkWidget* split1 = gtk_hpaned_new();
+		GtkWidget* split1 = gtk_paned_new( GTK_ORIENTATION_HORIZONTAL );
 		gtk_box_pack_start( GTK_BOX( vbox ), split1, TRUE, TRUE, 0 );
 		gtk_widget_show( split1 );
 
 		g_entity_split1 = split1;
 
 		
-		GtkWidget* split2 = gtk_vpaned_new();
+		GtkWidget* split2 = gtk_paned_new( GTK_ORIENTATION_VERTICAL );
 		//gtk_paned_add1( GTK_PANED( split1 ), split2 );
 		gtk_paned_pack1( GTK_PANED( split1 ), split2, FALSE, FALSE );
 		gtk_widget_show( split2 );
@@ -1601,7 +1601,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 		
 
 		{
-			GtkWidget* split0 = gtk_vpaned_new();
+			GtkWidget* split0 = gtk_paned_new( GTK_ORIENTATION_VERTICAL );
 			//gtk_paned_add2( GTK_PANED( split1 ), split0 );
 			gtk_paned_pack2( GTK_PANED( split2 ), split0, FALSE, FALSE );
 			gtk_widget_show( split0 );
@@ -1708,7 +1708,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 						gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 1, 2,
 						                  (GtkAttachOptions)( GTK_FILL ),
 						                  (GtkAttachOptions)( 0 ), 0, 0 );
-						gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+						//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 					}
 
 					{
@@ -1717,7 +1717,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 						gtk_table_attach( table, GTK_WIDGET( label ), 0, 1, 0, 1,
 						                  (GtkAttachOptions)( GTK_FILL ),
 						                  (GtkAttachOptions)( 0 ), 0, 0 );
-						gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+						//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 					}
 
 					/* select by key/value buttons */

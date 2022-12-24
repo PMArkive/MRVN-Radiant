@@ -68,7 +68,7 @@ inline void window_get_position( GtkWindow* window, WindowPosition& position ){
 	gtk_window_get_position( window, &position.x, &position.y );
 	gtk_window_get_size( window, &position.w, &position.h );
 }
-
+/*
 inline void window_set_position( GtkWindow* window, const WindowPosition& position ){
 	gtk_window_set_gravity( window, GDK_GRAVITY_STATIC );
 
@@ -86,7 +86,7 @@ inline void window_set_position( GtkWindow* window, const WindowPosition& positi
 
 	gtk_window_set_default_size( window, position.w, position.h );
 }
-
+*/
 inline void WindowPosition_Parse( WindowPosition& position, const char* value ){
 	if ( sscanf( value, "%d %d %d %d", &position.x, &position.y, &position.w, &position.h ) != 4 ) {
 		position = WindowPosition( c_default_window_pos ); // ensure sane default value for window position
@@ -121,7 +121,7 @@ public:
 
 	void sync( GtkWindow* window ){
 	//globalOutputStream() << "WindowPositionTracker::sync\n";
-		window_set_position( window, m_position );
+		//window_set_position( window, m_position );
 	}
 
 	void sync(){

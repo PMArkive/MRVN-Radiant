@@ -226,7 +226,7 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Select mod" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid2, GTK_WIDGET( label ), 0, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 				}
 				{
 					GtkComboBoxText* combo = dialog.game_combo.game_select = GTK_COMBO_BOX_TEXT( gtk_combo_box_text_new() );
@@ -247,7 +247,7 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "fs_game" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid2, GTK_WIDGET( label ), 0, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 				}
 				{
 					GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
@@ -261,7 +261,7 @@ GtkWindow* ProjectSettingsDialog_construct( ProjectSettingsDialog& dialog, Modal
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Mapping mode" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid2, GTK_WIDGET( label ), 0, 2, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 
 					GtkComboBoxText* combo = GTK_COMBO_BOX_TEXT( gtk_combo_box_text_new() );
 					gtk_combo_box_text_append_text( combo, globalMappingMode().sp_mapping_mode );
@@ -485,7 +485,7 @@ void DoAbout(){
 
 				gtk_widget_show( GTK_WIDGET( label ) );
 				gtk_box_pack_start( GTK_BOX( hbox ), GTK_WIDGET( label ), FALSE, FALSE, 0 );
-				gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
+				//gtk_misc_set_alignment( GTK_MISC( label ), 1, 0.5 );
 				gtk_label_set_justify( label, GTK_JUSTIFY_LEFT );
 			}
 
@@ -518,37 +518,37 @@ void DoAbout(){
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Vendor:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Version:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Renderer:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 2, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( reinterpret_cast<const char*>( glGetString( GL_VENDOR ) ) ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 1, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( reinterpret_cast<const char*>( glGetString( GL_VERSION ) ) ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 1, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( reinterpret_cast<const char*>( glGetString( GL_RENDERER ) ) ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 1, 2, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 			}
 			{
@@ -630,13 +630,13 @@ EMessageBoxReturn DoTextureLayout( float *fx, float *fy ){
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Texture x:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 0, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkLabel* label = GTK_LABEL( gtk_label_new( "Texture y:" ) );
 					gtk_widget_show( GTK_WIDGET( label ) );
 					gtk_grid_attach( grid, GTK_WIDGET( label ), 0, 1, 1, 1 );
-					gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
+					//gtk_misc_set_alignment( GTK_MISC( label ), 0, 0.5 );
 				}
 				{
 					GtkEntry* entry = GTK_ENTRY( gtk_entry_new() );
