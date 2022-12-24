@@ -616,7 +616,7 @@ int main( int argc, char* argv[] ){
 		return EXIT_FAILURE;
 	}*/
 
-	show_splash();
+	//show_splash();
 
 	create_global_pid();
 
@@ -651,7 +651,7 @@ int main( int argc, char* argv[] ){
 	g_pParentWnd = 0;
 	g_pParentWnd = new MainFrame();
 
-	hide_splash();
+	//hide_splash();
 
 	if( !g_openMapByCmd.empty() ){
 		Map_LoadFile( g_openMapByCmd.c_str() );
