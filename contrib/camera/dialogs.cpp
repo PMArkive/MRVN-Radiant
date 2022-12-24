@@ -112,7 +112,7 @@ static gint ci_new( GtkWidget *widget, gpointer data ){
 
 	// -------------------------- //
 
-	w = gtk_hseparator_new();
+	w = gtk_separator_new( GTK_ORIENTATION_HORIZONTAL );
 	gtk_box_pack_start( GTK_BOX( vbox ), w, FALSE, FALSE, 2 );
 	gtk_widget_show( w );
 
@@ -397,7 +397,7 @@ static gint ci_rename( GtkWidget *widget, gpointer data ){
 
 	// -------------------------- //
 
-	w = gtk_hseparator_new();
+	w = gtk_separator_new( GTK_ORIENTATION_HORIZONTAL );
 	gtk_box_pack_start( GTK_BOX( vbox ), w, FALSE, FALSE, 2 );
 	gtk_widget_show( w );
 
@@ -540,7 +540,7 @@ static gint ci_add_target( GtkWidget *widget, gpointer data ){
 
 	// -------------------------- //
 
-	w = gtk_hseparator_new();
+	w = gtk_separator_new( GTK_ORIENTATION_HORIZONTAL );
 	gtk_box_pack_start( GTK_BOX( vbox ), w, FALSE, FALSE, 2 );
 	gtk_widget_show( w );
 
@@ -883,7 +883,7 @@ static gint ci_add( GtkWidget *widget, gpointer data ){
 
 	// -------------------------- //
 
-	w = gtk_hseparator_new();
+	w = gtk_separator_new( GTK_ORIENTATION_HORIZONTAL );
 	gtk_box_pack_start( GTK_BOX( vbox ), w, FALSE, FALSE, 2 );
 	gtk_widget_show( w );
 

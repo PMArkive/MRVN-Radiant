@@ -138,7 +138,7 @@ GeneralFunctionDialog::GeneralFunctionDialog(const std::string& key) :
    gtk_box_pack_end(GTK_BOX(hbox), button, FALSE, FALSE, 0);
    gtk_widget_show(button);
 
-   separator = gtk_hseparator_new();
+   separator = gtk_separator_new( GTK_ORIENTATION_HORIZONTAL );
    gtk_grid_attach( GTK_GRID(grid), separator, 0, 1, 13, 1 );
    gtk_widget_show(separator);
 

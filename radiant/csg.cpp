@@ -1533,7 +1533,7 @@ void CSG_Tool(){
 					g_csgtool_dialog.removeInner = GTK_TOGGLE_BUTTON( button );
 				}
 				{
-					GtkWidget* sep = gtk_hseparator_new();
+					GtkWidget* sep = gtk_separator_new( GTK_ORIENTATION_HORIZONTAL );
 					gtk_widget_show( sep );
 					gtk_grid_attach( grid, sep, 0, 1, 8, 1 );
 				}

@@ -375,7 +375,7 @@ void MapCoordinator(){
 		g_signal_connect( G_OBJECT( button ), "clicked", G_CALLBACK( input_optimal ), NULL ); // connect button with callback function
 		gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 ); // insert button into vbox
 
-		gtk_box_pack_start( GTK_BOX( vbox ), gtk_hseparator_new(), FALSE, FALSE, 2 ); // insert separator into vbox
+		gtk_box_pack_start( GTK_BOX( vbox ), gtk_separator_new( GTK_ORIENTATION_HORIZONTAL ), FALSE, FALSE, 2 ); // insert separator into vbox
 		/*
 		table = gtk_table_new( 4, 3, TRUE ); // create table
 		gtk_table_set_row_spacings( GTK_TABLE( table ), 8 ); // set row spacings
