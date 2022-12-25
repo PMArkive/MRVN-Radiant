@@ -316,7 +316,7 @@ void InitBackgroundDialog(){
 	                                          GTK_WINDOW( g_pMainWidget ),
 	                                          (GtkDialogFlags)( GTK_DIALOG_DESTROY_WITH_PARENT ),
 	                                          // TODO dialog with no buttons
-	                                          //  GTK_STOCK_CLOSE,
+	                                          //  "_Close",
 	                                          //  GTK_RESPONSE_CLOSE,
 	                                          NULL );
 	g_signal_connect( G_OBJECT( pDialogWnd ), "delete_event",

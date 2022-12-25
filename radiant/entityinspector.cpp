@@ -1721,7 +1721,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 					gtk_grid_set_column_spacing( grid, 0 );
 					{
 						GtkWidget* button = gtk_button_new();
-						gtk_button_set_image( GTK_BUTTON( button ), gtk_image_new_from_stock( GTK_STOCK_APPLY, GTK_ICON_SIZE_MENU ) );
+						gtk_button_set_image( GTK_BUTTON( button ), gtk_image_new_from_icon_name( "_Apply", GTK_ICON_SIZE_MENU ) );
 						gtk_widget_set_can_focus( button, FALSE );
 						gtk_widget_set_tooltip_text( button, "Select by key" );
 						gtk_widget_show( button );
@@ -1730,7 +1730,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 					}
 					{
 						GtkWidget* button = gtk_button_new();
-						gtk_button_set_image( GTK_BUTTON( button ), gtk_image_new_from_stock( GTK_STOCK_APPLY, GTK_ICON_SIZE_MENU ) );
+						gtk_button_set_image( GTK_BUTTON( button ), gtk_image_new_from_icon_name( "_Apply", GTK_ICON_SIZE_MENU ) );
 						gtk_widget_set_can_focus( button, FALSE );
 						gtk_widget_set_tooltip_text( button, "Select by value" );
 						gtk_widget_show( button );
@@ -1739,7 +1739,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 					}
 					{
 						GtkWidget* button = gtk_button_new();
-						gtk_button_set_image( GTK_BUTTON( button ), gtk_image_new_from_stock( GTK_STOCK_APPLY, GTK_ICON_SIZE_MENU ) );
+						gtk_button_set_image( GTK_BUTTON( button ), gtk_image_new_from_icon_name( "_Apply", GTK_ICON_SIZE_MENU ) );
 						gtk_widget_set_can_focus( button, FALSE );
 						gtk_widget_set_tooltip_text( button, "Select by key + value" );
 						gtk_widget_show( button );
@@ -1793,7 +1793,7 @@ GtkWidget* EntityInspector_constructWindow( GtkWindow* toplevel ){
 					}
 					{
 						GtkWidget* button = gtk_toggle_button_new();
-						GtkWidget* image = gtk_image_new_from_stock( GTK_STOCK_ZOOM_IN, GTK_ICON_SIZE_SMALL_TOOLBAR );
+						GtkWidget* image = gtk_image_new_from_icon_name( "zoom-in", GTK_ICON_SIZE_SMALL_TOOLBAR );
 						gtk_button_set_image( GTK_BUTTON( button ), image );
 						gtk_button_set_relief( GTK_BUTTON( button ), GTK_RELIEF_NONE );
 						gtk_widget_set_can_focus( button, FALSE );

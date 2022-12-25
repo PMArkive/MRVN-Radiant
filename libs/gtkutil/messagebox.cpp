@@ -33,15 +33,15 @@ const char* messagebox_stock_icon( EMessageBoxIcon type ){
 	{
 	default:
 	case eMB_ICONDEFAULT:
-		return GTK_STOCK_DIALOG_INFO;
+		return "dialog-info";
 	case eMB_ICONERROR:
-		return GTK_STOCK_DIALOG_ERROR;
+		return "dialog-error";
 	case eMB_ICONWARNING:
-		return GTK_STOCK_DIALOG_WARNING;
+		return "dialog-warning";
 	case eMB_ICONQUESTION:
-		return GTK_STOCK_DIALOG_QUESTION;
+		return "dialog-question";
 	case eMB_ICONASTERISK:
-		return GTK_STOCK_DIALOG_INFO;
+		return "dialog-info";
 	}
 }
 
@@ -74,7 +74,7 @@ EMessageBoxReturn gtk_MessageBox( GtkWidget *parent, const char* text, const cha
 	GtkBox* iconBox = create_dialog_hbox( 16, 0 );
 	gtk_box_pack_start( GTK_BOX( hboxDummy ), GTK_WIDGET( iconBox ), FALSE, FALSE, 0 );
 
-	GtkImage* image = GTK_IMAGE( gtk_image_new_from_stock( messagebox_stock_icon( icon ), GTK_ICON_SIZE_DIALOG ) );
+	GtkImage* image = GTK_IMAGE( gtk_image_new_from_icon_name( messagebox_stock_icon( icon ), GTK_ICON_SIZE_DIALOG ) );
 	gtk_widget_show( GTK_WIDGET( image ) );
 	gtk_box_pack_start( GTK_BOX( iconBox ), GTK_WIDGET( image ), FALSE, FALSE, 0 );
 

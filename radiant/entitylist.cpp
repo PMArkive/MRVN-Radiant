@@ -301,7 +301,7 @@ static gboolean tree_view_search_equal_func( GtkTreeModel* model, gint column, c
 }
 
 void searchEntrySetModeIcon( GtkEntry* entry, bool search_from_start ){
-	gtk_entry_set_icon_from_stock( entry, GTK_ENTRY_ICON_PRIMARY, search_from_start? GTK_STOCK_MEDIA_PLAY : GTK_STOCK_ABOUT );
+	gtk_entry_set_icon_from_stock( entry, GTK_ENTRY_ICON_PRIMARY, search_from_start? "media-playback-start" : "_About" );
 	g_signal_emit_by_name( G_OBJECT( entry ), "changed" );
 }
 

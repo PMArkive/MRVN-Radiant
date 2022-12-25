@@ -142,8 +142,8 @@ const char* file_dialog_show( GtkWidget* parent, bool open, const char* title, c
 		dialog = gtk_file_chooser_dialog_new( title,
 		                                      GTK_WINDOW( parent ),
 		                                      GTK_FILE_CHOOSER_ACTION_OPEN,
-		                                      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-		                                      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+		                                      "_Cancel", GTK_RESPONSE_CANCEL,
+		                                      "_Open", GTK_RESPONSE_ACCEPT,
 		                                      NULL );
 	}
 	else
@@ -151,8 +151,8 @@ const char* file_dialog_show( GtkWidget* parent, bool open, const char* title, c
 		dialog = gtk_file_chooser_dialog_new( title,
 		                                      GTK_WINDOW( parent ),
 		                                      GTK_FILE_CHOOSER_ACTION_SAVE,
-		                                      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-		                                      GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+		                                      "_Cancel", GTK_RESPONSE_CANCEL,
+		                                      "_Save", GTK_RESPONSE_ACCEPT,
 		                                      NULL );
 		gtk_file_chooser_set_current_name( GTK_FILE_CHOOSER( dialog ), "unnamed" );
 	}
@@ -259,8 +259,8 @@ char* dir_dialog( GtkWidget* parent, const char* title, const char* path ){
 	GtkWidget* dialog = gtk_file_chooser_dialog_new( title,
 	                                                 GTK_WINDOW( parent ),
 	                                                 GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
-	                                                 GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-	                                                 GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+	                                                 "_Cancel", GTK_RESPONSE_CANCEL,
+	                                                 "_Open", GTK_RESPONSE_ACCEPT,
 	                                                 NULL );
 
 	gtk_window_set_modal( GTK_WINDOW( dialog ), TRUE );

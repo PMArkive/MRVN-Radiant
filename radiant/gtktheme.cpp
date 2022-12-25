@@ -311,7 +311,7 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( hbox6 );
 	gtk_container_add( GTK_CONTAINER( main_reset_button ), hbox6 );
 
-	image1 = gtk_image_new_from_stock( "gtk-revert-to-saved", GTK_ICON_SIZE_BUTTON );
+	image1 = gtk_image_new_from_icon_name( "gtk-revert-to-saved", GTK_ICON_SIZE_BUTTON );
 	gtk_widget_set_name( image1, "image1" );
 	gtk_widget_show( image1 );
 	gtk_box_pack_start( GTK_BOX( hbox6 ), image1, FALSE, FALSE, 0 );

@@ -1943,7 +1943,7 @@ void TextureBrowser_constructTagNotebook(){
 }
 
 void TextureBrowser_constructSearchButton(){
-	GtkWidget* image = gtk_image_new_from_stock( GTK_STOCK_FIND, GTK_ICON_SIZE_SMALL_TOOLBAR );
+	GtkWidget* image = gtk_image_new_from_icon_name( "_Find", GTK_ICON_SIZE_SMALL_TOOLBAR );
 	g_TextureBrowser.m_search_button = gtk_button_new();
 	g_signal_connect( G_OBJECT( g_TextureBrowser.m_search_button ), "clicked", G_CALLBACK( TextureBrowser_searchTags ), NULL );
 	gtk_widget_set_tooltip_text( g_TextureBrowser.m_search_button, "Search with selected tags" );
@@ -2026,10 +2026,10 @@ gboolean TextureBrowser_filterEntryUnfocus( GtkWidget *widget, GdkEvent *event, 
 
 void TextureBrowser_filterSetModeIcon( GtkEntry* entry ){
 	if( g_TextureBrowser_filter_searchFromStart ){
-		gtk_entry_set_icon_from_stock( entry, GTK_ENTRY_ICON_PRIMARY, GTK_STOCK_MEDIA_PLAY );
+		gtk_entry_set_icon_from_stock( entry, GTK_ENTRY_ICON_PRIMARY, "media-playback-start" );
 	}
 	else{
-		gtk_entry_set_icon_from_stock( entry, GTK_ENTRY_ICON_PRIMARY, GTK_STOCK_ABOUT );
+		gtk_entry_set_icon_from_stock( entry, GTK_ENTRY_ICON_PRIMARY, "_About" );
 	}
 }
 
@@ -2080,7 +2080,7 @@ GtkWidget* TextureBrowser_constructWindow( GtkWindow* toplevel ){
 		GtkWidget* entry = g_TextureBrowser.m_filter_entry = gtk_entry_new();
 		gtk_widget_set_size_request( entry, 64, -1 );
 		gtk_box_pack_start( GTK_BOX( vbox ), entry, FALSE, FALSE, 0 );
-		gtk_entry_set_icon_from_stock( GTK_ENTRY( entry ), GTK_ENTRY_ICON_SECONDARY, GTK_STOCK_CLEAR );
+		gtk_entry_set_icon_from_stock( GTK_ENTRY( entry ), GTK_ENTRY_ICON_SECONDARY, "_Clear" );
 		gtk_entry_set_icon_sensitive( GTK_ENTRY( entry ), GTK_ENTRY_ICON_SECONDARY, FALSE );
 		TextureBrowser_filterSetModeIcon( GTK_ENTRY( entry ) );
 		gtk_entry_set_icon_tooltip_text( GTK_ENTRY( entry ), GTK_ENTRY_ICON_PRIMARY, "toggle match mode ( start / any position )" );
