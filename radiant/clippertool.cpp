@@ -204,7 +204,7 @@ void Clipper_registerCommands(){
 SignalHandlerId ClipperTool_boundsChanged;
 
 void Clipper_Construct(){
-	g_clipper_cursor = gdk_cursor_new( GDK_HAND2 );
+	g_clipper_cursor = gdk_cursor_new_for_display( gdk_display_get_default(), GDK_HAND2 );
 
 	Clipper_registerCommands();
 	GlobalPreferenceSystem().registerPreference( "ClipperCaulk", BoolImportStringCaller( g_clipper_caulk ), BoolExportStringCaller( g_clipper_caulk ) );

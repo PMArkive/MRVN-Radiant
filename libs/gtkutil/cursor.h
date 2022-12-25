@@ -170,7 +170,7 @@ public:
 		                                                   | GDK_BUTTON_RELEASE_MASK
 		                                                   | GDK_VISIBILITY_NOTIFY_MASK );
 
-		GdkCursor* cursor = gdk_cursor_new( GDK_BLANK_CURSOR );
+		GdkCursor* cursor = gdk_cursor_new_for_display( gdk_display_get_default(), GDK_BLANK_CURSOR );
 		//GdkCursor* cursor = create_blank_cursor();
 		//GdkGrabStatus status =
 		/* fixes cursor runaways during srsly quick drags in camera

@@ -291,7 +291,7 @@ GtkWindow* CGameDialog::BuildDialog(){
 
 	GtkBox* vbox2 = create_dialog_vbox( 0, 4 );
 	gtk_container_add( GTK_CONTAINER( frame ), GTK_WIDGET( vbox2 ) );
-
+	
 	{
 		PreferencesPage preferencesPage( *this, GTK_WIDGET( vbox2 ) );
 		Global_constructPreferences( preferencesPage );

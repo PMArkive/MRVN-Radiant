@@ -313,7 +313,7 @@ static void motion( GtkWidget *widget, GdkEventMotion *event, gpointer data ){
 	g_GLTable.m_pfn_qglClear( GL_COLOR_BUFFER_BIT );
 
 	if ( PtInRect( &rcGrid,pt ) ) {
-		GdkCursor *cursor = gdk_cursor_new( GDK_CROSS );
+		GdkCursor *cursor = gdk_cursor_new_for_display( gdk_display_get_default(), GDK_CROSS );
 		gdk_window_set_cursor( gtk_widget_get_window( g_pWndPreview ), cursor );
 		gdk_cursor_unref( cursor );
 

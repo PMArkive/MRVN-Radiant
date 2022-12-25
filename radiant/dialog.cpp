@@ -64,13 +64,10 @@ public:
 };
 
 DialogEntryRow DialogEntryRow_new( const char* name ){
-	GtkWidget* alignment = gtk_alignment_new( 0.0, 0.5, 0.0, 0.0 );
-	gtk_widget_show( alignment );
 
 	GtkEntry* entry = DialogEntry_new();
-	gtk_container_add( GTK_CONTAINER( alignment ), GTK_WIDGET( entry ) );
 
-	return DialogEntryRow( GTK_WIDGET( DialogRow_new( name, alignment ) ), entry );
+	return DialogEntryRow( GTK_WIDGET( DialogRow_new( name, GTK_WIDGET( entry ) ) ), entry );
 }
 
 
@@ -98,13 +95,10 @@ public:
 };
 
 DialogSpinnerRow DialogSpinnerRow_new( const char* name, double value, double lower, double upper, int fraction ){
-	GtkWidget* alignment = gtk_alignment_new( 0.0, 0.5, 0.0, 0.0 );
-	gtk_widget_show( alignment );
 
 	GtkSpinButton* spin = DialogSpinner_new( value, lower, upper, fraction );
-	gtk_container_add( GTK_CONTAINER( alignment ), GTK_WIDGET( spin ) );
 
-	return DialogSpinnerRow( GTK_WIDGET( DialogRow_new( name, alignment ) ), spin );
+	return DialogSpinnerRow( GTK_WIDGET( DialogRow_new( name, GTK_WIDGET( spin ) ) ), spin );
 }
 
 
@@ -483,23 +477,19 @@ GtkWidget* Dialog::addCheckBox( GtkWidget* vbox, const char* name, const char* f
 }
 
 void Dialog::addCombo( GtkWidget* vbox, const char* name, StringArrayRange values, const IntImportCallback& importViewer, const IntExportCallback& exportViewer ){
-	GtkWidget* alignment = gtk_alignment_new( 0.0, 0.5, 0.0, 0.0 );
-	gtk_widget_show( alignment );
+	GtkWidget* combo = gtk_combo_box_text_new();
+
+	for ( const char *value : values )
 	{
-		GtkWidget* combo = gtk_combo_box_text_new();
-
-		for ( const char *value : values )
-		{
-			gtk_combo_box_text_append_text( GTK_COMBO_BOX_TEXT( combo ), value );
-		}
-
-		AddIntComboData( *GTK_COMBO_BOX( combo ), importViewer, exportViewer );
-
-		gtk_widget_show( combo );
-		gtk_container_add( GTK_CONTAINER( alignment ), combo );
+		gtk_combo_box_text_append_text( GTK_COMBO_BOX_TEXT( combo ), value );
 	}
 
-	GtkGrid* row = DialogRow_new( name, alignment );
+	AddIntComboData( *GTK_COMBO_BOX( combo ), importViewer, exportViewer );
+
+	gtk_widget_show( combo );
+	
+
+	GtkGrid* row = DialogRow_new( name, combo );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
@@ -526,18 +516,15 @@ void addSlider_( GtkAdjustment* adj, GtkWidget* vbox, const char* name, gboolean
 	}
 #endif
 	// scale
-	GtkWidget* alignment = gtk_alignment_new( 0.0, 0.5, 1.0, 0.0 );
-	gtk_widget_show( alignment );
 
 	GtkWidget* scale = gtk_hscale_new( adj );
 	gtk_scale_set_value_pos( GTK_SCALE( scale ), GTK_POS_LEFT );
 	gtk_widget_show( scale );
-	gtk_container_add( GTK_CONTAINER( alignment ), scale );
 
 	gtk_scale_set_draw_value( GTK_SCALE( scale ), draw_value );
 	gtk_scale_set_digits( GTK_SCALE( scale ), digits );
 
-	GtkGrid* row = DialogRow_new( name, alignment );
+	GtkGrid* row = DialogRow_new( name, scale );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 
@@ -558,15 +545,10 @@ void Dialog::addSlider( GtkWidget* vbox, const char* name, float& data, gboolean
 }
 
 void Dialog::addRadio( GtkWidget* vbox, const char* name, StringArrayRange names, const IntImportCallback& importViewer, const IntExportCallback& exportViewer ){
-	GtkWidget* alignment = gtk_alignment_new( 0.0, 0.5, 0.0, 0.0 );
-	gtk_widget_show( alignment );
-	{
-		RadioHBox radioBox = RadioHBox_new( names );
-		gtk_container_add( GTK_CONTAINER( alignment ), GTK_WIDGET( radioBox.m_hbox ) );
-		AddIntRadioData( *GTK_RADIO_BUTTON( radioBox.m_radio ), importViewer, exportViewer );
-	}
+	RadioHBox radioBox = RadioHBox_new( names );
+	AddIntRadioData( *GTK_RADIO_BUTTON( radioBox.m_radio ), importViewer, exportViewer );
 
-	GtkGrid* row = DialogRow_new( name, alignment );
+	GtkGrid* row = DialogRow_new( name, GTK_WIDGET( radioBox.m_hbox ) );
 	DialogVBox_packRow( GTK_BOX( vbox ), GTK_WIDGET( row ) );
 }
 

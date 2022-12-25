@@ -184,16 +184,10 @@ GtkWidget* create_rc_window() {
 	gtk_box_pack_start( GTK_BOX( hbox1 ), frame2, TRUE, TRUE, 0 );
 	gtk_frame_set_shadow_type( GTK_FRAME( frame2 ), GTK_SHADOW_NONE );
 
-	alignment3 = gtk_alignment_new( 0.5, 0.5, 1, 1 );
-	gtk_widget_set_name( alignment3, "alignment3" );
-	gtk_widget_show( alignment3 );
-	gtk_container_add( GTK_CONTAINER( frame2 ), alignment3 );
-	gtk_alignment_set_padding( GTK_ALIGNMENT( alignment3 ), 0, 0, 12, 0 );
-
 	scrolledwindow3 = gtk_scrolled_window_new( NULL, NULL );
 	gtk_widget_set_name( scrolledwindow3, "scrolledwindow3" );
 	gtk_widget_show( scrolledwindow3 );
-	gtk_container_add( GTK_CONTAINER( alignment3 ), scrolledwindow3 );
+	gtk_container_add( GTK_CONTAINER( frame2 ), scrolledwindow3 );
 	gtk_scrolled_window_set_policy( GTK_SCROLLED_WINDOW( scrolledwindow3 ), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC );
 	gtk_scrolled_window_set_shadow_type( GTK_SCROLLED_WINDOW( scrolledwindow3 ), GTK_SHADOW_IN );
 
@@ -216,16 +210,10 @@ GtkWidget* create_rc_window() {
 	gtk_box_pack_start( GTK_BOX( vbox1 ), frame3, FALSE, FALSE, 9 );
 	gtk_frame_set_shadow_type( GTK_FRAME( frame3 ), GTK_SHADOW_NONE );
 
-	alignment4 = gtk_alignment_new( 0.5, 0.5, 1, 1 );
-	gtk_widget_set_name( alignment4, "alignment4" );
-	gtk_widget_show( alignment4 );
-	gtk_container_add( GTK_CONTAINER( frame3 ), alignment4 );
-	gtk_alignment_set_padding( GTK_ALIGNMENT( alignment4 ), 0, 0, 12, 0 );
-
 	vbox7 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox7, "vbox7" );
 	gtk_widget_show( vbox7 );
-	gtk_container_add( GTK_CONTAINER( alignment4 ), vbox7 );
+	gtk_container_add( GTK_CONTAINER( frame3 ), vbox7 );
 
 	hbox8 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( hbox8, "hbox8" );
@@ -249,16 +237,10 @@ GtkWidget* create_rc_window() {
 	gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON( main_use_custom_font_radio ), TRUE );
 	//gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON( main_use_custom_font_radio ), FALSE );
 
-	alignment5 = gtk_alignment_new( 0.5, 0.5, 1, 1 );
-	gtk_widget_set_name( alignment5, "alignment5" );
-	gtk_widget_show( alignment5 );
-	gtk_box_pack_start( GTK_BOX( vbox9 ), alignment5, TRUE, TRUE, 0 );
-	gtk_alignment_set_padding( GTK_ALIGNMENT( alignment5 ), 0, 0, 12, 0 );
-
 	vbox10 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0 );
 	gtk_widget_set_name( vbox10, "vbox10" );
 	gtk_widget_show( vbox10 );
-	gtk_container_add( GTK_CONTAINER( alignment5 ), vbox10 );
+	gtk_box_pack_start( GTK_BOX( vbox9 ), vbox10, TRUE, TRUE, 0 );
 
 	hbox9 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0 );
 	gtk_widget_set_name( hbox9, "hbox9" );
@@ -324,15 +306,10 @@ GtkWidget* create_rc_window() {
 	gtk_widget_show( main_reset_button );
 	gtk_box_pack_end( GTK_BOX( hbox5 ), main_reset_button, TRUE, TRUE, 4 );
 
-	alignment2 = gtk_alignment_new( 0.5, 0.5, 0, 0 );
-	gtk_widget_set_name( alignment2, "alignment2" );
-	gtk_widget_show( alignment2 );
-	gtk_container_add( GTK_CONTAINER( main_reset_button ), alignment2 );
-
 	hbox6 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 2 );
 	gtk_widget_set_name( hbox6, "hbox6" );
 	gtk_widget_show( hbox6 );
-	gtk_container_add( GTK_CONTAINER( alignment2 ), hbox6 );
+	gtk_container_add( GTK_CONTAINER( main_reset_button ), hbox6 );
 
 	image1 = gtk_image_new_from_stock( "gtk-revert-to-saved", GTK_ICON_SIZE_BUTTON );
 	gtk_widget_set_name( image1, "image1" );

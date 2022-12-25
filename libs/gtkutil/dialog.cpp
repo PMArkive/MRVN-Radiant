@@ -178,12 +178,8 @@ GtkWindow* create_simple_modal_dialog_window( const char* title, ModalDialog& di
 
 	gtk_container_add( GTK_CONTAINER( vbox1 ), contents );
 
-	GtkAlignment* alignment = GTK_ALIGNMENT( gtk_alignment_new( 0.5, 0.0, 0.0, 0.0 ) );
-	gtk_widget_show( GTK_WIDGET( alignment ) );
-	gtk_box_pack_start( GTK_BOX( vbox1 ), GTK_WIDGET( alignment ), FALSE, FALSE, 0 );
-
 	GtkButton* button = create_dialog_button( "OK", G_CALLBACK( dialog_button_ok ), &dialog );
-	gtk_container_add( GTK_CONTAINER( alignment ), GTK_WIDGET( button ) );
+	gtk_box_pack_start( GTK_BOX( vbox1 ), GTK_WIDGET( button ), FALSE, FALSE, 0 );
 	widget_make_default( GTK_WIDGET( button ) );
 	gtk_widget_add_accelerator( GTK_WIDGET( button ), "clicked", accel, GDK_KEY_Return, (GdkModifierType)0, (GtkAccelFlags)0 );
 

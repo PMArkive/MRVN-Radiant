@@ -27,12 +27,6 @@
 #include "dialog.h"
 #include "widget.h"
 
-GtkWidget* create_padding( int width, int height ){
-	GtkWidget* widget = gtk_alignment_new( 0.0, 0.0, 0.0, 0.0 );
-	gtk_widget_show( widget );
-	gtk_widget_set_size_request( widget, width, height );
-	return widget;
-}
 
 const char* messagebox_stock_icon( EMessageBoxIcon type ){
 	switch ( type )
@@ -77,8 +71,6 @@ EMessageBoxReturn gtk_MessageBox( GtkWidget *parent, const char* text, const cha
 	GtkBox* hboxDummy = create_dialog_hbox( 0, 0 );
 	gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( hboxDummy ), FALSE, FALSE, 0 );
 
-	gtk_box_pack_start( GTK_BOX( hboxDummy ), create_padding( 0, 50 ), FALSE, FALSE, 0 ); // HACK to force minimum height
-
 	GtkBox* iconBox = create_dialog_hbox( 16, 0 );
 	gtk_box_pack_start( GTK_BOX( hboxDummy ), GTK_WIDGET( iconBox ), FALSE, FALSE, 0 );
 
@@ -97,14 +89,9 @@ EMessageBoxReturn gtk_MessageBox( GtkWidget *parent, const char* text, const cha
 	GtkBox* vboxDummy = create_dialog_vbox( 0, 0 );
 	gtk_box_pack_start( GTK_BOX( vbox ), GTK_WIDGET( vboxDummy ), FALSE, FALSE, 0 );
 
-	GtkAlignment* alignment = GTK_ALIGNMENT( gtk_alignment_new( 0.5, 0.0, 0.0, 0.0 ) );
-	gtk_widget_show( GTK_WIDGET( alignment ) );
-	gtk_box_pack_start( GTK_BOX( vboxDummy ), GTK_WIDGET( alignment ), FALSE, FALSE, 0 );
 
 	GtkBox* hbox = create_dialog_hbox( 8, 0 );
-	gtk_container_add( GTK_CONTAINER( alignment ), GTK_WIDGET( hbox ) );
-
-	gtk_box_pack_start( GTK_BOX( vboxDummy ), create_padding( 400, 0 ), FALSE, FALSE, 0 ); // HACK to force minimum width
+	gtk_box_pack_start( GTK_BOX( vboxDummy ), GTK_WIDGET( hbox ), FALSE, FALSE, 0 );
 
 
 	if ( type == eMB_OK ) {
